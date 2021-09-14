@@ -50,3 +50,23 @@ function drawRubber(){
     isPencil = false;
     isRubber = true;
 }
+
+
+let file = document.getElementById('file');
+file.onchange = cargarImg => {
+    let imageUpload = cargarImg.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(imageUpload);
+    reader.onload = r => {
+        let image = new Image();
+        image.src = r.target.result;
+        image.onload = function () {
+            drawMyImage(this);
+        }
+    }
+}
+
+function drawMyImage(image){
+    ctx.drawImage(image, 0,0);
+}
+
