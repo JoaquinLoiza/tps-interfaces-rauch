@@ -6,29 +6,46 @@ let width = myCanvas.width;
 let height = myCanvas.height;
 let imageData = ctx.createImageData(width, height);
 let btnPencil = document.getElementById('pencil');
-//btnPencil.addEventListener("click", drawPencil);
-
+btnPencil.addEventListener("click", drawPencil);
+let btnRubber = document.getElementById('rubber');
+btnRubber.addEventListener("click", drawRubber);
+let color = "rgba(0,0,0,255)";
 let isMouseDown = false;
 let stroke = [];
+let isPencil = false;
+let isRubber = false;
 
 myCanvas.addEventListener('mousedown', () => {
     isMouseDown = true;
 });
-myCanvas.addEventListener('mousemove', (e) => {
-    if(isMouseDown) {
-        drawStroke(e.layerX, e.layerY);
-    }
-});
+myCanvas.addEventListener('mousemove', mouseMove);
 myCanvas.addEventListener('mouseup', () => {
     isMouseDown = false;
 });
 
-
-function drawStroke(x, y){
-    let point = new Tool(ctx, 4, "rgba(128,0,34,255)");
-    stroke.push(point);
-    for(let i = 0; i < stroke.length; i++) {
-        stroke[i].draw(x, y);
+function mouseMove(e, color){
+    if(isMouseDown && (isPencil || isRubber) ) {
+        drawStroke(e.layerX, e.layerY, color);
     }
+}
+
+function drawStroke(x, y, color){
+    let point = new Tool(ctx, 4, color);
+    
+    if (isRubber) {
+        point.setFill("rgba(255, 255, 255, 255)");
+    }
+
+    point.draw(x, y);
+}
+
+function drawPencil(){
+    isPencil = true;
+    isRubber = false;
+}
+
+function drawRubber(){
+    isPencil = false;
+    isRubber = true;
 }
 
