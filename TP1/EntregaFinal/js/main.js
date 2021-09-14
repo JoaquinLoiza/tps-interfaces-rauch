@@ -13,6 +13,8 @@ let isMouseDown = false;
 let isPencil = false;
 let isRubber = false;
 
+let picker = document.getElementById('color');
+
 myCanvas.addEventListener('mousedown', () => {
     isMouseDown = true;
 });
@@ -28,9 +30,13 @@ function mouseMove(e){
 }
 
 function drawStroke(x, y){
+    let color = picker.value;
     let point = new Tool(ctx, 4);
     if (isRubber) {
         point.setFill("rgba(255, 255, 255, 255)");
+    }
+    else {
+        point.setFill(color);
     }
     point.draw(x, y);
 }
