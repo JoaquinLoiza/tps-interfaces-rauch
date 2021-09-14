@@ -1,8 +1,8 @@
 class Tool {
-    constructor(context, radius, fill) {
+    constructor(context, radius) {
         this.context = context;
         this.radius = radius;
-        this.fill = fill;
+        this.fill = 'black';
     }
 
     setFill(fill){

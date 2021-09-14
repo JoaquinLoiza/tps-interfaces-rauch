@@ -9,9 +9,7 @@ let btnPencil = document.getElementById('pencil');
 btnPencil.addEventListener("click", drawPencil);
 let btnRubber = document.getElementById('rubber');
 btnRubber.addEventListener("click", drawRubber);
-let color = "rgba(0,0,0,255)";
 let isMouseDown = false;
-let stroke = [];
 let isPencil = false;
 let isRubber = false;
 
@@ -23,19 +21,17 @@ myCanvas.addEventListener('mouseup', () => {
     isMouseDown = false;
 });
 
-function mouseMove(e, color){
+function mouseMove(e){
     if(isMouseDown && (isPencil || isRubber) ) {
-        drawStroke(e.layerX, e.layerY, color);
+        drawStroke(e.layerX, e.layerY);
     }
 }
 
-function drawStroke(x, y, color){
-    let point = new Tool(ctx, 4, color);
-    
+function drawStroke(x, y){
+    let point = new Tool(ctx, 4);
     if (isRubber) {
         point.setFill("rgba(255, 255, 255, 255)");
     }
-
     point.draw(x, y);
 }
 
@@ -48,4 +44,3 @@ function drawRubber(){
     isPencil = false;
     isRubber = true;
 }
-
