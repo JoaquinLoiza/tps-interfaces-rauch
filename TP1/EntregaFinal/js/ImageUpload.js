@@ -1,15 +1,14 @@
 class ImageUpload {
-    contructor(src){
-        this.src = src;
-        this.width = src.width;
-        this.height = src.height;
+
+    constructor(context, image){
+        this.context = context;
+        this.img = image;
+        this.width = image.width;
+        this.height = image.height;
     }
 
-    setWidth(width){
-        this.width = width;
+    draw(){
+        this.context.drawImage(this.img, 0,0);
     }
 
-    setHeight(height){
-        this.height = height;
-    }
 }
