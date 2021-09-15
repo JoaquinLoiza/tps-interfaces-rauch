@@ -11,16 +11,12 @@ let isPencil = false;
 let isRubber = false;
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
-
-myCanvas.addEventListener('mousedown', () => {
-    isMouseDown = true;
-});
+myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
 myCanvas.addEventListener('mousemove', mouseMove);
-myCanvas.addEventListener('mouseup', () => {
-    isMouseDown = false;
-});
+myCanvas.addEventListener('mouseup', () => { isMouseDown = false;});
 
 inputFile.onchange = cargarImg => {
+    //Falta borrar el canvas al cargar una nueva imagen
     let imageUpload = cargarImg.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(imageUpload);
