@@ -6,6 +6,7 @@ let width = myCanvas.width;
 let height = myCanvas.height;
 let imageData = ctx.createImageData(width, height);
 let inputFile = document.getElementById('inputFile');
+let dialog = document.querySelector('.containerDialog');
 let isMouseDown = false;
 let isPencil = false;
 let isRubber = false;
@@ -17,6 +18,10 @@ myCanvas.addEventListener('mousemove', mouseMove);
 myCanvas.addEventListener('mouseup', () => { isMouseDown = false;});
 document.getElementById('clear').addEventListener("click", clearCanvas);
 document.getElementById('save').addEventListener("click", saveImage);
+document.getElementById('blankCanvas').addEventListener("click", () => { 
+    dialog.classList.toggle("dialogHidden"); });
+document.getElementById('uploadImage').addEventListener("click", () => { 
+    inputFile.click(); dialog.classList.toggle("dialogHidden"); });
 
 inputFile.onchange = cargarImg => {
     let imageUpload = cargarImg.target.files[0];
