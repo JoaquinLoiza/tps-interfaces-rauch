@@ -9,23 +9,28 @@ let inputFile = document.getElementById('inputFile');
 let isMouseDown = false;
 let isPencil = false;
 let isRubber = false;
+
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
 myCanvas.addEventListener('mousemove', mouseMove);
 myCanvas.addEventListener('mouseup', () => { isMouseDown = false;});
+document.getElementById('clear').addEventListener("click", clearCanvas);
+document.getElementById('save').addEventListener("click", saveImage);
 
 inputFile.onchange = cargarImg => {
-    //Falta borrar el canvas al cargar una nueva imagen
     let imageUpload = cargarImg.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(imageUpload);
-    reader.onload = r => {
-        let image = new Image();
-        image.src = r.target.result;
-        image.onload = function () {
-            let img = new ImageUpload(ctx, image);
-            img.draw();
+    if(imageUpload != undefined) {
+        let reader = new FileReader();
+        reader.readAsDataURL(imageUpload);
+        reader.onload = r => {
+            let image = new Image();
+            image.src = r.target.result;
+            image.onload = function () {
+                clearCanvas();
+                let img = new ImageUpload(ctx, image);
+                img.draw();
+            }
         }
     }
 }
@@ -57,4 +62,18 @@ function drawPencil(){
 function drawRubber(){
     isPencil = false;
     isRubber = true;
+}
+
+function clearCanvas(){
+    ctx.clearRect(0, 0, width, height);
+}
+
+function saveImage(){
+    let link = document.createElement('a');
+    let filename = prompt("Guardar como...","");
+    link.href = myCanvas.toDataURL("image/png");
+    link.download = filename;
+    if(filename != null){
+        link.click();
+    }
 }
