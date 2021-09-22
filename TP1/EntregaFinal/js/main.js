@@ -16,6 +16,7 @@ let applyS = document.getElementById("inputSat");
 
 applyB.addEventListener("change", alterBrightness);
 applyS.addEventListener("change", alterSaturation);
+document.getElementById('btnSepia').addEventListener("click", applySepia);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
@@ -106,4 +107,13 @@ function alterSaturation() {
         let b = new Saturation(ctx, imagenData, value);
         b.apply();
     }
+}
+
+function applySepia() {
+    if(imageU != undefined){
+        imageU.draw();
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let b = new Sepia(ctx, imagenData);
+        b.apply();
+    } 
 }
