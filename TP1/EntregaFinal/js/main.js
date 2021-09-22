@@ -17,6 +17,8 @@ let applyS = document.getElementById("inputSat");
 applyB.addEventListener("change", alterBrightness);
 applyS.addEventListener("change", alterSaturation);
 document.getElementById('btnSepia').addEventListener("click", applySepia);
+document.getElementById('btnGrayscale').addEventListener("click", applyGrayscale);
+document.getElementById('btnNegative').addEventListener("click", applyNegative);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
@@ -116,4 +118,22 @@ function applySepia() {
         let b = new Sepia(ctx, imagenData);
         b.apply();
     } 
+}
+
+function applyGrayscale(){
+    if(imageU != undefined){
+        imageU.draw();
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let b = new Grayscale(ctx, imagenData);
+        b.apply();
+    } 
+}
+
+function applyNegative(){
+    if(imageU != undefined){
+        imageU.draw();
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let b = new Negative(ctx, imagenData);
+        b.apply();
+    }
 }
