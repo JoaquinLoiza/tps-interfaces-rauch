@@ -19,6 +19,7 @@ applyS.addEventListener("change", alterSaturation);
 document.getElementById('btnSepia').addEventListener("click", applySepia);
 document.getElementById('btnGrayscale').addEventListener("click", applyGrayscale);
 document.getElementById('btnNegative').addEventListener("click", applyNegative);
+document.getElementById('btnBinarization').addEventListener("click", applyBinarization);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
@@ -134,6 +135,15 @@ function applyNegative(){
         imageU.draw();
         let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
         let b = new Negative(ctx, imagenData);
+        b.apply();
+    }
+}
+
+function applyBinarization(){
+    if(imageU != undefined){
+        imageU.draw();
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let b = new Binarization(ctx, imagenData);
         b.apply();
     }
 }
