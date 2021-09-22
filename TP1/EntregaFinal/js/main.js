@@ -11,7 +11,10 @@ let dialog = document.querySelector('.containerDialog');
 let isMouseDown = false;
 let isPencil = false;
 let isRubber = false;
+let applyB = document.getElementById("brightness");
 
+
+applyB.addEventListener("change", alterBrightness);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
@@ -84,13 +87,10 @@ function saveImage(){
     }
 }
 
-let aplicar = document.getElementById("apply");
-aplicar.addEventListener("click", aplicarFiltro);
-
-function aplicarFiltro (){
+function alterBrightness(){
     if(imageU != undefined){
         imageU.draw();
-        let value = document.getElementById("brightness").value;
+        let value = applyB.value;
         let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
         let b = new Brightness(ctx, imagenData, value);
         b.apply();
