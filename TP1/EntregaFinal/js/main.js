@@ -80,6 +80,7 @@ function drawRubber(){
 
 function clearCanvas(){
     ctx.clearRect(0, 0, width, height);
+    imageU = null;
 }
 
 function saveImage(){
