@@ -91,7 +91,7 @@ function aplicarFiltro (){
     if(imageU != undefined){
         imageU.draw();
         let value = document.getElementById("brightness").value;
-        let imagenData = ctx.getImageData(0, 0, imageU.getWidth() , imageU.getHeight());
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
         let b = new Brightness(ctx, imagenData, value);
         b.apply();
     }

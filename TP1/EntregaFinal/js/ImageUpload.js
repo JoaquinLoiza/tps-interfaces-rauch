@@ -15,12 +15,19 @@ class ImageUpload {
         return this.height;
     }
 
+    getPositionX() {
+       return (this.context.canvas.clientWidth / 2 - this.width / 2);
+    }
+
+    getPositionY() {
+        return (this.context.canvas.clientHeight / 2 - this.height / 2);
+    }
+
     draw(){
         this.resize();
-        const x = this.context.canvas.clientWidth / 2 - this.width / 2;
-        const y = this.context.canvas.clientHeight / 2 - this.height / 2;
-        this.context.drawImage(this.img, x,y, this.width, this.height);
-        //this.context.drawImage(this.img, 0,0, this.width, this.height);
+        let x = (this.context.canvas.clientWidth / 2 - this.width / 2);
+        let y = (this.context.canvas.clientHeight / 2 - this.height / 2);
+        this.context.drawImage(this.img, x, y, this.width, this.height);
     }
 
     resize(){
