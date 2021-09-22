@@ -4,10 +4,6 @@ class Hsv extends Filter {
        this.quantity = quantity;
     }
 
-    setQuantity(q) {
-        this.quantity = q;
-    }
-
     rgbToHsv (r, g, b) {
         let rabs, gabs, babs, rr, gg, bb, h, s, v, diff, diffc, percentRoundFn;
         rabs = r / 255;

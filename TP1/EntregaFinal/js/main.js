@@ -12,9 +12,10 @@ let isMouseDown = false;
 let isPencil = false;
 let isRubber = false;
 let applyB = document.getElementById("brightness");
-
+let applyS = document.getElementById("inputSat");
 
 applyB.addEventListener("change", alterBrightness);
+applyS.addEventListener("change", alterSaturation);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
@@ -93,6 +94,16 @@ function alterBrightness(){
         let value = applyB.value;
         let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
         let b = new Brightness(ctx, imagenData, value);
+        b.apply();
+    }
+}
+
+function alterSaturation() {
+    if(imageU != undefined){
+        imageU.draw();
+        let value = applyS.value;
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let b = new Saturation(ctx, imagenData, value);
         b.apply();
     }
 }

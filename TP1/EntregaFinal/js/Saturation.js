@@ -1,4 +1,4 @@
-class Brightness extends Hsv{
+class Saturation extends Hsv {
     constructor(context, imagenData, quantity){
         super(context, imagenData, quantity);
     }
@@ -11,8 +11,8 @@ class Brightness extends Hsv{
             for(let y = 0; y < this.imagenData.height; y++) {
                 let pixel = super.getPixel(this.imagenData, x, y);
                 let hsv = super.rgbToHsv(pixel.r, pixel.g, pixel.b);
-                let hsvV = hsv.v + parseInt(this.quantity);
-                let rgb = super.hsvToRgb(hsv.h, hsv.s, hsvV);
+                let hsvS = hsv.s + parseInt(this.quantity);
+                let rgb = super.hsvToRgb(hsv.h, hsvS, hsv.v);
                 super.setPixel(this.imagenData, x, y, rgb.r, rgb.g, rgb.b, pixel.a);
             }
         }
