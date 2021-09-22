@@ -4,6 +4,7 @@ let myCanvas = document.getElementById('myCanvas');
 let ctx = myCanvas.getContext('2d');
 let width = myCanvas.width;
 let height = myCanvas.height;
+let imageU;
 let imageData = ctx.createImageData(width, height);
 let inputFile = document.getElementById('inputFile');
 let dialog = document.querySelector('.containerDialog');
@@ -33,8 +34,8 @@ inputFile.onchange = cargarImg => {
             image.src = r.target.result;
             image.onload = function () {
                 clearCanvas();
-                let img = new ImageUpload(ctx, image);
-                img.draw();
+                imageU = new ImageUpload(ctx, image);
+                imageU.draw();
             }
         }
     }
@@ -80,5 +81,18 @@ function saveImage(){
     link.download = filename;
     if(filename != null){
         link.click();
+    }
+}
+
+let aplicar = document.getElementById("apply");
+aplicar.addEventListener("click", aplicarFiltro);
+
+function aplicarFiltro (){
+    if(imageU != undefined){
+        imageU.draw();
+        let value = document.getElementById("brightness").value;
+        let imagenData = ctx.getImageData(0, 0, imageU.getWidth() , imageU.getHeight());
+        let b = new Brightness(ctx, imagenData, value);
+        b.apply();
     }
 }

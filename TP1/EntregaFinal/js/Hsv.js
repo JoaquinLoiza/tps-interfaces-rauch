@@ -1,6 +1,6 @@
 class Hsv extends Filter {
-    constructor(context, image) {
-       super(context, image); 
+    constructor(context, imagenData) {
+       super(context, imagenData); 
        this.quantity = 50;
     }
 
