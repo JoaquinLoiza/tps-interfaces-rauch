@@ -13,11 +13,14 @@ class Tool {
         this.radius = radius;
     }
 
-    draw(x, y){
-        this.context.fillStyle = this.fill;
+    draw(x1, y1, x2, y2){
         this.context.beginPath();
-        this.context.arc(x, y, this.radius, 0, 2*Math.PI);
-        this.context.fill();
-        this.context.closePath(); 
+        this.context.lineCap = 'round';
+        this.context.strokeStyle = this.fill;
+        this.context.lineWidth = this.radius;
+        this.context.moveTo(x1, y1);
+        this.context.lineTo(x2, y2);
+        this.context.stroke();
+        this.context.closePath();
     }
 }

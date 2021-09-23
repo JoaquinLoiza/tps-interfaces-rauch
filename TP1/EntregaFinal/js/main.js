@@ -13,6 +13,9 @@ let isPencil = false;
 let isRubber = false;
 let applyB = document.getElementById("brightness");
 let applyS = document.getElementById("inputSat");
+let x = 0;
+let y= 0; 
+let r = myCanvas.getBoundingClientRect();
 
 applyB.addEventListener("change", alterBrightness);
 applyS.addEventListener("change", alterSaturation);
@@ -22,9 +25,23 @@ document.getElementById('btnNegative').addEventListener("click", applyNegative);
 document.getElementById('btnBinarization').addEventListener("click", applyBinarization);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
-myCanvas.addEventListener('mousedown', () => { isMouseDown = true; });
+myCanvas.addEventListener('mousedown', (e) => {
+    if(isPencil || isRubber){
+        x = e.clientX - r.left;
+        y = e.clientY - r.top;
+        isMouseDown = true;
+    }
+
+});
 myCanvas.addEventListener('mousemove', mouseMove);
-myCanvas.addEventListener('mouseup', () => { isMouseDown = false;});
+myCanvas.addEventListener('mouseup', (e) => { 
+    if (isMouseDown === true){
+        drawStroke(x, y, e.clientX - r.left, e.clientY - r.top);
+        x = 0;
+        y = 0;
+        isMouseDown = false;
+    }
+});
 document.getElementById('clear').addEventListener("click", clearCanvas);
 document.getElementById('save').addEventListener("click", saveImage);
 document.getElementById('blankCanvas').addEventListener("click", () => { 
@@ -51,11 +68,13 @@ inputFile.onchange = cargarImg => {
 
 function mouseMove(e){
     if(isMouseDown && (isPencil || isRubber) ) {
-        drawStroke(e.layerX, e.layerY);
+        drawStroke(x, y, e.clientX - r.left, e.clientY - r.top);
+        x = e.clientX - r.left;
+        y = e.clientY - r.top;
     }
 }
 
-function drawStroke(x, y){
+function drawStroke(x1, y1, x2, y2){
     let color = document.getElementById('color').value;
     let size = document.getElementById('inputSize').value;
     let point = new Tool(ctx, size);
@@ -65,7 +84,7 @@ function drawStroke(x, y){
     else {
         point.setFill(color);
     }
-    point.draw(x, y);
+    point.draw(x1, y1, x2, y2);
 }
 
 function drawPencil(){
