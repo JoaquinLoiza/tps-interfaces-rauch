@@ -23,6 +23,7 @@ document.getElementById('btnSepia').addEventListener("click", applySepia);
 document.getElementById('btnGrayscale').addEventListener("click", applyGrayscale);
 document.getElementById('btnNegative').addEventListener("click", applyNegative);
 document.getElementById('btnBinarization').addEventListener("click", applyBinarization);
+document.getElementById('btnBlur').addEventListener("click", applyBlur);
 document.getElementById('pencil').addEventListener("click", drawPencil);
 document.getElementById('rubber').addEventListener("click", drawRubber);
 myCanvas.addEventListener('mousedown', (e) => {
@@ -164,6 +165,16 @@ function applyBinarization(){
         imageU.draw();
         let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
         let b = new Binarization(ctx, imagenData);
+        b.apply();
+    }
+}
+
+function applyBlur(){
+    if(imageU != undefined){
+        imageU.draw();
+        let imagenData = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let copy = ctx.getImageData(imageU.getPositionX(), imageU.getPositionY(), imageU.getWidth(), imageU.getHeight());
+        let b = new Blur(ctx, imagenData, copy);
         b.apply();
     }
 }
