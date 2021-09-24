@@ -4,8 +4,6 @@ class Brightness extends Hsv{
     }
 
     apply() {
-        let widthScale = (this.context.canvas.clientWidth / 2 - this.imagenData.width / 2);
-        let heightScale = (this.context.canvas.clientHeight / 2 - this.imagenData.height / 2);
         let pixel, hsv, hsvV, rgb;
         for(let x = 0; x < this.imagenData.width; x++) {
             for(let y = 0; y < this.imagenData.height; y++) {
@@ -16,6 +14,6 @@ class Brightness extends Hsv{
                 super.setPixel(this.imagenData, x, y, rgb.r, rgb.g, rgb.b, pixel.a);
             }
         }
-        this.context.putImageData(this.imagenData, widthScale, heightScale);
+        this.context.putImageData(this.imagenData, super.getPositionX(), super.getPositionY());
     }
 }

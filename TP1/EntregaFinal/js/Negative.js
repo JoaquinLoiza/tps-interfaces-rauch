@@ -4,8 +4,6 @@ class Negative extends Filter {
     }
 
     apply() {
-        let widthScale = (this.context.canvas.clientWidth / 2 - this.imagenData.width / 2);
-        let heightScale = (this.context.canvas.clientHeight / 2 - this.imagenData.height / 2);
         let pixel, r, g, b;
 
         for(let x = 0; x < this.imagenData.width; x++) {
@@ -17,6 +15,6 @@ class Negative extends Filter {
                 super.setPixel(this.imagenData, x, y, r, g, b, pixel.a);
             }
         }
-        this.context.putImageData(this.imagenData, widthScale, heightScale);
+        this.context.putImageData(this.imagenData, super.getPositionX(), super.getPositionY());
     }
 }

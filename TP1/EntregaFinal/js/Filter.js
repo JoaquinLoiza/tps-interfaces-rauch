@@ -4,6 +4,15 @@ class Filter {
         this.imagenData = imagenData;
     }
 
+    getPositionX(){
+        return (this.context.canvas.clientWidth / 2 - this.imagenData.width / 2);
+    }
+
+    getPositionY(){
+        return (this.context.canvas.clientHeight / 2 - this.imagenData.height / 2);
+    }
+
+
     getPixel(imagenData, x, y){
         let index = (x + y * imagenData.width) * 4;
 
