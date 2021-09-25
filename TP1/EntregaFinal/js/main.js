@@ -51,6 +51,8 @@ document.getElementById('blankCanvas').addEventListener("click", () => {
 document.getElementById('uploadImage').addEventListener("click", () => { 
     inputFile.click(); dialog.classList.toggle("dialogHidden"); });
 
+clearCanvas();
+
 inputFile.onchange = cargarImg => {
     let imageUpload = cargarImg.target.files[0];
     if(imageUpload != undefined) {
