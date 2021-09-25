@@ -8,6 +8,7 @@
     <title>PintAr</title>
 </head>
 <body>
+    <!-- Dialogo -->
     <div class="containerDialog">
         <div class="dialog">
             <div>
@@ -19,31 +20,43 @@
             </div>
         </div>
     </div>
-    <h1>PINT AR</h1>
-    <label class="nameBtnFile" for="inputFile">Cargar imagen</label>
-    <input type="file" id="inputFile" accept=".jpg, .jpeg, .png">
-    <button id="pencil">Lapiz</button>
-    <button id="rubber">Goma</button>
-    <button id="clear">Reiniciar lienzo</button>
-    <button id="save">Guardar lienzo</button>
-    <input type="color" name="" id="color">
-    <label for="inputSize">Tamaño</label>
-    <input type="range" min="2" max="80" id="inputSize" value="6">
-    <br>
-    <label for="brightness">Brillo</label>
-    <input type="range" min="0" max="80" id="brightness" value="0">
-    <label for="inputSat">Saturacion</label>
-    <input type="range" min="0" max="80" id="inputSat" value="0">
-    <button id="btnSepia">Sepia</button>
-    <button id="btnGrayscale">Escala de grises</button>
-    <button id="btnNegative">Negativo</button>
-    <button id="btnBinarization">Binarización</button>
-    <button id="btnBlur">Blur</button>
-    <button id="btnResetImage">Restablecer imagen</button>
-    <br>
-    <canvas id="myCanvas" width="800" height="500"></canvas>
+    <header>
+        <h1>PINT AR</h1>
+    </header>
+    <div class="container">
+        <div class="containerTools">
+            <button id="pencil">Lapiz</button>
+            <button id="rubber">Goma</button>
+            <label for="inputSize">Tamaño</label>
+            <input type="range" min="2" max="80" id="inputSize" value="6">
+            <label for="color">Color</label>
+            <input type="color" name="" id="color">
+            <label class="nameBtnFile" for="inputFile">Cargar imagen</label>
+            <input type="file" id="inputFile" accept=".jpg, .jpeg, .png">
+            <button id="save">Guardar lienzo</button>
+            <button id="clear">Reiniciar lienzo</button>
+        </div>
+        <div>
+            <canvas id="myCanvas" width="800" height="500"></canvas>
+        </div>
+        <div class="containerFilters">
+            <label for="brightness">Brillo</label>
+            <input type="range" min="0" max="80" id="brightness" value="0">
+            <label for="inputSat">Saturacion</label>
+            <input type="range" min="0" max="80" id="inputSat" value="0">
+            <button id="btnSepia">Sepia</button>
+            <button id="btnGrayscale">Escala de grises</button>
+            <button id="btnNegative">Negativo</button>
+            <button id="btnBinarization">Binarización</button>
+            <button id="btnBlur">Blur</button>
+            <button id="btnResetImage">Restablecer imagen</button>
+        </div>
+    </div>
+    
+    
+
+    <!-- Scripts -->
     <script src="js/Tool.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/ImageUpload.js"></script>
     <script src="js/Filter.js"></script>
     <script src="js/Hsv.js"></script>
@@ -54,5 +67,6 @@
     <script src="js/Negative.js"></script>
     <script src="js/Binarization.js"></script>
     <script src="js/Blur.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

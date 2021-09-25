@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #myCanvas {
@@ -13,11 +14,12 @@ body {
 
 .nameBtnFile {
     padding: 2px 5px;
-    border: 1px solid rgb(118, 118, 118);
-    border-radius: 3px;
-    background-color: #eee;
+    color: white;
+    background-color: rgb(0, 117, 255);
     cursor: pointer;
+    text-align: center;
 }
+
 
 .containerDialog {
     background-color: rgba(0, 0, 0, 0.801);
@@ -34,7 +36,7 @@ body {
 
 .dialog {
     border-radius: 20px;
-    background-color:rgb(224, 103, 103);
+    background-color:rgb(241, 241, 241);
     flex-direction: column;
     width: auto;
     padding: 30px
@@ -42,4 +44,31 @@ body {
 
 .dialogHidden {
     display: none;
+}
+
+.container {
+    display: flex;
+    justify-content:center;
+}
+
+.containerTools, .containerFilters {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+input, button, .nameBtnFile {
+    border: none;
+    margin-bottom: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: rgb(0, 117, 255);
+}
+.containerTools #color {
+   background-color: transparent;
+   height: 3rem;
+   margin-left: -0.3rem;
 }
