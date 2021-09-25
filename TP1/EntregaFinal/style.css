@@ -8,6 +8,16 @@ body {
     border: 1px solid black;
 }
 
+header {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 1rem;   
+}
+
+.logo {
+    width: 10rem;
+}
+
 #inputFile {
     display: none;
 }
