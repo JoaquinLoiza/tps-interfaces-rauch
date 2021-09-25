@@ -100,14 +100,15 @@ function drawRubber(){
 }
 
 function clearCanvas(){
-    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "rgb(255,255,255)";
+    ctx.fillRect(0, 0, width, height);
     imageU = null;
 }
 
 function saveImage(){
     let link = document.createElement('a');
     let filename = prompt("Guardar como...","");
-    link.href = myCanvas.toDataURL("image/png");
+    link.href = myCanvas.toDataURL("image/jpeg");
     link.download = filename;
     if(filename != null){
         link.click();
