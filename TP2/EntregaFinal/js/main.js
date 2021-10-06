@@ -26,6 +26,15 @@ let token;
 let tokensPlayer1; //lee del document.getElem.. 
 let tokensPlayer2; 
 
+
+
+let imageToken = new Image();
+imageToken.src = "../images/ficha.png";
+imageToken.onload = function () {
+    tokensPlayer1=createTokens(color, format);
+    tokensPlayer2=createTokens(color, format);
+}
+
 //Dibuja el tablero (por defecto 4 en linea) al cargar la pagina
 imageCell.onload = function () {
     board = new Board(ctx, imageCell, sizeCell);
@@ -67,6 +76,25 @@ function drawRect(){
     ctx.fillRect(0, 0, widthContainerTokens, myCanvas.height);
     ctx.fillStyle = "#FCFFB9"; //Amarillo
     ctx.fillRect(widthContainerTokens*3, 0, widthContainerTokens, myCanvas.height);
+}
+
+function createTokens(color, format){
+    /*
+    if(color == "rojo" && format == "redonda"){
+        token = new GameToken(ctx, imagenTokenRoundRed); 
+    }
+    else if(color == "rojo" && format == "cuadrada"){
+        token = new GameToken(ctx, imagenTokenSquareRed);
+    }
+    */
+
+   let array = new Array();
+   
+   for(let i = 0; i<21; i++){
+        token = new GameToken(ctx, imageToken, sizeCell);
+        array.push(token);
+    }
+    return array;
 }
 
 /*let  fichaImg= new Image();
