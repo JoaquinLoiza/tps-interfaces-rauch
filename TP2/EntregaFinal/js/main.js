@@ -16,7 +16,7 @@ let format = "redonda";
 document.getElementById("btnInitGame").addEventListener("click", initGame);
 
 let imageCell = new Image();
-imageCell.src = "../images/celda.png";
+imageCell.src = "images/celda.png";
 
 
 //Instanciamos: Juego, Tablero, Ficha, FichasPlayer1, FichasPlayer2. 
@@ -29,7 +29,7 @@ let tokensPlayer2;
 
 
 let imageToken = new Image();
-imageToken.src = "../images/ficha.png";
+imageToken.src = "images/ficha.png";
 imageToken.onload = function () {
     tokensPlayer1=createTokens(color, format);
     tokensPlayer2=createTokens(color, format);
