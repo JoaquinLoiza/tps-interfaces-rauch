@@ -8,7 +8,7 @@ class Game {
         this.player1 = 1;
         this.player2 = 2;
     }
-
+    
     tokensDraw() {
         let widthContainerTokens = this.ctx.canvas.width /4;
         let posX = widthContainerTokens*3; 
@@ -16,14 +16,36 @@ class Game {
         let y = 0;
         let margin = 18;
         for(let t of this.tokensPlayer1){
-            t.draw(x, y);
+            t.setPosX(x);
+            t.setPosY(y);
+            t.draw();
             y = y+margin;
         }
         x = posX;
         y = 0;
         for(let t of this.tokensPlayer2){
-            t.draw(x, y);
+            t.setPosX(x);
+            t.setPosY(y);
+            t.draw();
             y = y+margin;
         } 
     }
+
+    playGame(canvas){
+        canvas.addEventListener('mousemove', this.onmousemove);
+        canvas.addEventListener('mousedown', this.onmousedown)
+    }
+
+    onmousedown(e){
+        let ficha = null;
+        console.log(this.tokensPlayer2);
+        return;
+        for(let t of this.tokensPlayer2){
+           if(t.isPointInside(e.layerX, e.layerY)){
+               ficha = t; 
+           }
+        }
+        console.log(ficha);
+    }
+
 }
