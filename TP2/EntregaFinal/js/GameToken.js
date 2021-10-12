@@ -37,10 +37,7 @@ class GameToken {
     }
     
     isPointInside(x, y){
-        let p_x = this.getPosX - x;
-        let p_y = this.getPosY - y;
-        console.log(this.image.width);
-        console.log(this.image.width/2);
-        return Math.sqrt(p_x * p_x + p_y * p_y)<this.image.width/2;
+        return !(x<this.posX || x > this.posX + this.sizeToken || 
+                y < this.posY || y>this.posY + this.sizeToken);
     }
 }

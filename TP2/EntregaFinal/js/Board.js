@@ -7,7 +7,9 @@ class Board {
         this.rows = 6; 
         this.matrix = null;
     }
-
+    getSizeCell(){
+        return this.sizeCell;
+    }
     setColumns(n){
         this.columns = n;
     }

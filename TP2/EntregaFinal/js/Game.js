@@ -4,9 +4,10 @@ class Game {
         this.board = board; 
         this.tokensPlayer1 = tokensPlayer1;
         this.tokensPlayer2 = tokensPlayer2;
-        //this.time = time;
         this.player1 = 1;
         this.player2 = 2;
+        //this.time = time;
+        this.mousedown = false; 
     }
     
     tokensDraw() {
@@ -28,24 +29,41 @@ class Game {
             t.setPosY(y);
             t.draw();
             y = y+margin;
-        } 
-    }
-
-    playGame(canvas){
-        canvas.addEventListener('mousemove', this.onmousemove);
-        canvas.addEventListener('mousedown', this.onmousedown)
-    }
-
-    onmousedown(e){
-        let ficha = null;
-        console.log(this.tokensPlayer2);
-        return;
-        for(let t of this.tokensPlayer2){
-           if(t.isPointInside(e.layerX, e.layerY)){
-               ficha = t; 
-           }
         }
-        console.log(ficha);
     }
 
+    playGame(){
+        let ficha = null;     
+        this.ctx.canvas.addEventListener('mousedown', (e) => {
+            this.mousedown = true; 
+            for(let t of this.tokensPlayer2){
+               if(t.isPointInside(e.layerX, e.layerY)){
+                   ficha = t;
+               }
+            }
+            //console.log(ficha);
+        });
+        
+        this.ctx.canvas.addEventListener('mousemove', (e) => {
+            if(this.mousedown == true && ficha != null){
+                this.ctx.fillStyle = "rgb(255,255,255)";
+                this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+                ficha.setPosX(e.layerX - this.board.getSizeCell() / 2);
+                ficha.setPosY(e.layerY - this.board.getSizeCell() / 2);
+                this.board.draw();
+                for(let t of this.tokensPlayer1){
+                    t.draw();
+                }
+                for(let t of this.tokensPlayer2){
+                    t.draw();
+                }
+                ficha.draw();
+            }
+        });
+
+        this.ctx.canvas.addEventListener('mouseup', (e) => {
+            this.mousedown = false;
+            ficha = null;
+        });
+    }
 }

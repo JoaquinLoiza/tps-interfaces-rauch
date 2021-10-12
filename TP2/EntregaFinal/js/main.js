@@ -10,7 +10,7 @@ myCanvas.height = sizeCell * 6;
 document.getElementById("btnInitGame").addEventListener("click", initGame);
 
 //Juego
-let game = new Game();
+let game;
 
 //Tablero
 let board;
@@ -46,15 +46,17 @@ function initGame(){
         board.setRows(6);
         board.setSizeCell(sizeCell);
         board.draw();
+
         imageToken1.onload = function() {
             tokensPlayer1 = createTokens(imageToken1, 21, 1);
+            imageToken2.onload = function() {
+                tokensPlayer2 = createTokens(imageToken2, 21, 2);
+                game = new Game(ctx, board, tokensPlayer1, tokensPlayer2);
+                game.tokensDraw();
+                game.playGame();
+            }
         }
-        imageToken2.onload = function() {
-            tokensPlayer2 = createTokens(imageToken2, 21, 2);
-            game = new Game(ctx, board, tokensPlayer1, tokensPlayer2);
-            game.tokensDraw();
-            game.playGame(myCanvas);
-        }
+        
     }
     else if (valueSelect == 5){
         sizeCell = (widthContainerTokens*2)/8;
