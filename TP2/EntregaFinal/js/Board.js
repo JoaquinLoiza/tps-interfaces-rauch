@@ -10,6 +10,16 @@ class Board {
     getSizeCell(){
         return this.sizeCell;
     }
+
+    getColumns(){
+        return this.columns;
+    }
+    getRows() {
+        return this.rows;
+    }
+    getMatrix(){
+        return this.matrix;
+    }
     setColumns(n){
         this.columns = n;
     }

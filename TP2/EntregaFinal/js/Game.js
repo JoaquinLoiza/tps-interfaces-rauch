@@ -41,7 +41,6 @@ class Game {
                    ficha = t;
                }
             }
-            //console.log(ficha);
         });
         
         this.ctx.canvas.addEventListener('mousemove', (e) => {
@@ -58,6 +57,29 @@ class Game {
                     t.draw();
                 }
                 ficha.draw();
+                
+                //Verificar columna
+                let width = this.ctx.canvas.width;
+                let inicioX = width - (width/4)*3;
+                let anchoTablero = this.board.getColumns()*this.board.getSizeCell();
+                let altoTablero = this.board.getRows()*this.board.getSizeCell() - this.board.getSizeCell(); 
+            
+                let x1, x2;
+                if(ficha.getPosX() > inicioX && ficha.getPosX() < inicioX+anchoTablero){
+                    console.log("estoy adentro del tablero");
+                    x1 = inicioX;
+                    x2 = inicioX + this.board.getSizeCell();
+
+                    for(let i=1; i<=this.board.getColumns(); i++){
+                        if(e.layerX > x1 && e.layerX < x2){
+                        console.log("estoy en celda "+ i);
+                            ficha.getPosX(x1);
+                            ficha.setPosY(altoTablero);
+                        }
+                        x1 = x1 + this.board.getSizeCell();
+                        x2 = x2 + this.board.getSizeCell();
+                    }
+                }
             }
         });
 
