@@ -43,6 +43,8 @@ class Board {
         for (let row of this.matrix) {
             x = inicioX;
             for (let column of row) {
+                column.posX = x;
+                column.posY = y;
                 this.ctx.drawImage(this.image, x, y, cellSize, cellSize);
                 x += cellSize;
             }
@@ -54,10 +56,15 @@ class Board {
     createMatrix(columns, rows) {
         let matrix = new Array();
         let row;
+        let data = {
+            value: 0,
+            posX: 0,
+            posY: 0
+        };
         for (let i=0; i<rows; i++) {
 	 		row = new Array();
             for(let j=0; j<columns; j++) {
-                row.push(0);
+                row.push(data);
             }
             matrix.push(row);
         }

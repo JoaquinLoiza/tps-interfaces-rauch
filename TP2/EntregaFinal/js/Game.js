@@ -6,37 +6,52 @@ class Game {
         this.tokensPlayer2 = tokensPlayer2;
         this.player1 = 1;
         this.player2 = 2;
+        this.plays = 0;
+        this.winner = false;
         //this.time = time;
         this.mousedown = false; 
     }
     
     tokensDraw() {
         let widthContainerTokens = this.ctx.canvas.width /4;
+        let heigthContainerTokens = this.ctx.canvas.height;
         let posX = widthContainerTokens*3; 
-        let x = 0;
-        let y = 0;
-        let margin = 18;
+        let x, y;
         for(let t of this.tokensPlayer1){
+            x = Math.random() * (widthContainerTokens - t.getSizeToken());
+            y = Math.random() * (heigthContainerTokens - t.getSizeToken());
             t.setPosX(x);
             t.setPosY(y);
             t.draw();
-            y = y+margin;
         }
-        x = posX;
-        y = 0;
         for(let t of this.tokensPlayer2){
-            t.setPosX(x);
+            x = Math.random() * (widthContainerTokens - t.getSizeToken());
+            y = Math.random() * (heigthContainerTokens - t.getSizeToken());
+            t.setPosX(posX+x);
             t.setPosY(y);
             t.draw();
-            y = y+margin;
         }
     }
 
     playGame(){
-        let ficha = null;     
+        let cells = this.board.getColumns() * this.board.getRows();
+        this.tokensDraw();
+        
+        //while(this.plays != cells || this.winner !=true){
+            let player = this.getTurn();
+            this.eventsMouse(this.tokensPlayer1);
+
+            this.plays++;
+        //} 
+    }
+    
+    eventsMouse(tokensPlayer) {
+        let ficha = null;
+        let column = null;
+
         this.ctx.canvas.addEventListener('mousedown', (e) => {
             this.mousedown = true; 
-            for(let t of this.tokensPlayer2){
+            for(let t of tokensPlayer){
                if(t.isPointInside(e.layerX, e.layerY)){
                    ficha = t;
                }
@@ -65,20 +80,19 @@ class Game {
                 let altoTablero = this.board.getRows()*this.board.getSizeCell() - this.board.getSizeCell(); 
             
                 let x1, x2;
-                if(ficha.getPosX() > inicioX && ficha.getPosX() < inicioX+anchoTablero){
-                    console.log("estoy adentro del tablero");
+                if(ficha.getPosX() >= inicioX-25 && ficha.getPosX() < (inicioX-45)+anchoTablero){
                     x1 = inicioX;
                     x2 = inicioX + this.board.getSizeCell();
 
                     for(let i=1; i<=this.board.getColumns(); i++){
                         if(e.layerX > x1 && e.layerX < x2){
-                        console.log("estoy en celda "+ i);
-                            ficha.getPosX(x1);
-                            ficha.setPosY(altoTablero);
+                            column = i;
                         }
                         x1 = x1 + this.board.getSizeCell();
                         x2 = x2 + this.board.getSizeCell();
                     }
+                } else {
+                    column = null;
                 }
             }
         });
@@ -86,6 +100,18 @@ class Game {
         this.ctx.canvas.addEventListener('mouseup', (e) => {
             this.mousedown = false;
             ficha = null;
+            if(column != null){
+                return;
+            }
         });
+    }
+
+    getTurn() {
+        if(this.plays%2 == 0) {	
+            return this.player1;
+        }
+        else {
+            return this.player2;
+        }
     }
 }

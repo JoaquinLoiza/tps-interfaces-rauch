@@ -52,7 +52,6 @@ function initGame(){
             imageToken2.onload = function() {
                 tokensPlayer2 = createTokens(imageToken2, 21, 2);
                 game = new Game(ctx, board, tokensPlayer1, tokensPlayer2);
-                game.tokensDraw();
                 game.playGame();
             }
         }
