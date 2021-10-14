@@ -6,6 +6,7 @@ class GameToken {
         this.sizeToken = sizeToken;
         this.posX = 0;
         this.posY = 0;
+        this.active = true;
     }
 
     getPosX(){
@@ -32,6 +33,14 @@ class GameToken {
         return this.sizeToken;
     }
 
+    getActive() {
+        return this.active;
+    }
+
+    setActive(state) {
+        this.active = state;
+    }
+    
     draw(){
         this.ctx.drawImage(this.image, this.posX, this.posY, this.sizeToken, this.sizeToken);
     }

@@ -5,7 +5,7 @@ class Board {
         this.sizeCell = sizeCell;
         this.columns = 7;
         this.rows = 6; 
-        this.matrix = null;
+        this.matrix = this.createMatrix(this.columns, this.rows); 
     }
     getSizeCell(){
         return this.sizeCell;
@@ -34,17 +34,13 @@ class Board {
 
     //Dibuja el tablero en base a la matriz formada en el constructor. 
     draw(){
-        this.matrix = this.createMatrix(this.columns, this.rows); 
         const cellSize = this.sizeCell; // tamaño del celda
         const width = this.ctx.canvas.width;
         const inicioX = width - (width/4)*3; 
-        
         let y = 0, x = inicioX;
         for (let row of this.matrix) {
             x = inicioX;
-            for (let column of row) {
-                column.posX = x;
-                column.posY = y;
+            for (let elemnt of row) {
                 this.ctx.drawImage(this.image, x, y, cellSize, cellSize);
                 x += cellSize;
             }
@@ -54,19 +50,28 @@ class Board {
 
     //Crea la matriz y la rellena con ceros para saber que esta vacia
     createMatrix(columns, rows) {
+        const cellSize = this.sizeCell; // tamaño del celda
+        const width = this.ctx.canvas.width;
+        const inicioX = width - (width/4)*3; 
+        let y = 0, x = inicioX;
+        
         let matrix = new Array();
         let row;
-        let data = {
-            value: 0,
-            posX: 0,
-            posY: 0
-        };
         for (let i=0; i<rows; i++) {
-	 		row = new Array();
+            row = new Array();
+            x = inicioX;
             for(let j=0; j<columns; j++) {
+                let data = {
+                    value: 0,
+                    posX: x,
+                    posY: y
+                };
                 row.push(data);
+                this.ctx.drawImage(this.image, x, y, cellSize, cellSize);
+                x += cellSize;
             }
             matrix.push(row);
+            y += cellSize;
         }
         return matrix;	
     }
