@@ -7,20 +7,45 @@ let widthContainerTokens = myCanvas.width /4;
 let sizeCell = (widthContainerTokens*2)/7; 
 //Se ajusta el alto del canvas segun el tablero
 myCanvas.height = sizeCell * 6;
-document.getElementById("btnInitGame").addEventListener("click", initGame);
+let game = null;
+let board = null;
 
-//Juego
-let game;
-
-//Tablero
-let board;
-
-// Celdas
+//Celdas
 let imageCell = new Image();
 imageCell.src = "images/celda.png";
 imageCell.onload = function () {
     board = new Board(ctx, imageCell, sizeCell);
     board.draw();
+}
+
+document.getElementById("btnInitGame").addEventListener("click", initGame);
+
+//Funcion para definir que tipo de fichas va a jugar cada jugador
+function defineTokensForEachPlayer(){
+    let typeToken = document.getElementById("selectToken").value;
+    
+    if(typeToken == 1){
+        return {
+            p1: "images/ficha1.png",
+            p2: "images/ficha2.png"
+        }
+    } else if (typeToken == 2){
+        return {
+            p1: "images/ficha3.png",
+            p2: "images/ficha4.png"
+        }
+    }
+    //other cases ........
+}
+
+//Funcion para crear las fichas para cada jugador
+function createTokens(imageToken, quantity, id){
+    let array = new Array();
+   for(let i = 0; i<quantity; i++){
+        token = new GameToken(ctx, id, imageToken, sizeCell);
+        array.push(token);
+    }
+    return array;
 }
 
 //Dibuja el tablero (por defecto 4 en linea) al cargar la pagina
@@ -75,28 +100,24 @@ function initGame(){
     }
 }
 
-function defineTokensForEachPlayer(){
-    let typeToken = document.getElementById("selectToken").value;
-    
-    if(typeToken == 1){
-        return {
-            p1: "images/ficha1.png",
-            p2: "images/ficha2.png"
-        }
-    } else if (typeToken == 2){
-        return {
-            p1: "images/ficha3.png",
-            p2: "images/ficha4.png"
-        }
-    }
-    //other cases ........
+//Movimiento de fichas
+myCanvas.addEventListener('mousedown', mouseDown, false);
+
+function mouseDown(e) {
+    game.selectToken(e);
+    myCanvas.addEventListener('mousemove', mouseMove, false);
+    myCanvas.addEventListener('mouseup', mouseUp, false);
 }
 
-function createTokens(imageToken, quantity, id){
-    let array = new Array();
-   for(let i = 0; i<quantity; i++){
-        token = new GameToken(ctx, id, imageToken, sizeCell);
-        array.push(token);
-    }
-    return array;
+//al mover una ficha con el mouse: 
+function mouseMove(e) {
+    game.moveToken(e);
 }
+
+//Cuando el jugardor suelta la ficha en una columna...
+function mouseUp() {
+    game.dropToken();
+}
+
+
+

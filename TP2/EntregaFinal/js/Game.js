@@ -10,6 +10,13 @@ class Game {
         this.winner = false;
         this.mousedown = false; 
         //this.time = time;
+        this.token = null;
+        this.columnSelect = null;
+        this.gameStarted = false;
+    }
+
+    setPlays(n) {
+        this.plays = this.plays + n;
     }
     
     tokensDraw() {
@@ -36,116 +43,115 @@ class Game {
     playGame(){
         let cells = this.board.getColumns() * this.board.getRows();
         this.tokensDraw();
-        
-        
-        
-        //while(this.plays != cells || this.winner !=true){
-            this.moveToken(this.getTurn());
-            
-            //this.plays++;
-        //} 
-        
-         //Si hay ganador volver todas las fichas inactivas para no poder seguir jugando.
-         //Al reiniciar el juego volver al estado de activas.
-        }
-    
-    moveToken(player) {
-        let token = null;
-        let column = null;
-        let tokensPlayer;
-
-        if(player == this.player1) {
-            tokensPlayer = this.tokensPlayer1;
-        } else {
-            tokensPlayer = this.tokensPlayer2;
-        }
-
-        this.ctx.canvas.addEventListener('mousedown', (e) => {
-            this.mousedown = true; 
-            for(let t of tokensPlayer){
-            //Contemplar que si la ficha ya está en la matriz no dejar seleccionarla.
-               if(t.isPointInside(e.layerX, e.layerY)){
-                   if(t.getActive() == true) {
-                       token = t;
-                   }
-               }
-            }
-        });
-        
-        this.ctx.canvas.addEventListener('mousemove', (e) => {
-            if(this.mousedown == true && token != null){
-                this.clearCanvas();
-                token.setPosX(e.layerX - this.board.getSizeCell() / 2);
-                token.setPosY(e.layerY - this.board.getSizeCell() / 2);
-                this.board.draw();
-                for(let t of this.tokensPlayer1){
-                    t.draw();
-                }
-                for(let t of this.tokensPlayer2){
-                    t.draw();
-                }
-                
-                //Verificar columna
-                let width = this.ctx.canvas.width;
-                let inicioX = width - (width/4)*3;
-                let widthBoard = this.board.getColumns()*this.board.getSizeCell(); 
-                let x1, x2;
-
-                if(token.getPosX() > inicioX-25 && token.getPosX() < (inicioX-45)+widthBoard){
-                    x1 = inicioX;
-                    x2 = inicioX + this.board.getSizeCell();
-                    for(let i=0; i < this.board.getColumns(); i++){
-                        if(e.layerX > x1 && e.layerX < x2){
-                            column = i;
-                        }
-                        x1 = x1 + this.board.getSizeCell();
-                        x2 = x2 + this.board.getSizeCell();
-                    }
-                } else {
-                    column = null;
-                }
-            }
-        });
-
-        this.ctx.canvas.addEventListener('mouseup', () => {
-            this.mousedown = false;
-            if(column != null && token != null){
-                //Insertar ficha en Matriz
-                this.dropToken(token, column);
-            }
-            token = null;
-        });
+        this.gameStarted = true;
     }
 
-    dropToken(token, column) {
+    selectToken(e){
+        this.mousedown = true;
+        let tokensPlayer = null;
+
+        if(this.gameStarted) {
+        //definimos el turno del jugador
+            if(this.getTurn() == 1) {
+                tokensPlayer = this.tokensPlayer1;
+            } else {
+                tokensPlayer = this.tokensPlayer2;
+            }
+
+        //contemplamos si esta el mouse dentro de una ficha, para luego moverla
+            for(let t of tokensPlayer){
+                if(t.isPointInside(e.layerX, e.layerY)){
+                    if(t.getActive() == true) {
+                        this.token = t;
+                    }
+                }
+            }
+        }
+    }
+
+    moveToken(e) {
+        if(this.mousedown == true && this.token != null){
+            this.clearCanvas();
+            //Se setea los valores de x e y. 
+            this.token.setPosX(e.layerX - this.board.getSizeCell() / 2);
+            this.token.setPosY(e.layerY - this.board.getSizeCell() / 2);
+            this.board.draw();
+            for(let t of this.tokensPlayer1){
+                t.draw();
+            }
+            for(let t of this.tokensPlayer2){
+                t.draw();
+            }
+            
+            //Verificar columna
+            let width = this.ctx.canvas.width;
+            let inicioX = width - (width/4)*3;
+            let widthBoard = this.board.getColumns()*this.board.getSizeCell(); 
+            let x1, x2;
+    
+            if(this.token.getPosX() > inicioX-25 && this.token.getPosX() < (inicioX-45)+widthBoard){
+                x1 = inicioX;
+                x2 = inicioX + this.board.getSizeCell();
+                for(let i=0; i < this.board.getColumns(); i++){
+                    if(e.layerX > x1 && e.layerX < x2){
+                        this.columnSelect = i;
+                    }
+                    x1 = x1 + this.board.getSizeCell();
+                    x2 = x2 + this.board.getSizeCell();
+                }
+            } else {
+                this.columnSelect = null;
+            }
+        }
+    }
+
+    dropToken(){
+        this.mousedown = false;
+        let dropToken = false;
+        if(this.columnSelect != null && this.token != null){
+        //Se tira la ficha 
+        dropToken = this.dropTokenInColumn();
+        //Si la ficha se ubico correctamente...
+            if(dropToken){
+                this.setPlays(1);
+                //myCanvas.removeEventListener('mousemove', mouseMove);
+                //myCanvas.removeEventListener('mouseup', mouseUp);
+            }
+        }
+        this.token = null;
+        this.columnSelect = null;
+    }
+
+    dropTokenInColumn() {
         let widthContainerTokens = this.ctx.canvas.width /4;
         let heigthContainerTokens = this.ctx.canvas.height;
         let lengthRow = this.board.getMatrix().length;
         let matrix = this.board.getMatrix();
         let posX = widthContainerTokens*3; 
-        let x = Math.random() * (widthContainerTokens - token.getSizeToken());
-        let y = Math.random() * (heigthContainerTokens - token.getSizeToken());
-        //let x = 0, y = 0;
+        let x = Math.random() * (widthContainerTokens - this.token.getSizeToken());
+        let y = Math.random() * (heigthContainerTokens - this.token.getSizeToken());
+        let dropToken = false;
         let i = lengthRow-1;
         
-        while(i>=0 && matrix[i][column].value!=0) {
+        while(i>=0 && matrix[i][this.columnSelect].value!=0) {
             i--;
         }
 
         if (i>-1) {
-            matrix[i][column].value = this.getTurn();
-            token.setActive(false);
-            x=matrix[i][column].posX;
-            y=matrix[i][column].posY;
-            token.setPosX(x);
-            token.setPosY(y);
+            matrix[i][this.columnSelect].value = this.getTurn();
+            this.token.setActive(false);
+            dropToken = true;
+            x=matrix[i][this.columnSelect].posX;
+            y=matrix[i][this.columnSelect].posY;
+            this.token.setPosX(x);
+            this.token.setPosY(y);
         } else {
             if(this.getTurn() == 1){
-                token.setPosX(x);
-                token.setPosY(y);
+                this.token.setPosX(x);
+                this.token.setPosY(y);
             } else {
-                token.setPosX(x + posX);
-                token.setPosY(y);
+                this.token.setPosX(x + posX);
+                this.token.setPosY(y);
             }
         }
         
@@ -158,6 +164,7 @@ class Game {
         for(let t of this.tokensPlayer2){
             t.draw();
         }
+        return dropToken;
     }
 
     getTurn() {
