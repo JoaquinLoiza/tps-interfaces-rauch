@@ -4,6 +4,7 @@ class Game {
         this.board = board; 
         this.tokensPlayer1 = tokensPlayer1;
         this.tokensPlayer2 = tokensPlayer2;
+        this.game = 4;
         this.player1 = 1;
         this.player2 = 2;
         this.plays = 1;
@@ -113,9 +114,12 @@ class Game {
         dropToken = this.dropTokenInColumn();
         //Si la ficha se ubico correctamente...
             if(dropToken){
-                this.setPlays(1);
-                //myCanvas.removeEventListener('mousemove', mouseMove);
-                //myCanvas.removeEventListener('mouseup', mouseUp);
+                this.checkWinner();
+                if(this.winner != true){
+                    this.setPlays(1);
+                } else {
+                    console.log("ganador el player: "+this.getTurn());
+                }
             }
         }
         this.token = null;
@@ -174,6 +178,162 @@ class Game {
         else {
             return this.player1;
         }
+    }
+
+    checkWinner(){
+        if(this.verifyVertically() || this.verifyHorizontally() || this.verifyDiagonalRigth() || this.verifyDiagonalLeft()){
+            this.winner = true;
+        }
+    }
+
+    verifyVertically(){
+        let lengthRow = this.board.getRows();
+        let lengthCol = this.board.getColumns();
+        let matrix = this.board.getMatrix();
+        let countP1 = 1;
+        let countP2 = 1;
+        let winner = false;
+
+        for(let c = lengthCol -1; c > -1; c--){
+            for(let r = lengthRow -1; r > -1; r--){
+                if(r-1 != -1 && (matrix[r][c].value == 1) && (matrix[r][c].value == matrix[r-1][c].value)){
+                    countP1++;
+                }
+                if(r-1 != -1 && (matrix[r][c].value == 2) && (matrix[r][c].value == matrix[r-1][c].value)){
+                    countP2++;
+                }
+            }
+
+            if(countP1 != this.game) {
+                countP1 = 1;
+            } else {
+                winner = true;
+            }
+
+            if(countP2 != this.game) {
+                countP2 = 1;
+            } else {
+                winner = true;
+            }
+        }
+
+        return winner;
+    }
+
+    verifyHorizontally() {
+        let lengthRow = this.board.getRows();
+        let lengthCol = this.board.getColumns();
+        let matrix = this.board.getMatrix();
+        let countP1 = 1;
+        let countP2 = 1;
+        let winner = false;
+
+        for(let r = lengthRow -1; r > -1; r--){
+            for(let c = lengthCol -1; c > -1; c--){
+                if(c-1 != -1 && (matrix[r][c].value == 1) && (matrix[r][c].value == matrix[r][c-1].value)){
+                    countP1++;
+                }
+                if(c-1 != -1 && (matrix[r][c].value == 2) && (matrix[r][c].value == matrix[r][c-1].value)){
+                    countP2++;
+                }
+            }
+
+            if(countP1 != this.game) {
+                countP1 = 1;
+            } else {
+                winner = true;
+            }
+
+            if(countP2 != this.game) {
+                countP2 = 1;
+            } else {
+                winner = true;
+            }
+        }
+
+        return winner;
+    }
+
+    verifyDiagonalRigth() {
+        let lengthRow = this.board.getRows();
+        let lengthCol = this.board.getColumns();
+        let matrix = this.board.getMatrix();
+        let countP1 = 1;
+        let countP2 = 1;
+        let winner = false;
+        let row, col;
+
+        for(let r = 0; r < lengthRow; r++){
+            for(let c = 0; c < lengthCol; c++){
+                row = r;
+                col = c;
+                while(row < lengthRow && col < lengthCol){
+                    if((row+1 != lengthRow &&  col+1 != lengthCol) && matrix[row][col].value == 1 && matrix[row][col].value == matrix[row+1][col+1].value){
+                        countP1++;
+                    }
+                    if((row+1 != lengthRow &&  col+1 != lengthCol) && matrix[row][col].value == 2 && matrix[row][col].value == matrix[row+1][col+1].value){
+                        countP2++;
+                    }
+                    row++;
+                    col++;
+                }
+
+                if(countP1 != this.game) {
+                    countP1 = 1;
+                } else {
+                    winner = true;
+                }
+    
+                if(countP2 != this.game) {
+                    countP2 = 1;
+                } else {
+                    winner = true;
+                }
+            }
+        }    
+
+        return winner;
+    }
+
+    verifyDiagonalLeft() {
+        let lengthRow = this.board.getRows();
+        let lengthCol = this.board.getColumns();
+        let matrix = this.board.getMatrix();
+        let countP1 = 1;
+        let countP2 = 1;
+        let winner = false;
+        let row, col;
+
+        for(let r = 0; r < lengthRow; r++){
+            for(let c = lengthCol -1; c > -1; c--){
+                row = r;
+                col = c;
+                while(row < lengthRow && col > -1){
+                    if((row+1 != lengthRow &&  col-1 != -1) && matrix[row][col].value == 1 && matrix[row][col].value == matrix[row+1][col-1].value){
+                        countP1++;
+                    }
+                    if((row+1 != lengthRow &&  col-1 != -1) && matrix[row][col].value == 2 && matrix[row][col].value == matrix[row+1][col-1].value){
+                        countP2++;
+                    }
+                    row++;
+                    col--;
+                }
+
+                if(countP1 != this.game) {
+                    countP1 = 1;
+                } else {
+                    winner = true;
+                }
+    
+                if(countP2 != this.game) {
+                    countP2 = 1;
+                } else {
+                    winner = true;
+                }
+            }
+        }    
+
+        return winner;
     }
 
     clearCanvas() {
