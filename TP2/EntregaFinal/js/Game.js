@@ -1,25 +1,26 @@
 class Game {
-    constructor(ctx, board, tokensPlayer1, tokensPlayer2) {
+    constructor(ctx, board, tokensPlayer1, tokensPlayer2, game) {
         this.ctx = ctx;
         this.board = board; 
         this.tokensPlayer1 = tokensPlayer1;
         this.tokensPlayer2 = tokensPlayer2;
-        this.game = 4;
+        this.game = game;
         this.player1 = 1;
         this.player2 = 2;
         this.plays = 1;
         this.winner = false;
         this.mousedown = false; 
-        //this.time = time;
         this.token = null;
         this.columnSelect = null;
         this.gameStarted = false;
+        this.notification = document.getElementById("notificationEvents");
     }
-
+    // funcion para setear el numero de jugada
     setPlays(n) {
         this.plays = this.plays + n;
     }
-    
+
+    // funcion que dibuja las fichas de cada jugador
     tokensDraw() {
         let widthContainerTokens = this.ctx.canvas.width /4;
         let heigthContainerTokens = this.ctx.canvas.height;
@@ -41,12 +42,14 @@ class Game {
         }
     }
 
+    // funcion que da inicio al juego
     playGame(){
-        let cells = this.board.getColumns() * this.board.getRows();
         this.tokensDraw();
         this.gameStarted = true;
+        this.notification.innerHTML = `El juego ha comenzado! es turno del jugador ${this.getTurn()}`;
     }
 
+    // funcion para detectar si estoy dentro de ficha y poder moverla
     selectToken(e){
         this.mousedown = true;
         let tokensPlayer = null;
@@ -70,6 +73,7 @@ class Game {
         }
     }
 
+    //funcion para mover una ficha dentro del tablero
     moveToken(e) {
         if(this.mousedown == true && this.token != null){
             this.clearCanvas();
@@ -106,6 +110,7 @@ class Game {
         }
     }
 
+    //funcion para soltar la ficha dentro del tablero
     dropToken(){
         this.mousedown = false;
         let dropToken = false;
@@ -117,8 +122,10 @@ class Game {
                 this.checkWinner();
                 if(this.winner != true){
                     this.setPlays(1);
+                    this.notification.innerHTML = "Es turno del jugador "+this.getTurn();
                 } else {
-                    console.log("ganador el player: "+this.getTurn());
+                    this.notification.innerHTML = "Ganó el jugador "+this.getTurn();
+                    this.deactivateTokens();
                 }
             }
         }
@@ -126,6 +133,36 @@ class Game {
         this.columnSelect = null;
     }
 
+    // funcion para desactivar las fichas cuando hay un ganador
+    deactivateTokens() {
+        for(let t of this.tokensPlayer1){
+            t.setActive(false);
+        }
+        for(let t of this.tokensPlayer2){
+            t.setActive(false);
+        }
+    }
+
+    // funcion para volver a cargar la matriz con ceros y volver a activar las fichas para una nueva partida
+    resetValues() {
+        let matrix = this.board.getMatrix();
+
+        for(let t of this.tokensPlayer1){
+            t.setActive(true);
+        }
+        for(let t of this.tokensPlayer2){
+            t.setActive(true);
+        }
+
+        //Vaciar matriz
+        for(let row of matrix) {
+            for(let element of row) {
+                element.value = 0;
+            }
+        }
+    }
+
+    // funcion para soltar una ficha y que se coloque en una columna correctamente
     dropTokenInColumn() {
         let widthContainerTokens = this.ctx.canvas.width /4;
         let heigthContainerTokens = this.ctx.canvas.height;
@@ -171,6 +208,7 @@ class Game {
         return dropToken;
     }
 
+    // funcion que nos indica a que jugador le toca jugar
     getTurn() {
         if(this.plays%2 == 0) {	
             return this.player2;
@@ -180,12 +218,14 @@ class Game {
         }
     }
 
+    // funcion para saber si hay un ganador, cuando el juegador suelta la ficha 
     checkWinner(){
         if(this.verifyVertically() || this.verifyHorizontally() || this.verifyDiagonalRigth() || this.verifyDiagonalLeft()){
             this.winner = true;
         }
     }
 
+    // funcion que verifica si hay 4/5/6 en linea verticalmente
     verifyVertically(){
         let lengthRow = this.board.getRows();
         let lengthCol = this.board.getColumns();
@@ -220,6 +260,7 @@ class Game {
         return winner;
     }
 
+    // funcion que verifica si hay 4/5/6 en linea horizontalmente
     verifyHorizontally() {
         let lengthRow = this.board.getRows();
         let lengthCol = this.board.getColumns();
@@ -254,6 +295,7 @@ class Game {
         return winner;
     }
 
+    // funcion que verifica si hay 4/5/6 en linea en diagonal a la derecha
     verifyDiagonalRigth() {
         let lengthRow = this.board.getRows();
         let lengthCol = this.board.getColumns();
@@ -295,6 +337,7 @@ class Game {
         return winner;
     }
 
+    // funcion que verifica si hay 4/5/6 en linea en diagonal a la izquierda
     verifyDiagonalLeft() {
         let lengthRow = this.board.getRows();
         let lengthCol = this.board.getColumns();
@@ -336,6 +379,7 @@ class Game {
         return winner;
     }
 
+    // funcion para borrar todo el canvas
     clearCanvas() {
         this.ctx.fillStyle = "rgb(255,255,255)";
         this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);

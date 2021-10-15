@@ -1,33 +1,41 @@
 class Board {
-    constructor(ctx, image, sizeCell){
+    constructor(ctx, image, sizeCell, columns, rows){
         this.ctx = ctx;
         this.image = image;
         this.sizeCell = sizeCell;
-        this.columns = 7;
-        this.rows = 6; 
-        this.matrix = this.createMatrix(this.columns, this.rows); 
+        this.columns = columns;
+        this.rows = rows; 
+        this.matrix = this.createMatrix(); 
     }
+    //devuelve el tamaño de la celda
     getSizeCell(){
         return this.sizeCell;
     }
-
+    //devuelve la cant de columnas
     getColumns(){
         return this.columns;
     }
+    //devuelve la cantidad de filas
     getRows() {
         return this.rows;
     }
+    //devuleve la matriz
     getMatrix(){
         return this.matrix;
     }
+    //setea la matriz
+    setMatrix(){
+        this.matrix = this.createMatrix();
+    }
+    //setea las columnas
     setColumns(n){
         this.columns = n;
     }
-    
+    //setea las filas
     setRows(n){
         this.rows = n;
     }
-
+    //setea el tamaño de la celda
     setSizeCell(n){
         this.sizeCell = n;
     }
@@ -49,7 +57,9 @@ class Board {
     }
 
     //Crea la matriz y la rellena con ceros para saber que esta vacia
-    createMatrix(columns, rows) {
+    createMatrix() {
+        let columns = this.columns;
+        let rows = this.rows;
         const cellSize = this.sizeCell; // tamaño del celda
         const width = this.ctx.canvas.width;
         const inicioX = width - (width/4)*3; 

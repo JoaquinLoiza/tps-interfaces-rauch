@@ -16,17 +16,20 @@
             <option value="6">Seis en Linea</option>
         </select>
         <select id="selectToken">
-            <option value="1" selected>Redondas solidas</option>
-            <option value="2">Redondas con motivos</option>
-            <option value="3">Cuadradas solidas</option>
-            <option value="4">Cuadradas con motivos</option>
+            <option value="1" selected>rojas y amarillas</option>
+            <option value="2">Magentas y verdes</option>
+        </select>
+        <label for="timer">Tiempo por turno</label>
+        <select id="timer">
+            <option value="5000">5 segundos</option>
+            <option value="10000"selected>10 segundos</option>
+            <option value="15000">15 segundos</option>
+            <option value="20000">20 segundos</option>
         </select>
         <button id="btnInitGame">Iniciar Juego</button>
-        <label for="timer">Tiempo de juego</label>
-        <input name="timer" type="number">
-        <button id="btnResetGame">Reiniciar juego</button>
+        <button id="btnResetGame" disabled>Reiniciar juego</button>
     </div>
-    
+    <h2 id="notificationEvents">Selecciona los parametros y comienza el juego</h2>
     <canvas id="myCanvas" width="1000" height="0"></canvas>
     <script src="js/Board.js"></script>
     <script src="js/Game.js"></script>
