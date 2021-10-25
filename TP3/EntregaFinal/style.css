@@ -1,0 +1,37 @@
+.avatar {
+    background: url(images/Jimena.png) no-repeat;
+    height: 215px;
+    width: 160px;
+}
+
+@keyframes still {
+    0% {background-position: 0px 0px;}
+    100% {background-position: -640px 0px;}
+}
+
+@keyframes run{
+    0% {background-position: 0px -215px;}
+    100% {background-position: -640px -215px;}
+}
+
+@keyframes jump{
+    0% {
+        height: 220px;
+        background-position: 0px -435px;
+    }
+    100% {
+        height: 220px;
+        background-position: -480px -435px;
+    }
+}
+
+@keyframes die {
+    0% {
+        width: 206px;
+        background-position: 0px -655px;
+    }
+    100% {
+        width: 206px;
+        background-position: -412px -655px;
+    }
+}
