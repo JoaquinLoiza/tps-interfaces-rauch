@@ -1,8 +1,69 @@
+
+.layer{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.layer11 {
+    background-image: url(images/background/11_background.png);
+}
+
+.layer10 {
+    background-image: url(images/background/10_distant_clouds.png);
+}
+
+.layer9 {
+    background-image: url(images/background/09_distant_clouds1.png);
+}
+
+.layer8 {
+    background-image: url(images/background/08_clouds.png);
+}
+
+.layer7 {
+    background-image: url(images/background/07_huge_clouds.png);
+}
+
+.layer6 {
+    background-image: url(images/background/06_hill2.png);
+}
+
+.layer5 {
+    background-image: url(images/background/05_hill1.png);
+}
+
+.layer4 {
+    background-image: url(images/background/04_bushes.png);
+}
+
+.layer3 {
+    background-image: url(images/background/03_distant_trees.png);
+}
+
+.layer2 {
+    background-image: url(images/background/02_trees\ and\ bushes.png);
+}
+
+.layer1 {
+    background-image: url(images/background/01_ground.png);
+}
+
 .avatar {
     background: url(images/Jimena.png) no-repeat;
+    position: absolute;
+    top: 65%;
+    left: 10%;
     height: 215px;
     width: 160px;
 }
+
+
+/*------ avatar -------*/
 
 @keyframes still {
     0% {background-position: 0px 0px;}
@@ -19,9 +80,13 @@
         height: 220px;
         background-position: 0px -435px;
     }
+    50% {
+        top: 48%;
+    }
     100% {
         height: 220px;
-        background-position: -480px -435px;
+        background-position: -488px -435px;
+        top: 65%;
     }
 }
 
@@ -35,3 +100,5 @@
         background-position: -412px -655px;
     }
 }
+
+/*------ Background -------*/
