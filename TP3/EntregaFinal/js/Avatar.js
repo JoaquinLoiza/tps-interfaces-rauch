@@ -8,7 +8,7 @@ class Avatar {
         this.clearAnimationValues();
         setTimeout(() => {
             this.avatar.style.animationDuration = ".5s";
-            this.avatar.style.animationTimingFunction = "steps(4)";
+            this.avatar.style.animationTimingFunction = "steps(6)";
             this.avatar.style.animationIterationCount = "infinite";
             this.avatar.style.animationName = "run";
         }, 0);

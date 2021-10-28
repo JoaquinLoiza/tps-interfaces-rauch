@@ -1,14 +1,17 @@
 body {
-    margin: 0;
+    margin: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
-    position: realtive;
-    height: 100vh;
-    width: 100vw;
+    position: absolute;
+    width: 878px;
+    height: 663px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid black;
 }
 
 .layer{
@@ -70,15 +73,15 @@ body {
     position: absolute;
     top: 65%;
     left: 10%;
-    height: 215px;
-    width: 160px;
+    height: 108px;
+    width: 80px;
 }
 
 .bugClasic {
     background: url(images/bugClasic.png) no-repeat;
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 55px;
+    height: 55px;
     opacity: 0;
     background-size: contain;
 }
@@ -86,8 +89,8 @@ body {
 .bugStrong {
     background: url(images/bugStrong.png) no-repeat;
     position: absolute;
-    width: 120px;
-    height: 100px;
+    width: 80px;
+    height: 60px;
     opacity: 0;
     background-size: contain;
 }
@@ -96,13 +99,13 @@ body {
     visibility: hidden;
     background-color: rgba(126, 203, 223, 0.781);
     position: absolute;
-    width: 600px;
+    width: 500px;
     height: 300px;
 }
 
 .msj h1 {
     font-family: monospace;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     margin-top: 100px;
 }
@@ -111,7 +114,7 @@ body {
     cursor: pointer;
     background-color:rgba(192, 240, 102, 0.863);
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     margin-left: 8rem;
     margin-right: 8rem;
@@ -119,7 +122,7 @@ body {
 
 .container-lives {
     font-family: monospace;
-    font-size: 1.2rem;
+    font-size: 1rem;
     position: absolute;
     top: 10px;
     left: 40px;
@@ -130,15 +133,15 @@ body {
 .bonusJs{
     background: url(images/js.png) no-repeat;
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     opacity: 0;
     background-size: contain;
 }
 
 #timmer {
     font-family: monospace;
-    font-size: 3.2rem;
+    font-size: 2.2rem;
     height: 100px;
     width: 130px;
     position: absolute;
@@ -150,15 +153,15 @@ body {
     background-color: rgba(126, 203, 223, 0.781);
     position: absolute;
     font-family: monospace;
-    font-size: 2rem;
-    width: 1000px;
-    height: 700px;
+    font-size: 1.3rem;
+    width: 500px;
+    height: 650px;
     text-align: center;
 }
 
 #avatar {
-    height: 50px;
-    width: 100px;
+    height: 30px;
+    width: 70px;
 }
 
 
@@ -209,11 +212,11 @@ body {
 @keyframes enemy {
     0% {
         opacity: 1;
-        top: 80%;
+        top: 75%;
         left: 90%;
     }
     100% {
-        top: 80%;
+        top: 75%;
         left: 0;
         opacity: 1;
     }
@@ -246,37 +249,37 @@ body {
 
 @keyframes still {
     0% {background-position: 0px 0px;}
-    100% {background-position: -640px 0px;}
+    100% {background-position: -320px 0px;}
 }
 
 @keyframes run{
-    0% {background-position: 0px -215px;}
-    100% {background-position: -640px -215px;}
+    0% {background-position: 0px -108px;}
+    100% {background-position: -480px -108px;}
 }
 
 @keyframes jump{
     0% {
-        height: 220px;
-        background-position: 0px -435px;
+        height: 110px;
+        background-position: 0px -216px;
     }
     50% {
         top: 30%;
     }
     100% {
-        height: 220px;
-        background-position: -488px -435px;
+        height: 110px;
+        background-position: -240px -216px;
         top: 65%;
     }
 }
 
 @keyframes die {
     0% {
-        width: 206px;
-        background-position: 0px -655px;
+        width: 102px;
+        background-position: 0px -330px;
     }
     100% {
-        width: 206px;
-        background-position: -412px -655px;
+        width: 102px;
+        background-position: -204px -330px;
     }
 }
 
@@ -286,6 +289,6 @@ body {
         background-position: 0px;
     }
     100% {
-        background-position: -100vw;
+        background-position: -878px;
     }
 }
