@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Entrega Visualizacion</title>
+    <title>Game</title>
 </head>
 <body>
     <div class="container">
@@ -20,10 +20,41 @@
         <div class="layer layer3"></div>
         <div class="layer layer2"></div>
         <div class="layer layer1"></div>
+        <div class="avatar"></div>
+        <div class="msj">
+            <h1 class="alert"></h1>
+            <div class="button">Reiniciar</div>
+        </div>
+        <div class="container-lives">
+            <h1 class="lives"></h1>
+        </div>
+        <p id="timmer"></p>
+        <div class="welcome">
+            <h1>Js versus Bugs</h1>
+            <p>Nuestro personaje es un estudiante de Desarrollo Web, 
+                que para avanzar en sus estudios debe coleccionar escudos JS 
+                y ademas, ir sumando vidas 💛. Pero, debe tener cuidado con 
+                los bugs. Para ello, debe esquivarlos utilizando la barra 
+                espaciadora para poder saltarlos. Todo esto, dentro de un tiempo limite.</p>
+                <h2>Para comenzar, presione cualquier tecla.</h2>
+                <h3>Elegir avatar: 
+                    <select id="avatar">
+                        <option value="1">Jimena</option>
+                        <option value="2">Nacho</option>
+                    </select>
+                </h3>
+        </div>
     </div>
 
-    <div class="avatar"></div>
+    <script src="js/Background.js"></script>
     <script src="js/Avatar.js"></script>
+    <script src="js/Collision.js"></script>
+    <script src="js/EnemyClasic.js"></script>
+    <script src="js/EnemyStrong.js"></script>
+    <script src="js/Skill.js"></script>
+    <script src="js/BonusJs.js"></script>
+    <script src="js/Timmer.js"></script>
+    <script src="js/Game.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

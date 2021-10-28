@@ -2,17 +2,6 @@ class Avatar {
 
     constructor(a) {
         this.avatar = a;
-        this.active = false;
-    }
-
-    keyEvents(e) {
-        if(e.keyCode == 32) {
-            this.jump();
-        } 
-        else if(this.active == false) {
-            this.active = true;
-            this.run();
-        }
     }
     
     run(){
@@ -28,12 +17,12 @@ class Avatar {
     jump(){
         this.clearAnimationValues();
         setTimeout(() => {    
-            this.avatar.style.animationDuration = "1s";
+            this.avatar.style.animationDuration = "1.5s";
             this.avatar.style.animationTimingFunction = "steps(3)";
             this.avatar.style.animationIterationCount = "none";
             this.avatar.style.animationName = "jump";
         }, 0);
-        window.addEventListener("animationend", () => this.run());
+        this.avatar.addEventListener("animationend", () => this.run());
     }
 
     still() {

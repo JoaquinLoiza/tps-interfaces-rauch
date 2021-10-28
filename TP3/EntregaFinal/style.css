@@ -1,7 +1,19 @@
+body {
+    margin: 0;
+}
+
+.container {
+    position: realtive;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .layer{
+    height: 100%;
     width: 100%;
-    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -62,6 +74,173 @@
     width: 160px;
 }
 
+.bugClasic {
+    background: url(images/bugClasic.png) no-repeat;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+    background-size: contain;
+}
+
+.bugStrong {
+    background: url(images/bugStrong.png) no-repeat;
+    position: absolute;
+    width: 120px;
+    height: 100px;
+    opacity: 0;
+    background-size: contain;
+}
+
+.msj {
+    visibility: hidden;
+    background-color: rgba(126, 203, 223, 0.781);
+    position: absolute;
+    width: 600px;
+    height: 300px;
+}
+
+.msj h1 {
+    font-family: monospace;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.msj .button {
+    cursor: pointer;
+    background-color:rgba(192, 240, 102, 0.863);
+    font-family: monospace;
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
+.container-lives {
+    font-family: monospace;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: auto;
+    height: 100px;
+}
+
+.bonusJs{
+    background: url(images/js.png) no-repeat;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+    background-size: contain;
+}
+
+#timmer {
+    font-family: monospace;
+    font-size: 3.2rem;
+    height: 100px;
+    width: 130px;
+    position: absolute;
+    top: 10px;
+    right: 70px;
+}
+
+.welcome {
+    background-color: rgba(126, 203, 223, 0.781);
+    position: absolute;
+    font-family: monospace;
+    font-size: 2rem;
+    width: 1000px;
+    height: 700px;
+    text-align: center;
+}
+
+#avatar {
+    height: 50px;
+    width: 100px;
+}
+
+
+/*------ Bonus -------*/
+@keyframes bonus {
+    0% {
+        opacity: 1;
+        top: 45%;
+        left: 90%;
+    }
+    100% {
+        top: 45%;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes getBonus {
+    0% {
+        opacity: 1;
+        top: 45%;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        top: 10%;
+        opacity: 0;
+    }
+}
+
+@keyframes animationBug {
+    0% {
+        opacity: 1;
+        transform: scaleX(300px);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(150px);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(0px);
+    }
+}
+
+/*------ Enemy -------*/
+@keyframes enemy {
+    0% {
+        opacity: 1;
+        top: 80%;
+        left: 90%;
+    }
+    100% {
+        top: 80%;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes enemyStrong {
+    0% {
+        opacity: 1;
+        top: 55%;
+        left: 90%;
+    }
+    25% {
+        opacity: 1;
+        top: 50%;
+        left: 90%;
+    }
+    50% {
+        opacity: 1;
+        top: 55%;
+        left: 90%;
+    }
+    100% {
+        top: 50%;
+        left: 0;
+        opacity: 1;
+    }
+}
 
 /*------ avatar -------*/
 
@@ -81,7 +260,7 @@
         background-position: 0px -435px;
     }
     50% {
-        top: 48%;
+        top: 30%;
     }
     100% {
         height: 220px;
@@ -102,3 +281,11 @@
 }
 
 /*------ Background -------*/
+@keyframes moveBackground {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -100vw;
+    }
+}
