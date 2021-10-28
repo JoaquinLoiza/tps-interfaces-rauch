@@ -24,6 +24,7 @@ body {
     background-size: contain;
 }
 
+/*------- layers del background ------*/
 .layer11 {
     background-image: url(images/background/11_background.png);
 }
@@ -193,20 +194,6 @@ body {
     }
 }
 
-@keyframes animationBug {
-    0% {
-        opacity: 1;
-        transform: scaleX(300px);
-    }
-    50% {
-        opacity: 1;
-        transform: scaleX(150px);
-    }
-    100% {
-        opacity: 1;
-        transform: scaleX(0px);
-    }
-}
 
 /*------ Enemy -------*/
 @keyframes enemy {
@@ -245,6 +232,20 @@ body {
     }
 }
 
+@keyframes animationBug {
+    0% {
+        opacity: 1;
+        transform: scaleX(300px);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(150px);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(0px);
+    }
+}
 /*------ avatar -------*/
 
 @keyframes still {

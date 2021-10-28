@@ -4,6 +4,7 @@ class EnemyStrong extends Collision{
         this.collision = this.create();
     }
 
+    //Crea el elemento bugStrong
     create() {
         let container = document.querySelector(".container");
         let newDiv = document.createElement("div");
@@ -12,6 +13,7 @@ class EnemyStrong extends Collision{
         return newDiv;
     }
 
+    //Setea los valores para que el enemigo se mueva
     show(){
         setTimeout(() => {
             this.collision.style.animationDuration = "3.5s";

@@ -6,6 +6,7 @@ class Timmer {
         this.time = (this.startingMinutes * 60);
     }
     
+    //comienza con el conteo
     start(){
         this.timmer = setInterval(() => {     
 

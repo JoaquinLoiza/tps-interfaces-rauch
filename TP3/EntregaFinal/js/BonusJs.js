@@ -5,6 +5,7 @@ class BonusJs extends Skill {
         super.setCollision(this.create());
     }
 
+    //Crea el div dinamicamente para crear el BonusJs
     create() {
         let container = document.querySelector(".container");
         let newDiv = document.createElement("div");

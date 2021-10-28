@@ -3,7 +3,8 @@ class Avatar {
     constructor(a) {
         this.avatar = a;
     }
-    
+
+    //Setea los valores para que el avatar corra
     run(){
         this.clearAnimationValues();
         setTimeout(() => {
@@ -14,6 +15,7 @@ class Avatar {
         }, 0);
     }
 
+    //Setea los valores para que el avatar salte
     jump(){
         this.clearAnimationValues();
         setTimeout(() => {    
@@ -25,6 +27,7 @@ class Avatar {
         this.avatar.addEventListener("animationend", () => this.run());
     }
 
+    //Setea los valores para que el avatar quede en reposo
     still() {
         this.clearAnimationValues();
         setTimeout(() => {
@@ -35,6 +38,7 @@ class Avatar {
         }, 0);
     }
 
+    //Setea los valores para que el avatar caiga ante una colisión
     die(){
         this.clearAnimationValues();
         setTimeout(() => {
@@ -45,6 +49,7 @@ class Avatar {
         }, 0);
     }
 
+    //quita las animaciones al avatar
     clearAnimationValues(){
         this.avatar.style.animation = "none";
     }

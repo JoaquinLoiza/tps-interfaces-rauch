@@ -3,11 +3,11 @@ class Skill extends Collision {
         super();
         this.collision = null;
     }
-
+    //Setea la colision 
     setCollision(c) {
         this.collision = c;
     }
-
+    //Muestra el bonus
     show(){
         if(this.collision != null) {
             setTimeout(() => {

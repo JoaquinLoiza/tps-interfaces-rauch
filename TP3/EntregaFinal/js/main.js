@@ -13,6 +13,7 @@ window.onload = () => {
     avatar.still();
 };
 
+//El gameloop pregunta si le quedan vidas al avatar cada 1 milisegundo 
 let gameloop = setInterval(function() {
     game.detectCollision();
     if(game.getLives() == 0){

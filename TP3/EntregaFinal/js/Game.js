@@ -6,19 +6,19 @@ class Game {
         this.lives = 3;
         this.timmer = new Timmer(this);
     }
-
+    //trae el valor de las vidas
     getLives() {
         return this.lives;
     }
-
+    //trae el estado del juego
     getActive(){
         return this.active;
     }
-
+    //Setea el estado del juego
     setActive(value) {
         this.active = value;
     }
-
+    //Setea el valor de las vidas
     setLives(n){
         if(this.lives < 5 && n > 0) {
             this.lives = this.lives+n;
@@ -27,6 +27,7 @@ class Game {
         }
     }
 
+    //Eventos
     keyEvents(e) {
         if(e.keyCode == 32 && this.active == true) {
             this.avatar.jump();
@@ -37,6 +38,7 @@ class Game {
         }
     }
 
+    //Inicio del juego
     initGame() {
         this.active = true;
         this.timmer.start();
@@ -66,6 +68,7 @@ class Game {
         }, 7000);
     }
 
+    //detecta si hay una colision 
     detectCollision(){
         let avatarPosition = document.querySelector(".avatar").getBoundingClientRect();
         let avatarW = avatarPosition.left + avatarPosition.width;
@@ -106,7 +109,7 @@ class Game {
             this.showLives();
         }
     }
-
+    //muestra las vidas
     showLives(){
         let lives = document.querySelector(".lives");
         let string = "";
@@ -116,6 +119,7 @@ class Game {
         lives.innerHTML = string;
     }
 
+    //setea los valores de las animaciones cuando termina el juego
     gameOver(){
         let alert = document.querySelector(".alert");
         this.setActive(false);
@@ -126,7 +130,7 @@ class Game {
         document.querySelector(".button").addEventListener("click", () => location.reload());
         this.avatar.still();
     }
-
+    //setea los valores de las animaciones cuando gano
     winner(){
         let alert = document.querySelector(".alert");
         this.setActive(false);
