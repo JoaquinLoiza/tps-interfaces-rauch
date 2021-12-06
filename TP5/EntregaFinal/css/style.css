@@ -211,3 +211,20 @@ button a:hover {
   border-radius: 10px;
   background-color: #c4c4c44d;
 }
+
+.bi-envelope {
+  border-bottom: 2px solid;
+  border-color: var(--color_claro);
+}
+
+.lista-chats {
+  border: 1px solid black;
+}
+
+.chat1-1 {
+  border: 1px solid black;
+}
+
+.lista-chats h2 {
+  color: black;
+}
