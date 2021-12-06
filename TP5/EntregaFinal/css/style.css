@@ -90,3 +90,74 @@ header {
 .contenedor-cuerpo div{
   height: 100vh;
 }
+.body {
+  background-color: var(--color_primario);
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.registro {
+  color: var(--color_claro);
+  width: 100%;
+}
+.registro img{
+  height: 218px;
+  width: 218px;
+  margin: 10px;
+}
+
+.registro .input-registro{
+  width: 100%;
+  height: 22px;
+  border-radius: 10px;
+  border: #414759;
+}
+
+.registro label {
+  margin-top: 10px;
+}
+
+.boton-registro, .boton-registro-cancelar {
+  width: 103px;
+  height: 25px;
+  border-radius: 5px;
+  font-size: var(--subtitulo);
+  font-weight: var(--nunito_regular);
+  color: var(--color_oscuro);
+  margin: 5px;
+  border: #414759;
+}
+
+.registro .checks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registro .checks .form-check{
+  background-color: var(--color_claro);
+  border-radius: 10px;
+  color: var(--color_oscuro);
+  text-align: start;
+  width: 80px;
+  font-size: var(--texto_regular);
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-check input {
+  border-color: var(--color_oscuro);
+  text-align: center;
+  margin: 3px;
+}
+
+.boton-registro {
+  margin-top: 20px;
+  background-color: var(--color_secundario);
+}
+.boton-registro-cancelar {
+  background-color: var(--color_neutro);
+}
+
