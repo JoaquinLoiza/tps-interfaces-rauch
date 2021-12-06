@@ -18,8 +18,50 @@
     --texto_regular: 12px;
     font-family: 'Nunito';
     background-color: #F1F1F1;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
   font-weight: var(--nunito_regular);
+}
+
+.contenedor {
+  padding: 0 !important;
+}
+
+header {
+  padding: 0;
+  background-color: var(--color_primario);
+  height: 60px;
+}
+
+.cabecera {
+  max-width: 1200px;
+  width: 100%;
+  height: 30px;
+}
+
+.input-busqueda {
+  background-color: var(--color_claro);
+  width: 500px;
+}
+
+.input-busqueda i{
+  color: var(--color_oscuro);
+}
+
+.input-busqueda input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+.cont-iconos-nav {
+  width: 120px; 
+}
+
+.cont-iconos-nav i {
+  color: var(--color_claro);
 }
