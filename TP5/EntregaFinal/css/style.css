@@ -99,6 +99,64 @@ header {
   align-items: center;
 }
 
+.tajeta-sugerencias {
+  width: 100%;
+  height: auto;
+  margin: 0 !important;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: var(--sombra_tarjeta);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.division-sug {
+  height: 1px;
+  width: 90%;
+  background-color: var(--color_claro);
+}
+
+.tajeta-seguir {
+  height: 60px;
+  width: 100%;
+}
+
+.tajeta-seguir p{
+  margin: 0;
+}
+
+.tajeta-seguir .nombre{
+  font-size: var(--subtitulo);
+  font-weight: var(--nunito_bold);
+}
+
+.tajeta-seguir .ocupacion, .tajeta-seguir .seguidores {
+  font-size: var(--texto_regular);
+}
+
+
+.tajeta-seguir .image {
+  background-image: url(../assets/images/sugerencia1.jpg);
+  border: 1px solid;
+  border-color: var(--color_oscuro);
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.boton-seguir {
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  font-size: var(--subtitulo);
+  font-weight: var(--nunito_regular);
+  color: var(--color_oscuro);
+  background-color: var(--color_secundario);
+  margin: 5px;
+  border: #414759;
+}
+
 .cont-img-perfil {
   width: 128px;
   height: 128px;
@@ -154,7 +212,7 @@ header {
   color: var(--color_oscuro);
 }
 
-.tarjeta_publi .web {
+.tarjeta_publi .titulo {
   font-size: var(--titulo);
   font-weight: var(--nunito_bold);
 }
