@@ -1,0 +1,25 @@
+/*
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+    --color_primario: #544179;
+    --color_secundario: #A4CC79;
+    --color_neutro: #AAAAAA;
+    --color_claro: #F1F1F1;
+    --color_oscuro: #414759;
+    --nunito_regular: 400;
+    --nunito_semi_bold: 600;
+    --nunito_bold: 600;
+    --sombra_tarjeta: 5px 5px 16px -1px rgba(0,0,0,0.4);
+    --titulo: 16px;
+    --subtitulo: 14px;
+    --texto_regular: 12px;
+    font-family: 'Nunito';
+    background-color: #F1F1F1;
+}
+
+h1 {
+  font-weight: var(--nunito_regular);
+}
