@@ -17,9 +17,12 @@
     --subtitulo: 14px;
     --texto_regular: 12px;
     font-family: 'Nunito';
-    background-color: #F1F1F1;
     margin: 0;
     padding: 0;
+}
+
+body {
+  background-color: #F1F1F1;
 }
 
 h1 {
@@ -34,6 +37,10 @@ header {
   padding: 0;
   background-color: var(--color_primario);
   height: 60px;
+  width: 100%;
+	left: 0;
+	top: 0;
+  position: fixed;
 }
 
 .cabecera {
@@ -64,4 +71,22 @@ header {
 
 .cont-iconos-nav i {
   color: var(--color_claro);
+}
+
+.bi-house-door {
+  border-bottom: 2px solid;
+  border-color: var(--color_claro);
+}
+
+.contenedor-cuerpo {
+  width: 100%;
+}
+
+.cuerpo {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.contenedor-cuerpo div{
+  height: 100vh;
 }
