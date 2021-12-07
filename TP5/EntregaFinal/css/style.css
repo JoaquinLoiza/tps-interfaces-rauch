@@ -21,7 +21,7 @@
 }
   
 body {
-    background-color: #F1F1F1;
+    background-color: #F1F1F1  !important;
     font-family: 'Nunito' !important;
 }
 
@@ -40,7 +40,6 @@ header {
   width: 100%;
 	left: 0;
 	top: 0;
-  position: fixed;
 }
 
 .cabecera {
@@ -86,6 +85,8 @@ header {
   max-width: 1200px;
   width: 100%;
   margin-top: 100px;
+  height: 100vh;
+  border: 1px solid black;
 }
 
 .tarjeta_perfil , .tarjeta_publi {
@@ -182,7 +183,7 @@ header {
 .registro img{
   height: 218px;
   width: 218px;
-  margin: 10px;
+  margin: 40px;
 }
 
 .login img{
@@ -274,14 +275,18 @@ button a:hover {
   color: var(--color_oscuro);
 }
 
+.ayuda {
+  position: relative;
+}
+
 .help {
   width: 200px;
   height: 80px;
   padding: 5px;
   visibility: hidden;
   position: absolute;
-  top: 540px;
-  left: 820px;
+  left: 310px;
+  top: 10px;
   border-radius: 10px;
   background-color: #c4c4c44d;
 }
@@ -291,14 +296,109 @@ button a:hover {
   border-color: var(--color_claro);
 }
 
-.lista-chats {
-  border: 1px solid black;
+.lista-chats{
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #dfdfe0;
+  overflow-y: scroll;
+  height: 550px;
+}
+
+.lista-chats h2, .lista-chats .bi-search {
+  font-size: var(--titulo);
+  font-weight: var(--nunito_semi_bold);
+  margin: 2px;
+}
+
+.lista-chats .chat, .chat1-1{
+  position: relative;
+  margin-top: 10px;
+  z-index: -2;
+}
+.lista-chats .chat .conectado, .chat1-1 .conectado{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color:#74DE02;
+  border: 1px solid;
+  border-color: var(--color_oscuro);
+  left: 45px;
+  top: 35px;
+  z-index: -2;
+}
+.lista-chats .chat h1{
+  font-size: var(--subtitulo);
+  margin: 0;
+  padding-top: 10px;
+}
+
+.lista-chats .chat h2{
+  font-size: var(--texto_regular);
+  padding-top: 1px;
+  margin: 0;
+}
+
+.lista-chats img, .chat1-1 img{
+  background-color: violet;
+  height: 47px;
+  width: 47px;
+  margin: 4px;
+  border: 1px solid;
+  border-color: var(--color_oscuro);
 }
 
 .chat1-1 {
-  border: 1px solid black;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.lista-chats h2 {
-  color: black;
+.chat1-1 h1 {
+  font-size: var(--titulo);
+  font-weight: var(--nunito_semi_bold);
 }
+
+.chat1-1 h2 {
+  font-size: var(--subtitulo);
+  font-weight: var(--nunito_regular);
+}
+.msj-recibido, .msj-enviado {
+  border-radius: 10px;
+  border: 1px solid rgb(228, 228, 228);
+  padding: 10px;
+  color: black;
+  width: auto;
+}
+.msj-recibido {
+  background-color: rgba(219, 216, 216, 0.78)
+}
+
+.msj-enviado {
+  background-color: #ffffff;
+}
+
+.solo-chat {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #dfdfe0;
+  height: 100vh;
+}
+
+.chat-footer {
+  background-color: var(--color_primario);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.chat-footer input {
+  border-radius: 50px;
+  height: 40px;
+  margin-left: 20px;
+  width: 650px;
+}
+
+
+
+
