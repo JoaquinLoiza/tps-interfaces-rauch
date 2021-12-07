@@ -1,5 +1,10 @@
 'use strict';
 
+let iconMensaje = document.querySelector(".bi-envelope");
+window.onload = function() {
+    iconMensaje.classList.add("borde-icono");
+};
+
 let elDiv = document.getElementById("div_principal");
 elDiv.addEventListener("click", setStyleDiv, false);
 

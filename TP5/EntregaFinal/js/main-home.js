@@ -1,9 +1,10 @@
 'use strict';
 
-let iconomsj = document.getElementById("icono-msj");
-iconomsj.addEventListener("click", () => {
-    document.querySelector(".bi-house-door").style.border = "none";
-});
+let iconInicio = document.querySelector(".bi-house-door");
+window.onload = function() {
+    iconInicio.classList.add("borde-icono");
+};
+
 
 let likeDislike = document.querySelectorAll(".like-dislike");
 
