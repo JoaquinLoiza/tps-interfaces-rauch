@@ -1,7 +1,7 @@
-let help = document.getElementById("help");
-help.addEventListener("click", () => {
-    document.querySelector(".help").style.visibility = "visible";
-});
+'use strict';
+
+let elDiv = document.getElementById("div_principal");
+elDiv.addEventListener("click", setStyleDiv, false);
 
 function setStyleDiv(){
     document.querySelector(".seleccionar-chat").style.backgroundColor = "rgb(235 235 235)";
@@ -10,5 +10,7 @@ function setStyleDiv(){
     document.querySelector(".input-c").style.backgroundColor = "white";
 }
 
-
-
+let iconohome = document.getElementById("icono-home");
+iconohome.addEventListener("click", () => {
+    document.querySelector(".bi-envelope").style.border = "none";
+});
