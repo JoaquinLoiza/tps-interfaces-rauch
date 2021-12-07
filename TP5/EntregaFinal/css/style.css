@@ -12,7 +12,7 @@
     --nunito_regular: 400;
     --nunito_semi_bold: 600;
     --nunito_bold: 600;
-    --sombra_tarjeta: 5px 5px 16px -1px rgba(0,0,0,0.4);
+    --sombra_tarjeta: 5px 5px 16px -1px rgba(0,0,0,0.2);
     --titulo: 16px;
     --subtitulo: 14px;
     --texto_regular: 12px;
@@ -111,6 +111,34 @@ header {
   justify-content: center;
 }
 
+.tarjeta-post {
+  width: 100%;
+  height: auto;
+  margin: 0 !important;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: var(--sombra_tarjeta);
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-post .nombre-perfil {
+  font-size: var(--titulo);
+  font-weight: var(--nunito_bold);
+  color: var(--color_oscuro);
+}
+
+.parrafo p {
+  font-size: var(--texto_regular);
+  font-weight: var(--nunito_semi_bold);
+}
+
+.tiempo-publi {
+  margin-top: 2px;
+  color: var(--color_neutro);
+  font-size: var(--texto_regular);
+}
+
 .division-sug {
   height: 1px;
   width: 90%;
@@ -143,6 +171,15 @@ header {
   background-size: 100%;
   width: 50px;
   height: 50px;
+}
+
+.image-perfil-post {
+  width: 35px;
+  height: 35px;
+  background-image: url(../assets/images/sugerencia1.jpg);
+  border: 1px solid;
+  border-color: var(--color_oscuro);
+  background-size: 100%;
 }
 
 .boton-seguir {
