@@ -521,3 +521,46 @@ button a:hover {
 .cuerpo-mensajes {
   position: fixed;
 }
+
+.b h1{
+  font-size: var(--subtitulo);
+  color: var(--color_primario);
+}
+
+.b {
+  text-align: center;
+  margin: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 18px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: var(--color_primario);
+}
+
+.cuerpo-busqueda h2 {
+  margin-top: 20px;
+  font-size: var(--subtitulo);
+  color: var(--color_primario);
+  font-weight: var(--nunito_semi_bold);
+}
+
+.personas img {
+  width: 30px;
+  height: 30px;
+}
+
+.personas h1 {
+  margin: 2px;
+  padding-left: 5px;
+  font-size: var(--subtitulo);
+}
+
+.cuerpo-busqueda a {
+  text-decoration: none;
+  font-size: var(--texto_regular);
+}
+
+.p {
+  margin-bottom: 10px;
+}

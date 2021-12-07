@@ -13,3 +13,20 @@ for (let i=0; i < likeDislike.length; i++){
         likeDislike[i].childNodes[3].classList.toggle("icono_ocultar");
     });
 }
+
+document.querySelector("#busqueda").addEventListener('keydown', (e) => {
+    let text = document.getElementById("busqueda").value;
+    if (e.key == 'Enter'){
+        window.location.href = "busqueda.html";        
+    }
+  });
+
+
+
+
+
+
+
+
+
+
