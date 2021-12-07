@@ -28,3 +28,19 @@ for (let i=0; i < btnsSeguir.length; i++){
         }
     });
 }
+document.querySelector("#busqueda").addEventListener('keydown', (e) => {
+    let text = document.getElementById("busqueda").value;
+    if (e.key == 'Enter'){
+        window.location.href = "busqueda.html";        
+    }
+  });
+
+
+
+
+
+
+
+
+
+
