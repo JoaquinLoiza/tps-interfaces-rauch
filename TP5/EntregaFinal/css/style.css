@@ -128,9 +128,20 @@ header {
   color: var(--color_oscuro);
 }
 
+.cant-reacciones {
+  font-weight: var(--nunito_bold);
+  font-size: var(--texto_regular);
+  color: var(--color_oscuro);
+}
+
 .parrafo p {
   font-size: var(--texto_regular);
   font-weight: var(--nunito_semi_bold);
+  margin-bottom: 10px;
+}
+
+.bi-heart-fill {
+  color: rgb(218, 72, 72);
 }
 
 .tiempo-publi {
