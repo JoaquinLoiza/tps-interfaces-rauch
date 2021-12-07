@@ -80,6 +80,7 @@ header {
 
 .contenedor-cuerpo {
   width: 100%;
+
 }
 
 .cuerpo {
@@ -201,7 +202,8 @@ header {
   width: 60px;
   height: 25px;
   border-radius: 5px;
-  font-size: var(--subtitulo);
+  font-size: 11px;
+  padding-top: 2px;
   font-weight: var(--nunito_regular);
   color: var(--color_oscuro);
   background-color: var(--color_secundario);
@@ -222,6 +224,9 @@ header {
   font-size: 20px;
   font-weight: var(--nunito_bold);
 }
+.tarjeta-post i {
+  cursor: pointer;
+}
 
 .cont-nombre-btn .boton {
   width: 80px;
@@ -236,12 +241,17 @@ header {
 }
 
 .btn-crear-post {
+  cursor: pointer;
   margin-top: 40px;
   height: 35px;
   width: 60%;
   background-color: var(--color_secundario);
   border-radius: 5px;
   box-shadow: var(--sombra_tarjeta);
+}
+
+.btn-crear-post:hover {
+  background-color: #83b34f;
 }
 
 .btn-crear-post p {
@@ -558,4 +568,55 @@ button a:hover {
 
 .p {
   margin-bottom: 10px;
+}
+
+.nuevo-post {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: var(--sombra_tarjeta);
+  background-color: rgb(235, 235, 235);
+  top: 28%;
+  z-index: 2;
+}
+
+.fondo-blur{
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(65, 64, 64, 0.342);
+  height: 120%;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.post-cabecera p {
+  color: var(--color_oscuro);
+}
+
+.post-pie button {
+  background-color: var(--color_secundario);
+  font-weight: var(--nunito_bold);
+  font-size: var(--titulo);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: var(--color_primario);
+}
+
+.post-pie i {
+  color: var(--color_oscuro);
+}
+
+.ocultar {
+  display: none;
+}
+
+#closePost {
+  cursor: pointer;
+}
+
+.post-cuerpo textarea {
+  resize: none;
+  outline: none;
+  border: none;
+  border-radius: 10px;
 }
