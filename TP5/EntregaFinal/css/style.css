@@ -559,3 +559,71 @@ button a:hover {
 .p {
   margin-bottom: 10px;
 }
+
+.icono-buscar {
+  visibility: hidden;
+}
+
+footer {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 370px) {
+  header .cabecera {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .filtros { 
+  padding-top: 15%;
+  }
+
+  header .input-busqueda {
+    width: 350px;
+  }
+  .icono-buscar {
+    visibility: visible;
+  }
+  .personas {
+    margin-top: 0;
+    padding: 10px;
+  }
+  .contenedor-cuerpo {
+    height: 580px;
+    overflow-y:scroll;
+  }
+  .publicaciones {
+    padding: 10px;
+    padding-top: 0;
+  }
+  .b {
+    margin-top: 0;
+  }
+  .b h1 {
+    font-size: 12px;
+  }
+  
+  footer {
+    visibility: visible;
+    background-color: var(--color_primario) !important;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+  }
+
+  footer i {
+    color: var(--color_claro);
+    font-size: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  footer img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
