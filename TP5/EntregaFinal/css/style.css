@@ -193,6 +193,10 @@ header {
   background-size: 100%;
 }
 
+.icono_ocultar {
+  display: none;
+}
+
 .boton-seguir {
   width: 60px;
   height: 25px;
