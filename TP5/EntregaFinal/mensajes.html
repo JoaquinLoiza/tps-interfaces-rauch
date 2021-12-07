@@ -32,7 +32,7 @@
         </header>
 
         <div class="contenedor-cuerpo d-flex justify-content-center">
-            <div class="cuerpo">
+            <div class="cuerpo cuerpo-mensajes">
                 <div class="row">
                     <div class="col-4 lista-chats">
                         <div class="container">
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
 
-                            <div class="row chat">
+                            <div class="row chat seleccionar-chat" onclick="setStyleDiv();">
                                 <div class="col-2">
                                     <img src="assets/images/img_profile.jpeg" alt="" class="rounded-circle">
                                     <div class="conectado rounded-circle"></div>
@@ -58,13 +58,12 @@
                                     <h2>1h</h2>
                                 </div>
                             </div>
-
                             <div class="row chat">
                                 <div class="col-2">
                                     <img src="assets/images/img_profile.jpeg" alt="" class="rounded-circle">
                                     <div class="conectado rounded-circle"></div>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8" id="chat">
                                     <h1>Juan Pablo Lopez</h1>
                                     <h2>Tienes don nuevos mensajes</h2>
                                 </div>
@@ -72,7 +71,6 @@
                                     <h2>1h</h2>
                                 </div>
                             </div>
-
                             <div class="row chat">
                                 <div class="col-2">
                                     <img src="assets/images/img_profile.jpeg" alt="" class="rounded-circle">
@@ -250,8 +248,8 @@
                                     <div class="conectado rounded-circle"></div>
                                 </div>
                                 <div class="col-10">
-                                    <h1>Juan Pablo Lopez</h1>
-                                    <h2>Conectado</h2>
+                                    <h1 class="active-chat1">Juan Pablo Lopez</h1>
+                                    <h2 class="active-chat2">Conectado</h2>
                                 </div>
                                 <div class="col-1">
                                     <i class="bi bi-camera-video"></i>
@@ -294,7 +292,7 @@
                             </div>
                             <div class="row chat-footer d-flex justify-content-between align-items-center">
                                 <div>
-                                    <input type="text"><i class="bi bi-send"></i>
+                                    <input class="input-c" type="text"><i class="bi bi-send"></i>
                                 </div>
                             </div>
                         </div>
@@ -303,5 +301,6 @@
             </div>
         </div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
