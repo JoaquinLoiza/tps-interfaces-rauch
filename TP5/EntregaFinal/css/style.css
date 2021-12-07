@@ -73,7 +73,7 @@ header {
   color: var(--color_claro);
 }
 
-.bi-house-door {
+.bi-house-door, .bi-envelope {
   border-bottom: 2px solid;
   border-color: var(--color_claro);
 }
