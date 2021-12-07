@@ -686,3 +686,33 @@ footer {
     margin-right: 5%;
   }
 }
+
+#loader {
+  background-color: var(--color_primario);
+  padding-top: 100px;
+  width: 100vw;
+  height: 100vh;
+}
+
+#loader #loading{
+  font-size: 20px;
+  font-weight: var(--nunito_semi_bold);
+  color: var(--color_claro);
+  animation: text 1s infinite;
+  
+}
+#inicio #huella {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+
+@keyframes text {
+  0%{
+  font-size: 20px;
+  }
+  50%{
+    font-size: 22px;
+  }
+}

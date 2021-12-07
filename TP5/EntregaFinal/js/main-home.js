@@ -1,4 +1,14 @@
 'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+    function load(){
+        let h = document.getElementById("inicio");
+        h.removeAttribute("hidden");
+        let load = document.getElementById("loader");
+        load.setAttribute("hidden", ""); 
+    }
+
+    setTimeout(load, 2000);
+});
 
 let iconInicio = document.querySelector(".bi-house-door");
 window.onload = function() {
