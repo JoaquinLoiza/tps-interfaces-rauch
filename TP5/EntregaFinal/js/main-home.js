@@ -20,11 +20,13 @@ for (let i=0; i < btnsSeguir.length; i++){
     btnsSeguir[i].addEventListener("click", function(){
 
         if(btnsSeguir[i].innerHTML == "Seguir") {
-            btnsSeguir[i].innerHTML = "Seguido";
-            btnsSeguir[i].style.backgroundColor="#AAAAAA";
+            btnsSeguir[i].innerHTML = "Siguiendo";
+            btnsSeguir[i].style.backgroundColor="transparent";
+            btnsSeguir[i].style.border = "1px solid #414759";
         } else {
             btnsSeguir[i].innerHTML = "Seguir";
             btnsSeguir[i].style.backgroundColor="#A4CC79";
+            btnsSeguir[i].style.border = "none";
         }
     });
 }
@@ -34,6 +36,24 @@ document.querySelector("#busqueda").addEventListener('keydown', (e) => {
         window.location.href = "busqueda.html";        
     }
   });
+
+let btnPost = document.getElementById("btnPost");
+let fondoBlur = document.getElementById("fondoBlur");
+let inputPost = document.getElementById("nuevoPost");
+let closeNewPost = document.getElementById("closePost");
+let btnAceptarPost = document.getElementById("btnAceptarPost");
+
+
+btnPost.addEventListener("click", nuevoPost);
+closeNewPost.addEventListener("click", nuevoPost);
+btnAceptarPost.addEventListener("click", nuevoPost);
+
+function nuevoPost() {
+    fondoBlur.classList.toggle("ocultar");
+    inputPost.classList.toggle("ocultar");
+}
+
+
 
 
 
