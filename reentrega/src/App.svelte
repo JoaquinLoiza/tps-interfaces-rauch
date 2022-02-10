@@ -1,16 +1,13 @@
 <script>
 	import Header from './Components/Header.svelte';
+	import Post from './Components/Post.svelte';
 </script>
 
 <main>
 	<Header/>
+	<Post/>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+	
 </style>
