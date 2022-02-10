@@ -4,7 +4,7 @@
 <main>
     <header>
         <div>
-            <img src="./static/Logo_nav.svg" alt="">
+            <img src="images/Logo_nav.svg" alt="logo vetunity">
         </div>
     </header>
 </main>
