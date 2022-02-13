@@ -6,6 +6,9 @@
     Github,
     PaintBucket,
     Wrench,
+    Heart,
+    Share,
+    HeartFill
   } from "svelte-bootstrap-icons";
 </script>
 
@@ -33,9 +36,9 @@
         </div>
         <div class="card-head">
           <div class="card-h1">
-            <div><Alarm/></div>
-            <div>Comentar</div>
-            <div>Compartir</div>
+            <div><Heart/></div>
+            <div><Share/></div>
+            <div><HeartFill/></div>
           </div>
       
           <div class="card-h2">
