@@ -1,5 +1,5 @@
 <script>
-	import Post from './Components/Post.svelte';
+	import Post from './Post.svelte';
 </script>
 
 <main>
