@@ -7,7 +7,7 @@
     } from "svelte-bootstrap-icons";
 </script>
 <main>
-    <a href="#">
+    <a href="#" class="home">
         <HouseDoor/>
     </a>
     <a href="#">
@@ -26,6 +26,10 @@
         height: 30px;
         display: flex;
         justify-content: space-between;
+    }
+    
+    main a {
+        display: flex;
         align-items: center;
     }
 
@@ -34,5 +38,11 @@
         height: 1.25rem;
         color: #F1F1F1;
     }
-    
+
+    .home :global(svg) {
+        padding-bottom: 3px;
+        border-bottom: 2px solid;
+        border-color: #F1F1F1;
+    }
+
 </style>
