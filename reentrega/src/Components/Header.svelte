@@ -23,7 +23,6 @@
     }
 
     div {
-        background-color: rgb(97, 150, 104);
         max-width: 1200px;
         width: 100%;
         height: 30px;
