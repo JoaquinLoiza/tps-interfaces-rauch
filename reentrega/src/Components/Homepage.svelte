@@ -21,13 +21,12 @@
 }
 .homepage-left {
 	width: 25%;
-	background-color: rgb(146, 142, 142);
 }
 .homepage-center {
 	width: 50%;
+	padding: 20px;
 }
 .homepage-right {
 	width: 25%;
-	background-color: rgb(146, 142, 142);
 }
 </style>
