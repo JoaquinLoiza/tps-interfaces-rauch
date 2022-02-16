@@ -11,6 +11,24 @@
        </div>
     </div>
 </div>
+<div class="comment">
+    <div class="comment-head">
+       <div class="photo"></div>
+       <div>
+            <h1>Romina Dehesa<inline>Hace 3 minutos</inline></h1>
+            <h2>Muy bueno</h2>
+       </div>
+    </div>
+</div>
+<div class="comment">
+    <div class="comment-head">
+       <div class="photo"></div>
+       <div>
+            <h1>Romina Dehesa<inline>Hace 3 minutos</inline></h1>
+            <h2>Muy bueno</h2>
+       </div>
+    </div>
+</div>
 
 <style>
     .comment-head{
@@ -43,5 +61,6 @@
         padding-left: 5px;
         padding-right: 5px;
         padding-bottom: 5px;
+        border-top: 1px solid #e7e7e7;
     }
 </style>

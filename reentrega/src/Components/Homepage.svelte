@@ -2,6 +2,7 @@
 	import Post from './Post.svelte';
 	import PostImages from './PostImages.svelte';
 	import ProfileCard from './ProfileCard.svelte';
+	import PopularAccounts from './PopularAccounts.svelte';
 </script>
 
 <main>
@@ -15,7 +16,7 @@
 			<PostImages name={'Fernando Swchard'} text={'Las familias con mascota deben contar con un veterinario de confianza desde el primer momento que el animal llega a nuestros hogares y forma parte de nuestra familia como un miembro más, que siempre estará dispuesto a resolver las dudas que puedan surgir en el día a día.'}/>
 		</div>
 	    <div class="homepage-right">
-			persons que quizas conoscas
+			<PopularAccounts/>
 		</div>
 	</div>
 </main>
@@ -39,5 +40,7 @@
 	}
 	.homepage-right {
 		width: 25%;
+		padding-top: 20px;
+		padding-right: 20px;
 	}
 </style>
