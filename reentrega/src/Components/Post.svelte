@@ -8,7 +8,7 @@
     Share,
     ThreeDotsVertical
   } from "svelte-bootstrap-icons";
-
+  import Comment from './Comment.svelte';
 	export let name;
   export let text;
   export let countLikes = 12;
@@ -94,6 +94,9 @@
             <p on:click={showComments}>3 Comentarios</p>
           </div>
         </div>
+        {#if state.comments}
+          <Comment/>
+        {/if}
       </div>
 </main>
 
@@ -106,9 +109,6 @@
     box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
     padding-top: 5px;
-  }
-  .name-time {
-    border: 1px solid black;
   }
   .card-head, .card-f {
     display: flex;
@@ -146,7 +146,6 @@
   p {
     font-size: 15px;
     font-weight: 600;
-    border:1px solid black;
   }
   div :global(svg){
     height: 18px;
@@ -157,7 +156,6 @@
   .time {
     color:#414759;
     font-size: 12px;
-
   }
   span {
     height: 20px;
