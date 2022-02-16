@@ -44,6 +44,10 @@
     }
   }
 
+  function showImg(){
+      alert('holaa');
+  }
+
 </script>
 
 <main>
@@ -65,6 +69,10 @@
           <p>
             {text}
           </p>
+        </div>
+        <div class="card-img">
+            <div class="img" on:click={showImg}></div>
+            <div class="img" on:click={showImg}></div>
         </div>
         <!--Footer del post-->
         <div class="card-f">
@@ -109,26 +117,26 @@
     box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
     padding-top: 5px;
-  }
-  .card-head, .card-f {
+    }
+    .card-head, .card-f {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .card-h1, .card-f1 {
+    }
+    .card-h1, .card-f1 {
     display: flex;
     justify-content: start;
     align-items: center;
-  }
-  .card-h2, .card-f2 {
+    }
+    .card-h2, .card-f2 {
     display: flex;
     justify-content: end;
-  }
-  .card-h2 div{
+    }
+    .card-h2 div{
     font-size: 12px;
     color: #AAAAAA;
-  }
-  .photo-post {
+    }
+    .photo-post {
     height: 35px;
     width: 35px;
     background-color: white;
@@ -136,41 +144,51 @@
     border-color: #414759;
     border-radius: 50%;
     background-image: url('https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias-1200x900.jpg');
-  }
-  h1 {
+    }
+    h1 {
     font-size: 17px;
     font-weight: 600;
     color: #414759;
     margin: 0;
-  }
-  p {
+    }
+    p {
     font-size: 15px;
     font-weight: 600;
-  }
-  div :global(svg){
+    }
+    div :global(svg){
     height: 18px;
     width: 18px;
     padding-right: 10px;
     cursor: pointer;
-  }
-  .time {
+    }
+    .time {
     color:#414759;
     font-size: 12px;
-  }
-  span {
+    }
+    span {
     height: 20px;
     width: 20px;
-  }
-  .card-head, .card-body, .card-f {
+    }
+    .card-head, .card-body, .card-f {
     padding-left: 10px;
     padding-right: 10px;
-  }
-  .card-f2 p {
+    }
+    .card-f2 p {
     font-size: 12px;
-  }
-
-  .card-h2 :global(svg){
+    }
+    .card-h2 :global(svg){
     margin: 0;
     padding: 0;
-  }
+    }
+    .img {
+    background-color: #414759;
+    height: 100px;
+    width:50%;
+    margin: 2px;
+    }
+    .card-img {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 </style>
