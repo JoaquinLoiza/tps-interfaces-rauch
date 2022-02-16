@@ -105,10 +105,10 @@
     background-color: white;
     box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
-    margin-top: 10px;
+    padding-top: 5px;
   }
   .name-time {
-    margin-left: 5px;
+    border: 1px solid black;
   }
   .card-head, .card-f {
     display: flex;
@@ -141,16 +141,18 @@
     font-size: 17px;
     font-weight: 600;
     color: #414759;
-    margin-bottom: 0;
+    margin: 0;
   }
   p {
     font-size: 15px;
     font-weight: 600;
+    border:1px solid black;
   }
   div :global(svg){
     height: 18px;
     width: 18px;
     padding-right: 10px;
+    cursor: pointer;
   }
   .time {
     color:#414759;
@@ -167,5 +169,10 @@
   }
   .card-f2 p {
     font-size: 12px;
+  }
+
+  .card-h2 :global(svg){
+    margin: 0;
+    padding: 0;
   }
 </style>
