@@ -1,5 +1,6 @@
 <script>
     import ProfileImage from './ProfileImage.svelte';
+    import ButtonApp from './ButtonApp.svelte';
 </script>
 
 <div class="container">
@@ -7,8 +8,8 @@
         <ProfileImage height={120} width={120} pathImage={'../images/img_profile.jpeg'}/>
     </div>
     <div class="name">
-        <h1>Jose Perez</h1>
-        <button>Mi perfil</button>
+        <h1>José Perez</h1>
+        <ButtonApp text={'Mi perfil'} width={90}/>
     </div>
 </div>
 
@@ -35,5 +36,6 @@
     h1 {
         font-size: 20px;
         margin-top: 0;
+        margin-bottom: 16px;
     }
 </style>
