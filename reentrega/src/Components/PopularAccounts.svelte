@@ -4,10 +4,11 @@
 <div>
     <h2>Sugerencias para ti</h2>
     <div class="divAccounts">
-        <AccountPopular/>
-        <AccountPopular/>
-        <AccountPopular/>
-        <AccountPopular/>
+        <AccountPopular name={'Romina Dehesa'} job={'Estudiante'} friends={'10K amigos'} path={'../images/veterinaria.jpg'}/>
+        <AccountPopular name={'Juan Carlos Monte'} job={'Veterinario'} friends={'15K amigos'} path={'../images/images-hombre-gatito.jpg'}/>
+        <AccountPopular name={'Martin Conrrado'} job={'Medico'} friends={'20K amigos'} path={'../images/images-hombre.jpg'}/>
+        <AccountPopular name={'Joaquin Loiza'} job={'Veterinario'} friends={'40K amigos'} path={'../images/retrato-del-hombre-y-perro-veterinarios.jpg'}/>
+        
     </div>
 </div>
 

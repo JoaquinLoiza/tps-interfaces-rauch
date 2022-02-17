@@ -1,15 +1,17 @@
 <script>
     import ProfileImage from './ProfileImage.svelte';
     import ButtonApp from './ButtonApp.svelte';
+
+    export let name, job, friends, path;
 </script>
 <main>
     <div class="card">
         <div class="card-left">
-            <ProfileImage height={50} width={50} pathImage={'../images/img_profile.jpeg'}/>
-            <div>
-                    <p>Nombre</p>
-                    <p>Porfesiom</p>
-                    <p>Numero de seguidores</p>
+            <ProfileImage height={50} width={50} pathImage={path}/>
+            <div class="info">
+                    <p class="name">{name}</p>
+                    <p class="job">{job}</p>
+                    <p class="friends">{friends}</p>
             </div>
         </div>
         <div class="card-right">
@@ -37,4 +39,20 @@
         margin:2px;
         font-size: 12px;
     }
+    .name{
+        font-size: 14px;
+        font-weight: 600;
+        color: #212529;
+    }
+    .job, .friends {
+        font-size: 12px;
+        color: hsl(210, 11%, 15%);
+    }
+    .friends {
+        font-weight: 600;
+    }
+    .info {
+        padding-left: 5px;
+    }
+
 </style>
