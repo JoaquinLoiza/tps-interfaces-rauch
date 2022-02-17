@@ -9,6 +9,7 @@
     </div>
     <div class="name">
         <h1>José Perez</h1>
+        <p>@joseperezok</p>
         <ButtonApp text={'Mi perfil'} width={90}/>
     </div>
 </div>
@@ -34,7 +35,12 @@
 
     h1 {
         font-size: 20px;
-        margin-top: 0;
-        margin-bottom: 16px;
+        margin: 0;
+    }
+
+    p {
+        margin-top: 2px;
+        margin-bottom: 8px;
+        font-size: 15px;
     }
 </style>
