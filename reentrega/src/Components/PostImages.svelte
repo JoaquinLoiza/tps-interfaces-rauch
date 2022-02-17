@@ -99,11 +99,12 @@
           </div>
       
           <div class="card-f2">
-            <p on:click={showComments}>3 Comentarios</p>
+            <p class="comment" on:click={showComments}>2 Comentarios</p>
           </div>
         </div>
         {#if state.comments}
-          <Comment/>
+        <Comment name={'Milagros Perez'} time={'Hace 2 dias'} text={'Muy bueno!'} path={'../images/images-hombre-gatito.jpg'}/>
+        <Comment name={'Juana Acosta'} time={'Hace 12 hora'} text={'Muy bueno!'} path={'../images/veterinaria.jpg'}/>
         {/if}
       </div>
 </main>
@@ -133,7 +134,6 @@
     justify-content: end;
     }
     .card-h2 div{
-    font-size: 12px;
     color: #AAAAAA;
     }
     .photo-post {
@@ -146,14 +146,8 @@
     background-image: url('https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias-1200x900.jpg');
     }
     h1 {
-    font-size: 17px;
-    font-weight: 600;
     color: #414759;
     margin: 0;
-    }
-    p {
-    font-size: 15px;
-    font-weight: 600;
     }
     div :global(svg){
     height: 18px;
@@ -163,7 +157,6 @@
     }
     .time {
     color:#414759;
-    font-size: 12px;
     }
     span {
     height: 20px;
@@ -172,9 +165,6 @@
     .card-head, .card-body, .card-f {
     padding-left: 10px;
     padding-right: 10px;
-    }
-    .card-f2 p {
-    font-size: 12px;
     }
     .card-h2 :global(svg){
     margin: 0;
@@ -187,8 +177,17 @@
     margin: 2px;
     }
     .card-img {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .name-time{
+    margin-left: 3px;
+    }
+    p, h1, .time{
+    font-size: 14px;
+    }
+    .comment {
+      font-weight: 400;
     }
 </style>

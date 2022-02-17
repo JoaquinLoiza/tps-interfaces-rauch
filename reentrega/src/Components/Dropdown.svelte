@@ -3,8 +3,9 @@
 </script>
 
 <div>
+    <li>Guardar publicacion</li>
     <li>Ocultar publicacion</li>
-    <li>Denuncicar publicacion</li>
+    <li>Denunciar publicacion</li>
 </div>
 
 <style>
@@ -12,6 +13,7 @@
         font-size: 12px;
         list-style: none;
         padding: 5px;
+        color: black;
     }
 
     div {
