@@ -1,9 +1,13 @@
 <script>
-    
+    import AccountPopular from './AccountPopular.svelte';
 </script>
 <div>
     <h2>Sugerencias para ti</h2>
     <div class="divAccounts">
+        <AccountPopular/>
+        <AccountPopular/>
+        <AccountPopular/>
+        <AccountPopular/>
     </div>
 </div>
 
