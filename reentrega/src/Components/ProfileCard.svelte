@@ -25,7 +25,6 @@
         border-radius: 10px;
         background-color: white;
         box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
-        margin-top: 30px;
     }
 
     .image {

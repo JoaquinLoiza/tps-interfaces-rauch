@@ -33,6 +33,7 @@
 	}
 	.homepage-left {
 		width: 25%;
+		padding-top: 20px;
 	}
 	.homepage-center {
 		width: 50%;
@@ -41,6 +42,5 @@
 	.homepage-right {
 		width: 25%;
 		padding-top: 20px;
-		padding-right: 20px;
 	}
 </style>
