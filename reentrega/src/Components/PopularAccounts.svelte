@@ -1,11 +1,10 @@
 <script>
-    import Dropdown from './Dropdown.svelte';
+    
 </script>
 <div>
     <h2>Sugerencias para ti</h2>
     <div class="divAccounts">
     </div>
-    <Dropdown/>
 </div>
 
 <style>

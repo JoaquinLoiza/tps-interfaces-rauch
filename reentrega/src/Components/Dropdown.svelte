@@ -18,6 +18,5 @@
         border: 1px solid rgb(136, 135, 135);
         border-radius: 10px;
         background-color: white;
-        width: 50%;
     }
 </style>

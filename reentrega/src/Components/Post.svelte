@@ -9,11 +9,12 @@
     ThreeDotsVertical
   } from "svelte-bootstrap-icons";
   import Comment from './Comment.svelte';
+  import Dropdown from './Dropdown.svelte';
 	export let name;
   export let text;
   export let countLikes = 12;
 
-  let state = { liked: false, dislike:false, comments:false};
+  let state = { liked: false, dislike:false, comments:false, dropdown:false};
   
   function giveLike(){
     if(state.liked == false) {
@@ -44,6 +45,15 @@
     }
   }
 
+  function showDropdown(){
+    if(state.dropdown == false){
+      state.dropdown = true;
+    }
+    else {
+      state.dropdown = false;
+    }
+  }
+
 </script>
 
 <main>
@@ -57,7 +67,13 @@
             </div>
           </div>
           <div class="card-h2">
-            <div><ThreeDotsVertical/></div>
+            <div on:click={showDropdown}><ThreeDotsVertical/>
+              {#if state.dropdown}
+              <div class="dropdown">
+                <Dropdown/>
+              </div>
+              {/if}
+            </div>
           </div>
         </div>
         <!--Cuerpo del post-->
@@ -172,5 +188,8 @@
   .card-h2 :global(svg){
     margin: 0;
     padding: 0;
+  }
+  .dropdown {
+    position: fixed;
   }
 </style>
