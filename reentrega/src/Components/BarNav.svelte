@@ -22,12 +22,12 @@
 <main>
     <nav>
 
-        <Link to="/"><HouseDoor/></Link>
+        <Link to="/home"><HouseDoor/></Link>
         <Envelope/>
         <Bell/>
-        <a on:click={show} href="#">
+        <i on:click={show}>
             <CaretDown/>
-        </a>
+        </i>
     </nav>
 
     {#if dropdown}
