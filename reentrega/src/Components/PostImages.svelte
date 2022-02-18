@@ -72,7 +72,9 @@
         </div>
         <div class="card-img">
             <div class="img" on:click={showImg}></div>
-            <div class="img" on:click={showImg}></div>
+            <div class="galery" on:click={showImg}>
+              <div><p>5+</p></div>
+            </div>
         </div>
         <!--Footer del post-->
         <div class="card-f">
@@ -81,21 +83,19 @@
               <span>{countLikes}</span>
             </div>
             {#if !state.liked}
-            <div on:click={giveLike}>
-              <HandThumbsUp/>
-            </div>
+              <HandThumbsUp on:click={giveLike}/>
             {:else}
-            <div on:click={giveLike}><HandThumbsUpFill/></div>
+              <HandThumbsUpFill on:click={giveLike}/>
             {/if}
 
             {#if !state.dislike}
-            <div on:click={giveDisLike}><HandThumbsDown/></div>
+              <HandThumbsDown on:click={giveDisLike}/>
             {:else}
-            <div on:click={giveDisLike}><HandThumbsDownFill/></div>
+              <HandThumbsDownFill on:click={giveDisLike}/>
             {/if}
 
-            <div><ChatSquareText/></div>
-            <div><Share/></div>
+            <ChatSquareText/>
+            <Share/>
           </div>
       
           <div class="card-f2">
@@ -117,7 +117,7 @@
     background-color: white;
     box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
-    padding-top: 5px;
+    padding-top: 16px;
     }
     .card-head, .card-f {
     display: flex;
@@ -171,15 +171,46 @@
     padding: 0;
     }
     .img {
-    background-color: #414759;
+    background-image: url('../images/veterinaria.jpg');
+    background-position: center;
+    background-size: contain;
     height: 100px;
     width:50%;
     margin: 2px;
+    }
+    .galery {
+      background-image: url('../images/images-hombre-gatito.jpg');
+      background-size: cover;
+      height: 100px;
+      width:50%;
+      margin: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .galery div{
+      background-color: #4147596e;
+      height: 100px;
+      width:100%;
+      margin: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+    .galery p{
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+      text-shadow: 1px 1px 1px rgb(0, 0, 0);
     }
     .card-img {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
     }
     .name-time{
     margin-left: 3px;

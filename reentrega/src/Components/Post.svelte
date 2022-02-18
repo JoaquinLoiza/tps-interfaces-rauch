@@ -89,21 +89,19 @@
               <span>{countLikes}</span>
             </div>
             {#if !state.liked}
-            <div on:click={giveLike}>
-              <HandThumbsUp/>
-            </div>
+              <HandThumbsUp on:click={giveLike}/>
             {:else}
-            <div on:click={giveLike}><HandThumbsUpFill/></div>
+              <HandThumbsUpFill on:click={giveLike}/>
             {/if}
 
             {#if !state.dislike}
-            <div on:click={giveDisLike}><HandThumbsDown/></div>
+              <HandThumbsDown on:click={giveDisLike}/>
             {:else}
-            <div on:click={giveDisLike}><HandThumbsDownFill/></div>
+              <HandThumbsDownFill on:click={giveDisLike}/>
             {/if}
 
-            <div><ChatSquareText/></div>
-            <div><Share/></div>
+            <ChatSquareText/>
+            <Share/>
           </div>
       
           <div class="card-f2">
@@ -126,7 +124,7 @@
     background-color: white;
     box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
-    padding-top: 5px;
+    padding-top: 16px;
   }
   .name-time{
     margin-left: 3px;
