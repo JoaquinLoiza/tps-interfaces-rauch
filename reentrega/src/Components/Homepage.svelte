@@ -3,12 +3,23 @@
 	import PostImages from './PostImages.svelte';
 	import ProfileCard from './ProfileCard.svelte';
 	import PopularAccounts from './PopularAccounts.svelte';
+	import ButtonApp from './ButtonApp.svelte';
+	import NewPost from './NewPost.svelte';
+
+	function createPost(){
+		let d = document.querySelector('.createPost');
+    	d.style.visibility = 'visible';
+	}
 </script>
 
 <main>
-    <div class="homepage">
+	<div class="createPost">
+		<NewPost/>
+	</div>
+    <div class="homepage" id="home">
 		<div class="homepage-left">
 			<ProfileCard/>
+			<div on:click={createPost}><ButtonApp text={'Postear'} width={150} size={20}/></div>
 		</div>
 		<div class="homepage-center">
 			<Post name={'Juan Lopez'} text={'Los médicos veterinarios no sólo se forman para atender a pequeños y grandes animales sino que además lo hacen en un área que cada vez adquiere mayor relevancia y visibilidad en la población a nivel nacional e internacional.'}/>
@@ -43,4 +54,16 @@
 		width: 25%;
 		padding-top: 20px;
 	}
+	.createPost {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      visibility: hidden;
+      background-color: #41475944;
+	  padding: 0;
+	  margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 </style>

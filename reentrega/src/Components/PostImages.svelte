@@ -6,6 +6,7 @@
     HandThumbsUpFill,
     HandThumbsDownFill,
     Share,
+    XLg,
     ThreeDotsVertical
   } from "svelte-bootstrap-icons";
   import Comment from './Comment.svelte';
@@ -45,13 +46,21 @@
   }
 
   function showImg(){
-      alert('holaa');
+    let d = document.querySelector('.popup');
+    d.style.visibility = 'visible';
   }
 
+  function xImages(){
+    let d = document.querySelector('.popup');
+    d.style.visibility = 'hidden';
+  }
 </script>
 
 <main>
     <div class="post">
+        <div class="popup">
+          <div on:click={xImages}><XLg/></div>
+        </div>
         <div class="card-head">
           <div class="card-h1">
             <div class="photo-post"></div>
@@ -189,7 +198,7 @@
       align-items: center;
     }
     .galery div{
-      background-color: #4147596e;
+      background-color: #414759bb;
       height: 100px;
       width:100%;
       margin: 2px;
@@ -200,10 +209,10 @@
       margin: 0;
     }
     .galery p{
-      font-size: 24px;
-      font-weight: 800;
-      color: white;
-      text-shadow: 1px 1px 1px rgb(0, 0, 0);
+      font-size: 40px;
+      font-weight: 900;
+      color:#f0efef;
+      /*text-shadow: 1px 1px 1px white;*/
     }
     .card-img {
       display: flex;
@@ -220,5 +229,28 @@
     }
     .comment {
       font-weight: 400;
+    }
+    .popup {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      left: 0;
+      top: 0;
+      visibility: hidden;
+      background-color: #41475944;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup div {
+      height: 500px;
+      width: 500px;
+      background-image: url('../images/images-hombre-gatito.jpg');
+      background-size: cover;
+      border: 1px solid #737c97;
+      display: flex;
+      justify-content: end;
     }
 </style>
