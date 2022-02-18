@@ -1,17 +1,15 @@
 <script>
-	import Header from './Components/Header.svelte';
-	import Homepage from './Components/Homepage.svelte';
+	import {Router, Route} from 'svelte-routing';
+	import Homepage from './Views/Homepage.svelte';
+	import Login from './Views/Login.svelte';
 </script>
 
 <main>
-	<div>
-		<div>
-			<Header/>
-		</div>
-		<div>
-			<Homepage/>
-		</div>
-	</div>
+	<Router>
+		<Route path="/" component={Login} />
+		<Route path="/home" component={Homepage} />
+		<!--Route path="/chat" component={} /-->
+	</Router>
 </main>
 
 <style>

@@ -1,4 +1,5 @@
 <script>
+    import {Link, link} from 'svelte-routing';
     import {
         HouseDoor,
         Envelope,
@@ -19,20 +20,16 @@
 </script>
 
 <main>
-    <div>
-        <a href="#" class="home">
-            <HouseDoor/>
-        </a>
-        <a href="#">
-            <Envelope/>
-        </a>
-        <a href="#">
-            <Bell/>
-        </a>
+    <nav>
+
+        <Link to="/"><HouseDoor/></Link>
+        <Envelope/>
+        <Bell/>
         <a on:click={show} href="#">
             <CaretDown/>
         </a>
-    </div>
+    </nav>
+
     {#if dropdown}
       <ul class="dropdown">
         <li>Mi Perfil</li>
@@ -47,7 +44,7 @@
         width: 164px;
     }
     
-    div {
+    nav {
         margin-top: 3px;
         width: 130px;
         height: 30px;
@@ -55,18 +52,20 @@
         justify-content: space-between;
     }
 
-    a :global(svg) {
+    nav :global(svg) {
         width: 1.25rem;
         height: 1.25rem;
         color: #F1F1F1;
     }
 
-    /** Agrega borde al icono de home*/
+    /** Agrega borde al icono de home
     .home :global(svg) {
         padding-bottom: 4px;
         border-bottom: 2px solid;
         border-color: #F1F1F1;
     }
+    */
+
     li {
         font-size: 12px;
         color: black;

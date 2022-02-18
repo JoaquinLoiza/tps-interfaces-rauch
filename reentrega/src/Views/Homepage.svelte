@@ -1,10 +1,11 @@
 <script>
-	import Post from './Post.svelte';
-	import PostImages from './PostImages.svelte';
-	import ProfileCard from './ProfileCard.svelte';
-	import PopularAccounts from './PopularAccounts.svelte';
-	import ButtonApp from './ButtonApp.svelte';
-	import NewPost from './NewPost.svelte';
+	import Post from '../Components/Post.svelte';
+	import PostImages from '../Components/PostImages.svelte';
+	import ProfileCard from '../Components/ProfileCard.svelte';
+	import PopularAccounts from '../Components/PopularAccounts.svelte';
+	import ButtonApp from '../Components/ButtonApp.svelte';
+	import NewPost from '../Components/NewPost.svelte';
+	import Header from '../Components/Header.svelte';
 
 	function createPost(){
 		let d = document.querySelector('.createPost');
@@ -12,6 +13,7 @@
 	}
 </script>
 
+<Header/>
 <main>
 	<div class="createPost">
 		<NewPost/>
