@@ -5,6 +5,7 @@
 	import ButtonApp from '../Components/ButtonApp.svelte';
 	import NewPost from '../Components/NewPost.svelte';
 	import Header from '../Components/Header.svelte';
+	import AdvertisingCard from '../Components/AdvertisingCard.svelte';
 
 	function createPost(){
 		let d = document.querySelector('.createPost');
@@ -20,7 +21,13 @@
     <div class="homepage" id="home">
 		<div class="homepage-left">
 			<ProfileCard/>
-			<div on:click={createPost}><ButtonApp text={'Postear'} width={150} size={20}/></div>
+			<div class="buttonPost" on:click={createPost}>
+				<ButtonApp text={'CREAR POST'} width={150} size={16}/>
+			</div>
+			<div class="separator"></div>
+			<p class="advertising">Publicidad</p>
+			<AdvertisingCard title={'Nutribon'} site={'nutribon.com.ar'} urlImage={'../images/publi1.png'}/>
+			<AdvertisingCard title={'Vital Veterinaria'} site={'vitalveterinaria.com'} urlImage={'../images/publi2.png'}/>
 		</div>
 		<div class="homepage-center">
 			<Post i={1} name={'Juan Lopez'} text={'Los médicos veterinarios no sólo se forman para atender a pequeños y grandes animales sino que además lo hacen en un área que cada vez adquiere mayor relevancia y visibilidad en la población a nivel nacional e internacional.'}/>
@@ -61,11 +68,29 @@
       height: 100%;
       width: 100%;
       visibility: hidden;
-      background-color: #41475944;
+	  backdrop-filter: blur(3px);
+      background-color: #31354244;
 	  padding: 0;
 	  margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
+	.buttonPost {
+		display: flex;
+		justify-content: center;
+		margin: 20px 0 20px 0;
+	}
+
+	.separator {
+		border-bottom: 1px solid #414759;
+	}
+
+	.advertising {
+		margin: 20px 0 8px 0;
+		color:#414759;
+		font-weight: 600;
+	}
+
 </style>
