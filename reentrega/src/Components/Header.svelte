@@ -1,12 +1,16 @@
 <script>
     import InputSearch from './InputSearch.svelte';
     import BarNav from './BarNav.svelte';
+
+    function home(){
+        window.location.href = "http://localhost:8080/home";
+    }
 </script>
 
 <main>
     <header>
         <div>
-            <img src="images/Logo_nav.svg" alt="logo vetunity">
+            <img src="images/Logo_nav.svg" alt="logo vetunity" on:click={home}>
             <InputSearch/>
             <BarNav/>
         </div>

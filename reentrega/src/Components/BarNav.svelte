@@ -17,6 +17,10 @@
             dropdown = false;
         }
     }
+
+    function login(){
+        window.location.href = "http://localhost:8080/";
+    }
 </script>
 
 <main>
@@ -24,16 +28,16 @@
         <Link to="/home"><HouseDoor/></Link>
         <Envelope/>
         <Bell/>
-        <i on:click={show}>
+        <div on:click={show}>
             <CaretDown/>
             {#if dropdown}
             <ul class="dropdown">
                 <li>Mi Perfil</li>
                 <li>Configuracion</li>
-                <li>Cerrar sesion</li>
+                <li on:click={login}>Cerrar sesion</li>
             </ul>
              {/if}
-        </i>
+        </div>
     </nav>
 </main>
 
@@ -62,8 +66,7 @@
     ul {
         padding: 0;
         position: absolute;
-        top:15px;
-        right: 30px;
+        margin: 0;
     }
     .dropdown {
         border: 1px solid rgb(136, 135, 135);
