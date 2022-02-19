@@ -3,8 +3,17 @@
 </script>
 
 <div>
+    {#if type == 1}
     <label for="">{label}</label> <br>
-    <input type={type}>
+    <select name="genero">
+        <option>Mujer</option>
+        <option>Hombre</option>
+        <option>Otro</option>
+    </select>
+    {:else}
+    <label for="">{label}</label> <br>
+    <input class="input" type={type}>
+    {/if}
 </div>
 
 <style>
@@ -15,9 +24,15 @@
         font-size: 16px;
         color: #F1F1F1;
     }
-    input {
-        font-size: inherit;
-        line-height: inherit;
+    .input {
+        padding: 0;
+        width: 100%;
+        height: 22px;
+        border-radius: 10px;
+        border: #414759;
+    }
+    select {
+        padding: 0;
         width: 100%;
         height: 22px;
         border-radius: 10px;
