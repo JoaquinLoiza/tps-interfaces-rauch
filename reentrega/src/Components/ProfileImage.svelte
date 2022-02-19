@@ -9,6 +9,8 @@
 <style>
     div{
         background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
         border-radius: 50%;
         border: 1px solid;
         border-color: #414759;
