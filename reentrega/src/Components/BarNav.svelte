@@ -21,29 +21,26 @@
 
 <main>
     <nav>
-
         <Link to="/home"><HouseDoor/></Link>
         <Envelope/>
         <Bell/>
         <i on:click={show}>
             <CaretDown/>
+            {#if dropdown}
+            <ul class="dropdown">
+                <li>Mi Perfil</li>
+                <li>Configuracion</li>
+                <li>Cerrar sesion</li>
+            </ul>
+             {/if}
         </i>
     </nav>
-
-    {#if dropdown}
-      <ul class="dropdown">
-        <li>Mi Perfil</li>
-        <li>Configuracion</li>
-        <li>Cerrar sesion</li>
-      </ul>
-    {/if}
 </main>
 
 <style>
     main {
         width: 164px;
     }
-    
     nav {
         margin-top: 3px;
         width: 130px;
@@ -51,21 +48,11 @@
         display: flex;
         justify-content: space-between;
     }
-
     nav :global(svg) {
         width: 1.25rem;
         height: 1.25rem;
         color: #F1F1F1;
     }
-
-    /** Agrega borde al icono de home
-    .home :global(svg) {
-        padding-bottom: 4px;
-        border-bottom: 2px solid;
-        border-color: #F1F1F1;
-    }
-    */
-
     li {
         font-size: 12px;
         color: black;
