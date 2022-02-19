@@ -1,5 +1,5 @@
 <script>
-    export let label, type;
+    export let label, type, id;
 </script>
 
 <div>
@@ -12,7 +12,7 @@
     </select>
     {:else}
     <label for="">{label}</label> <br>
-    <input class="input" type={type}>
+    <input id={id} class="input" type={type}>
     {/if}
 </div>
 

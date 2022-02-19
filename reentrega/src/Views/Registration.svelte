@@ -7,6 +7,7 @@
 
  let state = { r: false, c:false};
 
+
   function nextReg(){
       if(state.r == false){
         state.r = true; 
@@ -14,6 +15,7 @@
         state.r = false; 
       }
   }
+
   function prevReg(){
       if(state.r == false){
         state.r = true; 
@@ -21,9 +23,11 @@
         state.r = false; 
       }
   }
+
   function reloadLogin(){
     window.location.href = "http://localhost:8080/";
   }
+
   function confirmation(){
     if(state.c == false){
         state.c = true; 
@@ -34,6 +38,7 @@
         window.location.href = "http://localhost:8080/home";
     }, 3000);
   }
+
 </script>
 
 <main>
