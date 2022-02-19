@@ -31,7 +31,7 @@
         state.c = false;
     }
     setTimeout(() => {
-        window.location.href = "http://localhost:8080/";
+        window.location.href = "http://localhost:8080/home";
     }, 3000);
   }
 </script>
@@ -47,7 +47,7 @@
             <InputRegistration label={'Nombre'} type={'text'}/>
             <InputRegistration label={'Apellido'} type={'text'}/>
             <InputRegistration label={'Fecha de Nacimiento'} type={'date'}/>
-            <InputRegistration label={'Genero'} type={'text'}/>
+            <InputRegistration label={'Genero'} type={1}/>
 
             <div class="buttons">
                 <div class="arrow" on:click={reloadLogin}>
@@ -112,6 +112,9 @@ main {
 }
 .form {
     border-left: 1px solid #f1f1f186;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 img {
     height: 300px;
