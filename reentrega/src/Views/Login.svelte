@@ -2,6 +2,10 @@
     import InputRegistration from "../Components/InputRegistration.svelte";
     import ButtonApp from "../Components/ButtonApp.svelte";
     import {Link, link} from 'svelte-routing';
+
+    function reload(){
+        window.location.href = "http://localhost:8080/home";
+    }
 </script>
 
 <main>
@@ -15,8 +19,8 @@
             <InputRegistration label={'Contraseña'} type={'text'}/>
             <div class="buttons">
                 <div>
-                    <div class="btn">
-                        <ButtonApp text={'Aceptar'} width={80} size={14}/>
+                    <div class="btn" on:click={reload}>
+                        <ButtonApp text={'Aceptar'} width={80} size={14} />
                     </div>
                 </div>
             </div>
@@ -79,6 +83,7 @@ h3 {
     font-size: 14px;
     font-weight: 400;
     color: #F1F1F1;
+    text-decoration: none;
 }
 h3 inline{
     text-decoration: none;

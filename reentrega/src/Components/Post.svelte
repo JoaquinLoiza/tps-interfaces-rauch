@@ -6,13 +6,18 @@
     HandThumbsUpFill,
     HandThumbsDownFill,
     Share,
-    ThreeDotsVertical
+    ThreeDotsVertical,
+    XLg
   } from "svelte-bootstrap-icons";
+
   import Comment from './Comment.svelte';
   import Dropdown from './Dropdown.svelte';
+  import ProfileImage from "./ProfileImage.svelte";
+
 	export let name;
   export let text;
   export let countLikes = 12;
+  export let i;
 
   let state = { liked: false, dislike:false, comments:false, dropdown:false};
   
@@ -54,13 +59,26 @@
     }
   }
 
+  function showImg(){
+    let d = document.querySelector('.popup');
+    d.style.visibility = 'visible';
+  }
+
+  function xImages(){
+    let d = document.querySelector('.popup');
+    d.style.visibility = 'hidden';
+  }
+
 </script>
 
 <main>
     <div class="post">
+        <div class="popup">
+          <div on:click={xImages}><XLg/></div>
+        </div>
         <div class="card-head">
           <div class="card-h1">
-            <div class="photo-post"></div>
+            <ProfileImage width={35} height={35} pathImage={'../images/images-hombre.jpg'}/>
             <div class="name-time">
               <div><h1>{name}</h1></div>
               <div class="time">14 de Febrero del 2022 a las 15:30hs.</div>
@@ -82,6 +100,14 @@
             {text}
           </p>
         </div>
+        {#if i == 1}
+          <div class="card-img">
+            <div class="img" on:click={showImg}></div>
+            <div class="galery" on:click={showImg}>
+              <div><p>5+</p></div>
+            </div>
+          </div>
+        {/if}
         <!--Footer del post-->
         <div class="card-f">
           <div class="card-f1">
@@ -146,15 +172,6 @@
   .card-h2 div{
     color: #AAAAAA;
   }
-  .photo-post {
-    height: 35px;
-    width: 35px;
-    background-color: white;
-    border: 1px solid;
-    border-color: #414759;
-    border-radius: 50%;
-    background-image: url('https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias-1200x900.jpg');
-  }
   h1 {
     color: #414759;
     margin: 0;
@@ -180,6 +197,51 @@
     margin: 0;
     padding: 0;
   }
+  .img {
+    background-image: url('../images/veterinaria.jpg');
+    background-position: center;
+    background-size: contain;
+    height: 100px;
+    width:50%;
+    margin: 2px;
+    }
+    .galery {
+      background-image: url('../images/images-hombre-gatito.jpg');
+      background-size: cover;
+      height: 100px;
+      width:50%;
+      margin: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .galery div{
+      background-color: #414759bb;
+      height: 100px;
+      width:100%;
+      margin: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+    .galery p{
+      font-size: 40px;
+      font-weight: 900;
+      color:#f0efef;
+      /*text-shadow: 1px 1px 1px white;*/
+    }
+    .card-img {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .name-time{
+    margin-left: 3px;
+    }
   .dropdown {
   position: absolute;
   }
@@ -192,4 +254,27 @@
   .comment:hover {
     cursor: pointer;
   }
+  .popup {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      left: 0;
+      top: 0;
+      visibility: hidden;
+      background-color: #41475944;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup div {
+      height: 500px;
+      width: 500px;
+      background-image: url('../images/images-hombre-gatito.jpg');
+      background-size: cover;
+      border: 1px solid #737c97;
+      display: flex;
+      justify-content: end;
+    }
 </style>
