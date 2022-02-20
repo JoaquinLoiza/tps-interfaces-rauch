@@ -60,7 +60,7 @@
                     <p>Volver</p>
                 </div>
                 <div on:click={nextReg}>
-                    <ButtonApp text={'Siguiente'} width={70} size={14}/>
+                    <ButtonApp text={'Siguiente'} width={70} size={14} color={'A4CC79'}/>
                 </div>
             </div>
         </div>
@@ -69,15 +69,15 @@
             {#if !state.c}
             <h1>Ya casi...</h1>
             <InputRegistration label={'Email'} type={'text'}/>
-            <InputRegistration label={'Contraseña'} type={'text'}/>
-            <InputRegistration label={'Repetir contraseña'} type={'text'}/>
+            <InputRegistration label={'Contraseña'} type={'password'}/>
+            <InputRegistration label={'Repetir contraseña'} type={'password'}/>
             <div class="buttons">
                 <div class="arrow" on:click={prevReg}>
                     <ArrowLeftCircle/>
                     <p>Volver</p>
                 </div>
                 <div on:click={confirmation}>
-                    <ButtonApp text={'Confirmar'} width={70} size={14}/>
+                    <ButtonApp text={'Confirmar'} width={70} size={14} color={'A4CC79'}/>
                 </div>
             </div>
             {:else}

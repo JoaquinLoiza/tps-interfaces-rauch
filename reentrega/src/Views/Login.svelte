@@ -16,11 +16,11 @@
         <div class="l">
             <h1>Iniciar Sesion</h1>
             <InputRegistration label={'Nombre'} type={'text'}/>
-            <InputRegistration label={'Contraseña'} type={'text'}/>
+            <InputRegistration label={'Contraseña'} type={'password'}/>
             <div class="buttons">
                 <div>
                     <div class="btn" on:click={reload}>
-                        <ButtonApp text={'Aceptar'} width={80} size={14} />
+                        <ButtonApp text={'Aceptar'} width={80} size={14} color={'A4CC79'}/>
                     </div>
                 </div>
             </div>

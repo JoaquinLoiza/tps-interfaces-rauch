@@ -12,7 +12,7 @@
         <textarea placeholder="¿Qué estás pensando?"></textarea>
     </div>
     <div class="post-c">
-        <ButtonApp text={'Postear'} width={120} size={15}/>
+        <ButtonApp text={'Postear'} width={120} size={15} color={'A4CC79'}/>
     </div>
 </div>
 
