@@ -5,8 +5,9 @@
         ArrowLeftCircle
   } from "svelte-bootstrap-icons";
 
- let state = { r: false, c:false};
-
+let state = { r: false, c:false};
+let passwords = false;
+let p = false;
 
   function nextReg(){
       if(state.r == false){
@@ -39,6 +40,21 @@
     }, 3000);
   }
 
+    const changePassword = () => {
+		let x = document.getElementById("input1").value;
+        let y = document.getElementById("input2").value;
+
+        if(x != '' && y != ''){
+            p = true;
+            if(x == y){
+                passwords = true;
+            }
+            else {
+                passwords = false;
+            }
+        }
+    }
+
 </script>
 
 <main>
@@ -69,8 +85,19 @@
             {#if !state.c}
             <h1>Ya casi...</h1>
             <InputRegistration label={'Email'} type={'text'}/>
-            <InputRegistration label={'Contraseña'} type={'password'}/>
-            <InputRegistration label={'Repetir contraseña'} type={'password'}/>
+            <InputRegistration label={'Contraseña'} type={'password'} id={'input1'}/>
+            <InputRegistration label={'Repetir contraseña'} type={'password'} id={'input2'} {changePassword}/>
+            {#if p}
+                {#if passwords}
+                <div class="passwordYes">
+                    Las contraseñas coinciden!
+                </div>
+                {:else}
+                <div class="passwordNo">
+                    Las contraseñas no coinciden!
+                </div>
+                {/if}
+            {/if}
             <div class="buttons">
                 <div class="arrow" on:click={prevReg}>
                     <ArrowLeftCircle/>
@@ -169,5 +196,25 @@ h1 {
     100%{
         width: 100%;
     }
+}
+
+.passwordYes, .passwordNo {
+    font-size: 14px;
+    background-color: #ffffffc9;
+    font-weight: 400;
+    padding: 3px;
+    width: auto;
+    height: auto;
+    margin-top: 12px;
+    border-radius: 20px;
+    text-align: center;
+}
+.passwordYes{
+    color: #133107;
+    border: 1px solid #133107;
+}
+.passwordNo{
+    color: #ba0707;
+    border: 1px solid #ba0707;
 }
 </style>
