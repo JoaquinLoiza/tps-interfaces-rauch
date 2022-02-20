@@ -3,6 +3,17 @@
     import ButtonApp from './ButtonApp.svelte';
 
     export let name, job, friends, path;
+
+    let follow = false;
+
+    function followAc(){
+        if(follow == false){
+            follow= true;
+        }
+        else {
+            follow=false;
+        }
+    }
 </script>
 <main>
     <div class="card">
@@ -14,9 +25,15 @@
                     <p class="friends">{friends}</p>
             </div>
         </div>
-        <div class="card-right">
-           <ButtonApp text={'Seguir'} width={50} size={12}/>
+        {#if !follow}
+        <div class="card-right" on:click={followAc}>
+           <ButtonApp text={'Seguir'} width={60} size={12} color={'A4CC79'}/>
         </div>
+        {:else}
+        <div class="card-right" on:click={followAc}>
+            <ButtonApp text={'Siguiendo'} width={60} size={12} color={'F1F1F1'}/>
+         </div>
+        {/if}
     </div>
 </main>
 <style>

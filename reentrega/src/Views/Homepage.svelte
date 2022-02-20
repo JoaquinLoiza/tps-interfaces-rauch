@@ -23,7 +23,7 @@
 		<div class="homepage-left">
 			<ProfileCard/>
 			<div class="buttonPost" on:click={createPost}>
-				<ButtonApp text={'CREAR POST'} width={150} size={16}/>
+				<ButtonApp text={'CREAR POST'} width={150} size={16} color={'A4CC79'}/>
 			</div>
 			<div class="separator"></div>
 			<p class="advertising">Publicidad</p>
