@@ -9,15 +9,16 @@
 
 	function createPost(){
 		let d = document.querySelector('.createPost');
-    	d.style.visibility = 'visible';
+    	d.classList.toggle("hideNewPost");;
 	}
+
 </script>
 
+<div class="createPost hideNewPost">
+	<NewPost toogleNewPost={createPost}/>
+</div>
 <Header/>
 <main>
-	<div class="createPost">
-		<NewPost/>
-	</div>
     <div class="homepage" id="home">
 		<div class="homepage-left">
 			<ProfileCard/>
@@ -65,6 +66,7 @@
 
 	#style-2::-webkit-scrollbar-track {
 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 		margin: 20px 0 20px 0;
 		border-radius: 10px;
 		background-color: #F5F5F5;
@@ -78,6 +80,7 @@
 	#style-2::-webkit-scrollbar-thumb {
 		border-radius: 10px;
 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 		background-color: #54417962;
 	}
 
@@ -85,11 +88,11 @@
 		width: 25%;
 		padding-top: 20px;
 	}
+
 	.createPost {
       position: fixed;
       height: 100%;
       width: 100%;
-      visibility: hidden;
 	  backdrop-filter: blur(3px);
       background-color: #31354244;
 	  padding: 0;
@@ -98,6 +101,10 @@
       justify-content: center;
       align-items: center;
     }
+
+	.hideNewPost {
+		visibility: hidden;
+	}
 
 	.buttonPost {
 		display: flex;

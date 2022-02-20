@@ -130,10 +130,11 @@ main {
 }
 .registration {
     display: flex;
+    height: 100vh;
     justify-content: center;
+    align-items: center;
     padding: 0;
     margin: 0;
-    padding-top: 10%;
 }
 .log, .form {
     height: auto;

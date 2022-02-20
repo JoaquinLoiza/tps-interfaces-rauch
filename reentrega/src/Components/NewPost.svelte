@@ -1,23 +1,54 @@
 <script>
-    import XSquare from "svelte-bootstrap-icons/lib/XLg";
+    import { 
+        XLg,
+        Camera,
+        CameraReels,
+        GeoAlt
+    } from "svelte-bootstrap-icons/lib/";
     import ButtonApp from "./ButtonApp.svelte";
+    export let toogleNewPost;
 </script>
 
 <div class="post">
     <div class="post-a">
         <p>Compartir publicación</p>
-        <XSquare/>
+        <div class="close" on:click={toogleNewPost}>
+            <XLg/>
+        </div>
     </div>
     <div class="post-b">
         <textarea placeholder="¿Qué estás pensando?"></textarea>
     </div>
     <div class="post-c">
-        <ButtonApp text={'Postear'} width={120} size={15} color={'A4CC79'}/>
+        <div class="containerIcons">
+            <Camera/>
+            <CameraReels/>
+            <GeoAlt/>
+        </div>
+        <div on:click={toogleNewPost}>
+            <ButtonApp text={'Postear'} width={120} size={15} color={'A4CC79'}/>
+        </div>
     </div>
 </div>
 
 <style>
     p {
+        color: #414759;
+    }
+
+    .close {
+        cursor: pointer;
+    }
+
+    .containerIcons {
+        display: flex;
+        align-items: center;
+    }
+
+    .containerIcons :global(svg) {
+        margin: 0 8px 0 8px;
+        width: 20px;
+        height: 20px;
         color: #414759;
     }
 
@@ -49,7 +80,7 @@
         display:flex;
         justify-content:space-around;
         text-align: center;
-        margin: 2px 0 6px 0;
+        margin: 4px 0 8px 0;
     }
     textarea {
         min-height: 200px;
