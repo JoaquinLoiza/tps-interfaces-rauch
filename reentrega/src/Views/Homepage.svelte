@@ -9,7 +9,7 @@
 
 	function createPost(){
 		let d = document.querySelector('.createPost');
-    	d.classList.toggle("hideNewPost");;
+    	d.classList.toggle("hideNewPost");
 	}
 
 </script>
