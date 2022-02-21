@@ -3,6 +3,7 @@
 	import Homepage from './Views/Homepage.svelte';
 	import Login from './Views/Login.svelte';
 	import Registration from './Views/Registration.svelte';
+	import Messages from './Views/Messages.svelte';
 </script>
 
 <main>
@@ -10,7 +11,7 @@
 		<Route path="/" component={Login} />
 		<Route path="/registration" component={Registration} />
 		<Route path="/home" component={Homepage} />
-		<!--Route path="/chat" component={} /-->
+		<Route path="/chats" component={Messages} />
 	</Router>
 </main>
 

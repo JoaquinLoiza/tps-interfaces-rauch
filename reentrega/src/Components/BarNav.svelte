@@ -26,7 +26,8 @@
 <main>
     <nav>
         <Link to="/home"><HouseDoor/></Link>
-        <Envelope/>
+        <Link to="/chats"><Envelope/></Link>
+        
         <Bell/>
         <div on:click={show}>
             <CaretDown/>
