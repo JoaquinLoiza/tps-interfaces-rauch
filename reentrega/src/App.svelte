@@ -4,6 +4,7 @@
 	import Login from './Views/Login.svelte';
 	import Registration from './Views/Registration.svelte';
 	import AdvancedSearch from './Views/AdvancedSearch.svelte';
+	import Messages from './Views/Messages.svelte';
 </script>
 
 <main>
@@ -13,6 +14,7 @@
 		<Route path="/home" component={Homepage} />
 		<Route path="/search" component={AdvancedSearch} />
 		<!--Route path="/chat" component={} /-->
+		<Route path="/chats" component={Messages} />
 	</Router>
 </main>
 
