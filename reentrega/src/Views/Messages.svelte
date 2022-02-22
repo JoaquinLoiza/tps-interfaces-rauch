@@ -12,10 +12,12 @@
         Send,
         CameraVideo,
         Telephone,
-        XLg
+        XLg,
+        Mic
   } from "svelte-bootstrap-icons";
 
     let show = true;
+    let callvideo = false;
     const showMsj = () => {
        if(show = true){
            show=false;
@@ -27,6 +29,13 @@
 
     function noShowMsj(){
         show=true;
+    }
+
+    function showCallvideo(){
+        callvideo = true;
+    }
+    function showNoCallvideo(){
+        callvideo = false;
     }
 </script>
 
@@ -59,46 +68,64 @@
     </div>
     <div class="chat">
         {#if !show}
-        <div class="chat-username">
-            <div class="chat-photo-username">
-                <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
-                <div>
-                    <h3>Romina Dehesa</h3>
-                    <p>Conectado(a)</p>
+                {#if !callvideo}
+                <div class="chat-username">
+                    <div class="chat-photo-username">
+                        <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
+                        <div>
+                            <h3>Romina Dehesa</h3>
+                            <p>Conectado(a)</p>
+                        </div>
+                    </div>
+                    <div class="icons">
+                        <Telephone/>
+                        <CameraVideo on:click={showCallvideo}/>
+                        <XLg on:click={noShowMsj}/>
+                    </div>
+                </div>
+                <div class="chat-body" id="style-2">
+                    <MessageChat send={true} text={'Hola!'}/>
+                    <MessageChat send={true} text={'Como andas?'}/>
+                    <MessageChat send={true} text={'Necesito tu ayuda!'}/>
+                    <MessageChat send={false} text={'Hola, bien y vos?'}/>
+                    <MessageChat send={false} text={'Si, decime!'}/>
+                    <MessageChat send={true} text={'Bien, bien!'}/>
+                    <MessageChat send={true} text={'Mi perro tiene alergia, necesito que se mejore.'}/>
+                    <MessageChat send={true} text={'Que puedo hacer?'}/>
+                    <MessageChat send={false} text={'Lo mejor es que vengas a una consulta, en la veterinaria.'}/>
+                    <MessageChat send={false} text={'Si queres, te doy un turno para esta semana.'}/>
+                    <MessageChat send={true} text={'Bueno!'}/>
+                    <MessageChat send={true} text={'El martes podra ser?'}/>
+                    <MessageChat send={false} text={'Si. A las 17hs te parece?'}/>
+                    <MessageChat send={true} text={'Si, si. Genial!'}/>
+                </div>
+                <div class="chat-footer">
+                    <div class="icons">
+                        <PlusCircle/>
+                        <Images/>
+                    </div>
+                    <div class="input-chat"><input type="text" placeholder="Aa"></div>
+                    <div class="send">
+                        <Send/>
+                    </div>
+                </div>
+            {:else}
+            <div class="chat-username">
+                <div class="chat-photo-username">
+                    <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
+                    <div>
+                        <h3>Romina Dehesa</h3>
+                    </div>
+                </div>
+                <div class="icons">
+                    <XLg on:click={showNoCallvideo}/>
                 </div>
             </div>
-            <div class="icons">
-                <Telephone/>
-                <CameraVideo/>
-                <XLg on:click={noShowMsj}/>
+            <div class="callvideo">
+                <div><Mic/></div>
+                <div><CameraVideo/></div>
             </div>
-        </div>
-        <div class="chat-body" id="style-2">
-            <MessageChat send={true} text={'Hola!'}/>
-            <MessageChat send={true} text={'Como andas?'}/>
-            <MessageChat send={true} text={'Necesito tu ayuda!'}/>
-            <MessageChat send={false} text={'Hola, bien y vos?'}/>
-            <MessageChat send={false} text={'Si, decime!'}/>
-            <MessageChat send={true} text={'Bien, bien!'}/>
-            <MessageChat send={true} text={'Mi perro tiene alergia, necesito que se mejore.'}/>
-            <MessageChat send={true} text={'Que puedo hacer?'}/>
-            <MessageChat send={false} text={'Lo mejor es que vengas a una consulta, en la veterinaria.'}/>
-            <MessageChat send={false} text={'Si queres, te doy un turno para esta semana.'}/>
-            <MessageChat send={true} text={'Bueno!'}/>
-            <MessageChat send={true} text={'El martes podra ser?'}/>
-            <MessageChat send={false} text={'Si. A las 17hs te parece?'}/>
-            <MessageChat send={true} text={'Si, si. Genial!'}/>
-        </div>
-        <div class="chat-footer">
-            <div class="icons">
-                <PlusCircle/>
-                <Images/>
-            </div>
-            <div class="input-chat"><input type="text" placeholder="Aa"></div>
-            <div class="send">
-                <Send/>
-            </div>
-        </div>
+            {/if}
         {:else}
         <div class="sec-chat">
             <div>
@@ -229,6 +256,10 @@
         align-items: center;
         color: #544179;
     }
+    .chat-username .icons {
+        display: flex;
+        justify-content: end;
+    }
     .send {
         width: 10%;
     }
@@ -275,5 +306,31 @@
     .rond-send :global(svg){
         height: 30px;
         width: 30px;
+    }
+    .callvideo {
+        background-image: url('../images/callvideo.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .callvideo div {
+        height: 50px;
+        width: 50px;
+        background-color: rgba(255, 255, 255, 0.898);
+        border: 1px solid #544179;
+        border-radius: 60px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #544179;
+    }
+    .callvideo div :global(svg) {
+        height: 25px;
+        width: 25px;
     }
     </style>
