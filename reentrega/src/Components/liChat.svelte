@@ -1,15 +1,15 @@
 <script>
     import ProfileImage from "./ProfileImage.svelte";
-    export let user, text, hs;
+    export let user, text, hs, showMsj;
 </script>
 
-<div class="li-chat">
+<div class="li-chat" on:click={showMsj} id="x"> 
     <div class="chat-left">
+        <p class="circle-connect"></p>
         <div>
-            <!--p class="circle-connect"></p-->
             <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
         </div>
-        <div>
+        <div class="name">
             <div class="user-chat">
                 <p class="user">{user}</p>
             </div>
@@ -26,11 +26,11 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 5px;
 }
 .chat-left {
     display: flex;
     align-items: center;
+    padding: 5px 10px 5px 10px;
 }
 .hs, .user, .text {
     padding: 0;
@@ -56,13 +56,19 @@
     justify-content: flex-start;
     align-items: center;
 }
-/*.circle-connect {
-    position: absolute;
+.circle-connect {
+    position: relative;
     width: 10px;
     height: 10px;
     background-color: rgb(65, 202, 37);
     border: 1px solid black;
     border-radius: 50%;
-    left: 10%;
-}*/
+    margin: 0;
+    padding: 0;
+    left: 48px;
+    bottom: -15px;
+}
+.name {
+    margin-left: 5px;
+}
 </style>

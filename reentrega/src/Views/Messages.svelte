@@ -3,9 +3,31 @@
     import LiChat from '../Components/liChat.svelte';
     import ProfileImage from "../Components/ProfileImage.svelte";
     import MessageChat from '../Components/MessageChat.svelte';
+    import ButtonApp from '../Components/ButtonApp.svelte';
+
     import {
-        PencilSquare
+        PencilSquare,
+        PlusCircle,
+        Images,
+        Send,
+        CameraVideo,
+        Telephone,
+        XLg
   } from "svelte-bootstrap-icons";
+
+    let show = true;
+    const showMsj = () => {
+       if(show = true){
+           show=false;
+       }
+       else{
+           show=true;
+       }
+    }
+
+    function noShowMsj(){
+        show=true;
+    }
 </script>
 
 <Header/>
@@ -15,7 +37,7 @@
             <h3>Chats</h3><PencilSquare/>
         </div>
         <div class="list" id="style-2">
-            <LiChat user={'Romina Dehesa'} text={'Bueno!'} hs={'2hs'}/>
+            <LiChat user={'Romina Dehesa'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
             <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
             <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
             <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
@@ -36,16 +58,19 @@
         </div>
     </div>
     <div class="chat">
+        {#if !show}
         <div class="chat-username">
             <div class="chat-photo-username">
-                <ProfileImage width={50} height={50} pathImage={'../images/veterinaria.jpg'}/>
+                <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
                 <div>
                     <h3>Romina Dehesa</h3>
                     <p>Conectado(a)</p>
                 </div>
             </div>
-            <div>
-                iconos
+            <div class="icons">
+                <Telephone/>
+                <CameraVideo/>
+                <XLg on:click={noShowMsj}/>
             </div>
         </div>
         <div class="chat-body" id="style-2">
@@ -65,10 +90,24 @@
             <MessageChat send={true} text={'Si, si. Genial!'}/>
         </div>
         <div class="chat-footer">
-            <div class="icons">Iconos</div>
-            <div class="input-chat"><input type="text"></div>
-            <div class="send">Enviar</div>
+            <div class="icons">
+                <PlusCircle/>
+                <Images/>
+            </div>
+            <div class="input-chat"><input type="text" placeholder="Aa"></div>
+            <div class="send">
+                <Send/>
+            </div>
         </div>
+        {:else}
+        <div class="sec-chat">
+            <div>
+                <div class="rond-send"><Send/></div>
+                <h2>Envia un mensaje privado a un amigo o a un grupo.</h2>
+            <ButtonApp text={'Enviar Mensaje'} width={140} size={14} color={'A4CC79'}/>
+            </div>
+        </div>
+        {/if}
     </div>
 </div>
 
@@ -184,18 +223,57 @@
         width: 100%;
     }
     .icons, .send {
-        width: 15%;
+        width: 20%;
         display: flex;
         justify-content: center;
         align-items: center;
+        color: #544179;
+    }
+    .send {
+        width: 10%;
     }
     .input-chat {
-        width: 70%;
+        width: 80%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .chat-body {
         overflow-y: scroll;
+    }
+    .icons :global(svg), .send :global(svg){
+        width: 20px;
+        height: 20px;
+        margin: 10px;
+    }
+    .sec-chat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .sec-chat div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    h2 {
+        font-size: 16px;
+        color: #666666;
+    }
+    .rond-send {
+        border: 2px solid #666666;
+        border-radius: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:#666666;
+        padding: 20px;
+    }
+    .rond-send :global(svg){
+        height: 30px;
+        width: 30px;
     }
     </style>
