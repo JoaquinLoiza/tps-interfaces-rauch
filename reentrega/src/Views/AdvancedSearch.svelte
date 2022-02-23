@@ -10,16 +10,16 @@
             <ButtonOutline text={'Todo'} width={90} size={15}/>
         </div>
         <div>
-            <ButtonOutline text={'Personas'} width={90} size={15}/>
+            <ButtonOutline pressClass={'noPress'} text={'Personas'} width={90} size={15}/>
         </div>
         <div>
-            <ButtonOutline text={'Publicaciones'} width={100} size={15}/>
+            <ButtonOutline pressClass={'noPress'} text={'Publicaciones'} width={100} size={15}/>
         </div>
         <div>
-            <ButtonOutline text={'Lugares'} width={90} size={15}/>
+            <ButtonOutline pressClass={'noPress'} text={'Lugares'} width={90} size={15}/>
         </div>
         <div>
-            <ButtonOutline text={'Ocupación'} width={90} size={15}/>
+            <ButtonOutline pressClass={'noPress'} text={'Ocupación'} width={90} size={15}/>
         </div>
     </div>
 </main>

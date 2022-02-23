@@ -2,6 +2,7 @@
     export let text;
     export let width;
     export let size;
+    export let pressClass = '';
     
     function press(){
         let d = document.querySelector('.'+text);
@@ -9,20 +10,9 @@
 	}
 </script>
 
-<div class="btnOutline noPress {text}" on:click={press} style= width:{width}px;font-size:{size}px; >
+<div class="btnOutline {pressClass} {text}" on:click={press} style= width:{width}px;font-size:{size}px; >
     <span>{text}</span>
 </div>
-
-<!--{#if press}
-    <div class="btnOutline" on:click={press} style= width:{width}px;font-size:{size}px; >
-        <span>{text}</span>
-    </div>
-{:else}
-    <div class="btnOutline noPress" on:click={press} style= width:{width}px;font-size:{size}px; >
-        <span>{text}</span>
-    </div>
-{/if}
--->
 
 <style>
     .btnOutline {
