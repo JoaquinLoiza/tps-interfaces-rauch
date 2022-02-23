@@ -6,7 +6,7 @@
 <div class="li-chat" on:click={showMsj} id="x"> 
     <div class="chat-left">
         <p class="circle-connect"></p>
-        <div>
+        <div class="profile">
             <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
         </div>
         <div class="name">
@@ -26,11 +26,12 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    padding: 5px 10px 5px 10px;
 }
 .chat-left {
     display: flex;
     align-items: center;
-    padding: 5px 10px 5px 10px;
+    padding: 2px;
 }
 .hs, .user, .text {
     padding: 0;
@@ -38,7 +39,6 @@
 }
 .hs {
     font-size: 12px;
-    margin: 5px;
 }
 .user {
     font-size: 14px;
@@ -70,5 +70,17 @@
 }
 .name {
     margin-left: 5px;
+}
+
+@media (max-width: 376px) {
+    .chat-left {
+        margin: 0;
+        padding: 0;
+    }
+    .li-chat {
+        padding: 0;
+        padding-top: 5px;
+        padding-right: 10px;
+    }
 }
 </style>
