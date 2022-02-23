@@ -76,6 +76,11 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+.buttons :global(a) {
+    text-decoration: none;
+}
+
 .btn {
     margin: 20px;
 }
