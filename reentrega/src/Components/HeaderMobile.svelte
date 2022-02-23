@@ -1,6 +1,6 @@
 <script>
     import {
-        Search, PencilSquare
+        Search
     } from "svelte-bootstrap-icons";
 </script>
 
@@ -8,7 +8,6 @@
     <img src="../images/Logo_nav.svg" alt="">
     <div>
         <Search/>
-        <PencilSquare/>
     </div>
 </div>
 
