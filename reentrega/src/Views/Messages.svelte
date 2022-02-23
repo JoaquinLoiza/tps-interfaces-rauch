@@ -4,6 +4,7 @@
     import ProfileImage from "../Components/ProfileImage.svelte";
     import MessageChat from '../Components/MessageChat.svelte';
     import ButtonApp from '../Components/ButtonApp.svelte';
+    import HeaderMobile from '../Components/HeaderMobile.svelte';
 
     import {
         PencilSquare,
@@ -13,7 +14,8 @@
         CameraVideo,
         Telephone,
         XLg,
-        Mic
+        Mic,
+        Search
   } from "svelte-bootstrap-icons";
 
     let show = true;
@@ -39,34 +41,46 @@
     }
 </script>
 
-<Header/>
+<div class="mobile">
+    <HeaderMobile/>
+</div>
+
+
+<div class="destk">
+   <Header/> 
+</div>
+
+
 <div class="chats">
     <div class="chat-list">
         <div class="chat-header">
-            <h3>Chats</h3><PencilSquare/>
+            <h3 class="destk">Chats</h3><PencilSquare/>
         </div>
         <div class="list" id="style-2">
-            <LiChat user={'Romina Dehesa'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
-            <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
-            <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
-            <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
-            <LiChat user={'Joaquin Martinez'} text={'Listo!'} hs={'4hs'}/>
-            <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
-            <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
-            <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
-            <LiChat user={'Juan Carlos Martinez'} text={'Hola!'} hs={'1s'}/>
-            <LiChat user={'Romina Dehesa'} text={'Listo, genial!'} hs={'2hs'}/>
-            <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
-            <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
-            <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
-            <LiChat user={'Joaquin Martinez'} text={'Listo!'} hs={'4hs'}/>
-            <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
-            <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
-            <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
-            <LiChat user={'Juan Carlos Martinez'} text={'Hola!'} hs={'1s'}/>
+            <div class="chat-header-mobile">
+                <h3>Chats</h3>
+            </div>
+                <LiChat user={'Romina Dehesa'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
+                <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
+                <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
+                <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
+                <LiChat user={'Joaquin Martinez'} text={'Listo!'} hs={'4hs'}/>
+                <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
+                <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
+                <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
+                <LiChat user={'Juan Carlos Martinez'} text={'Hola!'} hs={'1s'}/>
+                <LiChat user={'Romina Dehesa'} text={'Listo, genial!'} hs={'2hs'}/>
+                <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
+                <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
+                <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
+                <LiChat user={'Joaquin Martinez'} text={'Listo!'} hs={'4hs'}/>
+                <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
+                <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
+                <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
+                <LiChat user={'Juan Carlos Martinez'} text={'Hola!'} hs={'1s'}/>
         </div>
     </div>
-    <div class="chat">
+    <div class="chat destk">
         {#if !show}
                 {#if !callvideo}
                 <div class="chat-username">
@@ -333,4 +347,62 @@
         height: 25px;
         width: 25px;
     }
-    </style>
+    .mobile {
+        display: none;
+    }
+    .chat-header-mobile {
+        display: none;
+    }
+
+    @media (max-width: 376px) {
+        .destk {
+            display: none;
+        }
+        .mobile {
+            display: block;
+            width: 375px;
+            height: 100hv;
+        }
+        .chats {
+            width: auto;
+        }
+        .chat-list {
+            margin: 10px;
+            width: 100%;
+        }
+        .chat-header {
+            display: none;
+        }
+        .chat-header :global(svg){
+            display: none;
+        }
+        .chat-header-mobile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #544179;
+            border-bottom: 1px solid #c0c0c0;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .chat-header-mobile :global(svg){
+            display: block;
+            height: 20px;
+            width: 20px;
+        }
+        .list {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            height: 87vh;
+        }
+        p {
+            padding: 0;
+            margin:0;
+        }
+    }
+ </style>
