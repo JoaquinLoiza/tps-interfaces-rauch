@@ -5,6 +5,7 @@
     import MessageChat from '../Components/MessageChat.svelte';
     import ButtonApp from '../Components/ButtonApp.svelte';
     import HeaderMobile from '../Components/HeaderMobile.svelte';
+    import NewMsg from '../Components/NewMsg.svelte';
 
     import {
         PencilSquare,
@@ -14,8 +15,7 @@
         CameraVideo,
         Telephone,
         XLg,
-        Mic,
-        Search
+        Mic
   } from "svelte-bootstrap-icons";
 
     let show = true;
@@ -39,6 +39,16 @@
     function showNoCallvideo(){
         callvideo = false;
     }
+
+    function newMsg(){
+        let x = document.querySelector('.msg');
+        x.style.display='flex';
+    }
+
+    const close = () => {
+        let x = document.querySelector('.msg');
+        x.style.display='none';
+    }
 </script>
 
 <div class="mobile">
@@ -49,16 +59,23 @@
 <div class="destk">
    <Header/> 
 </div>
-
-
+<div class="msg">
+   <NewMsg {close}/>
+</div>
 <div class="chats">
     <div class="chat-list">
         <div class="chat-header">
-            <h3 class="destk">Chats</h3><PencilSquare/>
+            <h3 class="destk">Chats</h3>
+            <div on:click={newMsg}>
+                <PencilSquare/>
+            </div>
         </div>
         <div class="list" id="style-2">
             <div class="chat-header-mobile">
                 <h3>Chats</h3>
+                <div on:click={newMsg}>
+                    <PencilSquare/>
+                </div>
             </div>
                 <LiChat user={'Romina Dehesa'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
                 <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
@@ -68,7 +85,6 @@
                 <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
                 <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
                 <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
-                <LiChat user={'Juan Carlos Martinez'} text={'Hola!'} hs={'1s'}/>
                 <LiChat user={'Romina Dehesa'} text={'Listo, genial!'} hs={'2hs'}/>
                 <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
                 <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
@@ -145,7 +161,9 @@
             <div>
                 <div class="rond-send"><Send/></div>
                 <h2>Envia un mensaje privado a un amigo o a un grupo.</h2>
-            <ButtonApp text={'Enviar Mensaje'} width={140} size={14} color={'A4CC79'}/>
+                <div on:click={newMsg}>
+                    <ButtonApp text={'Enviar Mensaje'} width={140} size={14} color={'A4CC79'}/>
+                </div>
             </div>
         </div>
         {/if}
@@ -353,6 +371,17 @@
     .chat-header-mobile {
         display: none;
     }
+    .msg {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(3px);
+        background-color: #31354244;
+        z-index: 1;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
 
     @media (max-width: 376px) {
         .destk {
@@ -378,10 +407,12 @@
         }
         .chat-header-mobile {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             color: #544179;
             border-bottom: 1px solid #c0c0c0;
+            padding-left: 10px;
+            padding-right: 10px;
         }
         h3 {
             font-size: 20px;
@@ -404,5 +435,8 @@
             padding: 0;
             margin:0;
         }
+        .msg {
+        align-items: start;
+    }
     }
  </style>
