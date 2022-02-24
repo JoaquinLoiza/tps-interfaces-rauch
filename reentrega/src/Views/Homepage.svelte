@@ -17,7 +17,7 @@
 <div class="createPost hideNewPost">
 	<NewPost toogleNewPost={createPost}/>
 </div>
-<Header/>
+<Header h={true} m={false}/>
 <main>
     <div class="homepage" id="home">
 		<div class="homepage-left">

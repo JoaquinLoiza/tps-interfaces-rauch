@@ -57,7 +57,7 @@
 
 
 <div class="destk">
-   <Header/> 
+   <Header h={false} m={true}/> 
 </div>
 <div class="msg">
    <NewMsg {close}/>

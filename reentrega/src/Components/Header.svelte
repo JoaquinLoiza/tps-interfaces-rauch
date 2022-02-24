@@ -5,6 +5,8 @@
     function home(){
         window.location.href = "http://localhost:8080/home";
     }
+
+    export let h, m;
 </script>
 
 <main>
@@ -12,7 +14,7 @@
         <div>
             <img src="images/Logo_nav.svg" alt="logo vetunity" on:click={home}>
             <InputSearch/>
-            <BarNav/>
+            <BarNav h={h} m={m}/>
         </div>
     </header>
 </main>

@@ -7,6 +7,7 @@
         CaretDown
     } from "svelte-bootstrap-icons";
 
+    export let h, m;
     let dropdown = false;
 
     function show(){
@@ -25,9 +26,20 @@
 
 <main>
     <nav>
-        <Link to="/home"><HouseDoor/></Link>
-        <Link to="/chats"><Envelope/></Link>
-        
+        {#if h == false}
+            <Link to="/home"><HouseDoor/></Link>
+        {:else}
+            <div class="bord">
+                <Link to="/home"><HouseDoor/></Link>
+            </div>
+        {/if}
+        {#if m == false}
+            <Link to="/chats"><Envelope/></Link>
+        {:else}
+            <div class="bord">
+                <Link to="/chats"><Envelope/></Link>
+            </div>
+        {/if}
         <Bell/>
         <div on:click={show}>
             <CaretDown/>
@@ -73,5 +85,8 @@
         border: 1px solid rgb(136, 135, 135);
         border-radius: 10px;
         background-color: white;
+    }
+    .bord {
+        border-bottom: 1px solid white;
     }
 </style>
