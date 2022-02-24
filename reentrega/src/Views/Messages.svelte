@@ -77,23 +77,23 @@
                     <PencilSquare/>
                 </div>
             </div>
-                <LiChat user={'Romina Dehesa'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
-                <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
-                <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
-                <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
-                <LiChat user={'Joaquin Martinez'} text={'Listo!'} hs={'4hs'}/>
-                <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
-                <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
-                <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
-                <LiChat user={'Romina Dehesa'} text={'Listo, genial!'} hs={'2hs'}/>
-                <LiChat user={'Juan Perez'} text={'Genial!'} hs={'3hs'}/>
-                <LiChat user={'Martin Acosta'} text={'Ok!'} hs={'4hs'}/>
-                <LiChat user={'Daiana Sanchez'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
-                <LiChat user={'Joaquin Martinez'} text={'Listo!'} hs={'4hs'}/>
-                <LiChat user={'Marcos Caseros'} text={'Saludos'} hs={'1d'}/>
-                <LiChat user={'Esther Sanchez'} text={'Hola!'} hs={'2d'}/>
-                <LiChat user={'Maria Perez'} text={'Saludos'} hs={'4d'}/>
-                <LiChat user={'Juan Carlos Martinez'} text={'Hola!'} hs={'1s'}/>
+                <LiChat user={'Romina Dehesa'} path={'../images/veterinaria.jpg'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
+                <LiChat user={'Juan Perez'} path={'../images/images-hombre-gatito.jpg'} text={'Genial!'} hs={'3hs'}/>
+                <LiChat user={'Martin Acosta'} path={'../images/images-hombre.jpg'} text={'Ok!'} hs={'4hs'}/>
+                <LiChat user={'Daiana Sanchez'} path={'../images/veterinaria.jpg'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
+                <LiChat user={'Marcos Caseros'} path={'../images/images-hombre-gatito.jpg'} text={'Saludos'} hs={'1d'}/>
+                <LiChat user={'Esther Sanchez'} path={'../images/images-hombre.jpg'} text={'Hola!'} hs={'2d'}/>
+                <LiChat user={'Romina Dehesa'} path={'../images/veterinaria.jpg'} text={'Listo, genial!'} hs={'2hs'}/>
+                <LiChat user={'Juan Perez'} path={'../images/images-hombre-gatito.jpg'} text={'Genial!'} hs={'3hs'}/>
+                <LiChat user={'Martin Acosta'} path={'../images/images-hombre.jpg'} text={'Ok!'} hs={'4hs'}/>
+                <LiChat user={'Joaquin Martinez'} path={'../images/images-hombre-gatito.jpg'} text={'Listo!'} hs={'4hs'}/>
+                <LiChat user={'Marcos Caseros'} path={'../images/images-hombre.jpg'} text={'Saludos'} hs={'1d'}/>
+                <LiChat user={'Juan Carlos Martinez'} path={'../images/images-hombre-gatito.jpg'} text={'Hola!'} hs={'1s'}/>
+                <LiChat user={'Juan Perez'} path={'../images/images-hombre-gatito.jpg'} text={'Genial!'} hs={'3hs'}/>
+                <LiChat user={'Martin Acosta'} path={'../images/images-hombre.jpg'} text={'Ok!'} hs={'4hs'}/>
+                <LiChat user={'Joaquin Martinez'} path={'../images/images-hombre-gatito.jpg'} text={'Listo!'} hs={'4hs'}/>
+                <LiChat user={'Marcos Caseros'} path={'../images/images-hombre.jpg'} text={'Saludos'} hs={'1d'}/>
+                <LiChat user={'Juan Carlos Martinez'} path={'../images/images-hombre-gatito.jpg'} text={'Hola!'} hs={'1s'}/>
         </div>
     </div>
     <div class="chat destk">
