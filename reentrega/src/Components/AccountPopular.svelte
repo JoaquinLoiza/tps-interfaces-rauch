@@ -27,11 +27,11 @@
         </div>
         {#if !follow}
         <div class="card-right" on:click={followAc}>
-           <ButtonApp text={'Seguir'} width={60} size={12} color={'A4CC79'}/>
+           <ButtonApp text={'Seguir'} width={60} size={12} color={'A4CC79'} h={'rgb(166 229 99)'}/>
         </div>
         {:else}
         <div class="card-right" on:click={followAc}>
-            <ButtonApp text={'Siguiendo'} width={60} size={12} color={'F1F1F1'}/>
+            <ButtonApp text={'Siguiendo'} width={60} size={12} color={'F1F1F1'} h={'rgb(166 229 99)'}/>
          </div>
         {/if}
     </div>

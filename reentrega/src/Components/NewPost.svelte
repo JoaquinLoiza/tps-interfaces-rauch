@@ -26,7 +26,7 @@
             <GeoAlt/>
         </div>
         <div on:click={toogleNewPost}>
-            <ButtonApp text={'Postear'} width={120} size={15} color={'A4CC79'}/>
+            <ButtonApp text={'Postear'} width={120} size={15} color={'A4CC79'} h={'rgb(166 229 99)'}/>
         </div>
     </div>
 </div>

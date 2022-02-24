@@ -162,7 +162,7 @@
                 <div class="rond-send"><Send/></div>
                 <h2>Envia un mensaje privado a un amigo o a un grupo.</h2>
                 <div on:click={newMsg}>
-                    <ButtonApp text={'Enviar Mensaje'} width={140} size={14} color={'A4CC79'}/>
+                    <ButtonApp text={'Enviar Mensaje'} width={140} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
                 </div>
             </div>
         </div>
