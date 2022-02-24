@@ -58,7 +58,7 @@
     }
 
     .peoples {
-        height: 200px;
+        height: 22vh;
     }
     
     .container{
@@ -82,7 +82,7 @@
     .publications div {
         max-width: 700px;
         overflow-y: scroll;
-        height: 65vh;
+        height: 62vh;
         padding-right: 10px;
     }
 
