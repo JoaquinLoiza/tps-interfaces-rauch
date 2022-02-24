@@ -1,13 +1,13 @@
 <script>
     import ProfileImage from "./ProfileImage.svelte";
-    export let user, text, hs, showMsj;
+    export let user, path, text, hs, showMsj;
 </script>
 
 <div class="li-chat" on:click={showMsj} id="x"> 
     <div class="chat-left">
         <p class="circle-connect"></p>
         <div class="profile">
-            <ProfileImage width={45} height={45} pathImage={'../images/veterinaria.jpg'}/>
+            <ProfileImage width={45} height={45} pathImage={path}/>
         </div>
         <div class="name">
             <div class="user-chat">

@@ -1,5 +1,5 @@
 <script>
-    import LiChat from "./liChat.svelte";
+    import LiUser from './LiUser.svelte';
     import {
         XLg
   } from "svelte-bootstrap-icons";
@@ -37,9 +37,49 @@
         <h1>Recientes</h1>
         <div id="list">
             <div class="li-user" on:click={selectUser}>
-                <LiChat user={'Juan Perez'} text={'Genial!'} hs={''}/>
+                <LiUser name={'Juan Perez'} user={'@JuanPerezOk'} pathImage={'../images/veterinaria.jpg'} w={30} h={30}/>
                 <div class="circle select"></div>
+            </div>
+            <div class="li-user">
+                <LiUser name={'Martin Sanchez'} user={'@MartinOk'} pathImage={'../images/images-hombre-gatito.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div>
+            <div class="li-user">
+                <LiUser name={'Joaquin Lopez'} user={'@LopezJoaquinOk'} pathImage={'../images/images-hombre.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div>
+            <div class="li-user">
+                <LiUser name={'Maria Perez'} user={'@MariaPerezOk'} pathImage={'../images/veterinaria.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
             </div> 
+            <div class="li-user">
+                <LiUser name={'Juan Lucero'} user={'@LuceroOk'} pathImage={'../images/images-hombre-gatito.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div> 
+            <div class="li-user">
+                <LiUser name={'Juan Acosta'} user={'@JuanOk'} pathImage={'../images/images-hombre.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div>
+            <div class="li-user">
+                <LiUser name={'Martin Sanchez'} user={'@MartinOk'} pathImage={'../images/images-hombre-gatito.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div>
+            <div class="li-user">
+                <LiUser name={'Joaquin Lopez'} user={'@LopezJoaquinOk'} pathImage={'../images/images-hombre.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div>
+            <div class="li-user">
+                <LiUser name={'Maria Perez'} user={'@MariaPerezOk'} pathImage={'../images/veterinaria.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div> 
+            <div class="li-user">
+                <LiUser name={'Juan Lucero'} user={'@LuceroOk'} pathImage={'../images/images-hombre-gatito.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div> 
+            <div class="li-user">
+                <LiUser name={'Juan Acosta'} user={'@JuanOk'} pathImage={'../images/images-hombre.jpg'} w={30} h={30}/>
+                <div class="circle"></div>
+            </div>
         </div>
         
     </div>
