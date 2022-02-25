@@ -9,6 +9,9 @@
 </script>
 
 <main>
+    <div class="container">
+        <div class="layer"></div>
+    </div>
     <div class="login">
         <div class="log">
             <img src="../images/Logo.svg" alt="">
@@ -32,6 +35,37 @@
 </main>
 
 <style>
+.container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../images/vetu.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    opacity: 0.5;
+    animation: moveBackground 50s infinite linear;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
 main {
     background-color: #544179;
     height: 100vh;
@@ -44,6 +78,7 @@ main {
     align-items: center;
     padding: 0;
     margin: 0;
+    z-index: 1;
 }
 .log{
     height: auto;
@@ -51,6 +86,7 @@ main {
     height: auto;
     width: 300px;
     padding: 30px;
+    z-index: 1;
 }
 .l {
     height: auto;
@@ -62,6 +98,7 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    z-index: 1;
 }
 img {
     height: 300px;
