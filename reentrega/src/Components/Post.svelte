@@ -73,9 +73,19 @@
 
 <main>
     <div class="post">
+
         <div class="popup">
-          <div on:click={xImages}><XLg/></div>
+          <div class="photos">
+            <div class="header">
+              <p>Publicacion de Juan Lopez</p>
+              <div class="x" on:click={xImages}><XLg/></div>
+            </div>
+            <div class="bodyph">
+              <div class="ph"></div>
+            </div>
+          </div>
         </div>
+
         <div class="card-head">
           <div class="card-h1">
             <ProfileImage width={35} height={35} pathImage={'../images/images-hombre.jpg'}/>
@@ -205,7 +215,7 @@
     width:50%;
     margin: 2px;
     }
-    .galery {
+  .galery {
       background-image: url('../images/images-hombre-gatito.jpg');
       background-size: cover;
       height: 100px;
@@ -214,8 +224,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .galery div{
+  }
+  .galery div{
       background-color: #414759bb;
       height: 100px;
       width:100%;
@@ -225,13 +235,13 @@
       align-items: center;
       padding: 0;
       margin: 0;
-    }
-    .galery p{
+  }
+  .galery p{
       font-size: 40px;
       font-weight: 900;
       color:#f0efef;
       /*text-shadow: 1px 1px 1px white;*/
-    }
+  }
     .card-img {
       display: flex;
       justify-content: space-between;
@@ -267,14 +277,41 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      
     }
-    .popup div {
+    .popup .photos {
       height: 500px;
-      width: 500px;
+      width: 600px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
+      color: #414759;
+      padding: 10px 0 10px 0;
+    }
+    .popup .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .popup .header p {
+      font-size: 16px;
+      color: #414759;
+      font-weight: 600;
+      margin: 0;
+      padding-left: 10px;
+    }
+    .popup .bodyph {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 600px;
+      height: 480px;
+    }
+    .popup .ph {
+      width: 580px;
+      height: 470px;
       background-image: url('../images/images-hombre-gatito.jpg');
       background-size: cover;
-      border: 1px solid #737c97;
-      display: flex;
-      justify-content: end;
+      background-position: center;
     }
 </style>
