@@ -105,7 +105,7 @@
         justify-content: space-between;
         align-items: center;
         height: 20px;
-        border-bottom: 1px solid #c0c0c0;;
+        border-bottom: 1px solid #c0c0c0;
         padding-bottom: 5px;
     }
     .search-user{
