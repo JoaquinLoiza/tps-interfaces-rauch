@@ -14,6 +14,11 @@
         list-style: none;
         padding: 5px;
         color: black;
+        cursor: pointer;
+    }
+
+    li:hover {
+        background-color: #e2e0e0;
     }
 
     div {

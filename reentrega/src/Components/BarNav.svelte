@@ -75,7 +75,13 @@
         color: black;
         list-style: none;
         padding: 5px;
+        cursor: pointer;
     }
+
+    li:hover {
+        background-color: #e2e0e0;
+    }
+
     ul {
         padding: 0;
         position: absolute;
