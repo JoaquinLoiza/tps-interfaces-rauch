@@ -33,7 +33,9 @@
 
 <style>
     p {
+        font-size: 16px;
         color: #414759;
+        font-weight: 600;
     }
 
     .close {
@@ -58,38 +60,39 @@
     }
 
     .post {
-		width: 590px;
+		width: 500px;
 		border-radius: 10px;
-  		box-shadow: 5px 5px 16px -1px rgba(0,0,0,0.2);
-  		background-color: rgb(235, 235, 235);
+        background-color: white;
+        box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        color: #414759;
 	}
 	.post-a {
-        width: 546px;
-		display:flex;
-		justify-content: space-between;
-		align-items:center;
-        text-align: center;
-        margin: 8px 24px 0 24px;
+        width: 500px;
+		display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 20px;
+        border-bottom: 1px solid #c0c0c0;
+        padding-bottom: 10px;
 	}
-
-    .post-b {
-        margin: 0 24px 0 24px;
+    .post-b{
+        height: 100%;
+        border-bottom: 1px solid #c0c0c0;
     }
 
+    textarea {
+        font-family: Nunito,'Courier New', Courier, monospace;
+        resize: none;
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 200px;
+    }
     .post-c{
         display:flex;
         justify-content:space-around;
         text-align: center;
-        margin: 4px 0 8px 0;
-    }
-    textarea {
-        min-height: 200px;
-        font-size: 15px;
-        font-family: Nunito,'Courier New', Courier, monospace;
-        width: 100%;
-        resize: none;
-        outline: none;
-        border: none;
-        border-radius: 10px;
+        padding-top: 10px;
     }
 </style>
