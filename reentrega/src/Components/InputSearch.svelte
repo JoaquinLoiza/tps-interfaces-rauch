@@ -1,5 +1,12 @@
 <script>
     import Search from "svelte-bootstrap-icons/lib/Search";
+
+    function redirect(event) {
+        if (event.keyCode === 13) {
+            window.location.href = "/search";
+        }
+    };
+
 </script>
 
 <main>
@@ -7,7 +14,7 @@
         <div class="container">
             <Search/>
         </div>
-        <input type="text">
+        <input on:keyup={redirect} class="input" type="text">
     </div>
 </main>
 
