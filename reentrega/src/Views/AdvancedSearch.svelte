@@ -13,7 +13,7 @@
 
 </script>
 
-<Header />
+<Header h={false} m={false}/>
 <main>
     <div class="container">
         <div class="btnsOutlines">
