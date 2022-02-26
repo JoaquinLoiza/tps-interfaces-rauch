@@ -3,7 +3,7 @@
     import BarNav from './BarNav.svelte';
 
     function home(){
-        window.location.href = "http://localhost:8080/home";
+        window.location.href = "/home";
     }
 
     export let h, m;
