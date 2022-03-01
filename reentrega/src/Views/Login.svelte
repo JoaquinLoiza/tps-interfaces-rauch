@@ -12,23 +12,28 @@
     <div class="container">
         <div class="layer"></div>
     </div>
-    <div class="login">
-        <div class="log">
-            <img src="../images/Logo.svg" alt="">
-        </div>
-        <div class="l">
-            <h1>Iniciar Sesion</h1>
-            <InputRegistration label={'Nombre'} type={'text'}/>
-            <InputRegistration label={'Contraseña'} type={'password'}/>
-            <div class="buttons">
-                <div>
-                    <div class="btn" on:click={reload}>
-                        <ButtonApp text={'Aceptar'} width={80} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
+    <div class="blur-login">
+        <div class="blur"></div>
+    </div>
+    <div class="div-login">
+        <div class="login">
+            <div class="log">
+                    <img src="../images/Logo.svg" alt="">
+            </div>
+            <div class="l">
+                    <h1>Iniciar Sesion</h1>
+                    <InputRegistration label={'Nombre'} type={'text'}/>
+                    <InputRegistration label={'Contraseña'} type={'password'}/>
+                    <div class="buttons">
+                    <div>
+                        <div class="btn" on:click={reload}>
+                            <ButtonApp text={'Aceptar'} width={80} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="buttons">
-                <h3>¿No tienes una cuenta? <Link to="/registration"><inline>Registrate.</inline></Link></h3>
+                <div class="buttons">
+                    <h3>¿No tienes una cuenta? <Link to="/registration"><inline>Registrate.</inline></Link></h3>
+                </div>
             </div>
         </div>
     </div>
@@ -71,14 +76,35 @@ main {
     height: 100vh;
     width: 100vw;
 }
+.div-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
 .login {
     display: flex;
-    height: 100vh;
+    height: auto;
     justify-content: center;
     align-items: center;
     padding: 0;
     margin: 0;
     z-index: 1;
+}
+.blur-login {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blur {
+    width: 800px;
+    height: 500px;
+    background-color: #544179;
+    filter: blur(30px);
 }
 .log{
     height: auto;
