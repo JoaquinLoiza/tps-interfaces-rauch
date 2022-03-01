@@ -10,7 +10,7 @@
     <div class="name">
         <h1>José Perez</h1>
         <p>@joseperezok</p>
-        <ButtonApp text={'Mi perfil'} width={90} size={15} color={'A4CC79'} h={'rgb(166 229 99)'}/>
+        <ButtonApp text={'Mi perfil'} width={90} size={15} color={'A4CC79'} h={'A4CC79'}/>
     </div>
 </div>
 

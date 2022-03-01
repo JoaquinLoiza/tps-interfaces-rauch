@@ -76,7 +76,7 @@ let p = false;
                     <p>Volver</p>
                 </div>
                 <div on:click={nextReg}>
-                    <ButtonApp text={'Siguiente'} width={70} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
+                    <ButtonApp text={'Siguiente'} width={70} size={14} color={'A4CC79'} h={'A4CC79'}/>
                 </div>
             </div>
         </div>
