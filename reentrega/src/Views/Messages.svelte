@@ -62,12 +62,13 @@
 <div class="msg">
    <NewMsg {close}/>
 </div>
-<div class="chats">
-    <div class="chat-list">
-        <div class="chat-header">
-            <h3 class="destk">Chats</h3>
-            <div on:click={newMsg}>
-                <PencilSquare/>
+<div class="section-chats">
+    <div class="chats">
+        <div class="chat-list">
+            <div class="chat-header">
+                <h3 class="destk">Chats</h3>
+                <div on:click={newMsg}>
+                    <PencilSquare/>
             </div>
         </div>
         <div class="list" id="style-2">
@@ -77,8 +78,8 @@
                     <PencilSquare/>
                 </div>
             </div>
-                <LiChat user={'Romina Dehesa'} path={'../images/veterinaria.jpg'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
-                <LiChat user={'Juan Perez'} path={'../images/images-hombre-gatito.jpg'} text={'Genial!'} hs={'3hs'}/>
+            <LiChat user={'Romina Dehesa'} path={'../images/veterinaria.jpg'} text={'Bueno!'} hs={'2hs'} {showMsj}/>
+            <LiChat user={'Juan Perez'} path={'../images/images-hombre-gatito.jpg'} text={'Genial!'} hs={'3hs'}/>
                 <LiChat user={'Martin Acosta'} path={'../images/images-hombre.jpg'} text={'Ok!'} hs={'4hs'}/>
                 <LiChat user={'Daiana Sanchez'} path={'../images/veterinaria.jpg'} text={'Paso por la veterinaria a las 18hs. Nos vemos!'} hs={'4hs'}/>
                 <LiChat user={'Marcos Caseros'} path={'../images/images-hombre-gatito.jpg'} text={'Saludos'} hs={'1d'}/>
@@ -156,7 +157,7 @@
                 <div><CameraVideo/></div>
             </div>
             {/if}
-        {:else}
+            {:else}
         <div class="sec-chat">
             <div>
                 <div class="rond-send"><Send/></div>
@@ -168,12 +169,18 @@
         </div>
         {/if}
     </div>
+    </div>
 </div>
 
 <style>
-    .chats {
+    .section-chats {
         display: flex;
         justify-content: center;
+    }
+    .chats {
+        display: flex;
+        justify-content: space-between;
+        width: 1200px;
     }
     .chat-header {
         display: flex;
@@ -196,7 +203,7 @@
         margin-right: 10px;
     }
     .chat {
-        width: 50%;
+        width: 70%;
         height: 84vh;
         border-radius: 10px;
         background-color: white;
