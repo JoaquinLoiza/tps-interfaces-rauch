@@ -27,7 +27,7 @@
                     <div class="buttons">
                     <div>
                         <div class="btn" on:click={reload}>
-                            <ButtonApp text={'Aceptar'} width={80} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
+                            <ButtonApp text={'Iniciar Sesion'} width={100} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
                         </div>
                     </div>
                 </div>

@@ -104,7 +104,7 @@ let p = false;
                     <p>Volver</p>
                 </div>
                 <div on:click={confirmation}>
-                    <ButtonApp text={'Confirmar'} width={70} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
+                    <ButtonApp text={'Confirmar registro'} width={120} size={14} color={'A4CC79'} h={'rgb(166 229 99)'}/>
                 </div>
             </div>
             {:else}
