@@ -154,6 +154,7 @@
             </div>
             <div class="callvideo">
                 <div><Mic/></div>
+                <div class="callEnd"><Telephone/></div>
                 <div><CameraVideo/></div>
             </div>
             {/if}
@@ -359,18 +360,20 @@
     .callvideo div {
         height: 50px;
         width: 50px;
-        background-color: rgba(255, 255, 255, 0.898);
-        border: 1px solid #544179;
+        background-color: #544179;
         border-radius: 60px;
         margin: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #544179;
+        color: white;
     }
     .callvideo div :global(svg) {
         height: 25px;
         width: 25px;
+    }
+    .callvideo .callEnd :global(svg){
+        transform: rotate(135deg);
     }
     .mobile {
         display: none;
