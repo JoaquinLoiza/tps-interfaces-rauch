@@ -168,6 +168,7 @@ h1 {
     color: #F1F1F1;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .reload {
     margin-top: 30px;

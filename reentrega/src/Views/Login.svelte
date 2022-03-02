@@ -22,7 +22,7 @@
             </div>
             <div class="l">
                     <h1>Iniciar Sesion</h1>
-                    <InputRegistration label={'Nombre'} type={'text'}/>
+                    <InputRegistration label={'Usuario'} type={'text'}/>
                     <InputRegistration label={'Contraseña'} type={'password'}/>
                     <div class="buttons">
                     <div>
